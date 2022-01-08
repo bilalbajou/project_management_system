@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-     <title>Hydro - Landing Page Template</title>
+     <title>Acceuil</title>
 
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -14,6 +14,7 @@
      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
      <link rel="stylesheet" href="assets/css/magnific-popup.css">
      <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+     <Link rel="stylesheet" href="assets/semantic_ui/semantic.min.css">
 
      <!-- MAIN CSS -->
      <link rel="stylesheet" href="assets/css/templatemo-style.css">
@@ -46,8 +47,8 @@
                <!-- MENU LINKS -->
                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-nav-first">
-                         <li><a href="#home" class="smoothScroll">Home</a></li>
-                         <li><a href="#about" class="smoothScroll">About</a></li>
+                         <li><a href="#home" class="smoothScroll">Acceuil</a></li>
+                         <li><a href="#about" class="smoothScroll">à propos de </a></li>
                          <li><a href="#blog" class="smoothScroll">Blog</a></li>
                          <li><a href="#work" class="smoothScroll">Our Work</a></li>
                          <li><a href="#contact" class="smoothScroll">Contacts</a></li>
@@ -86,17 +87,14 @@
 
                     <div class="col-md-6 col-sm-12">
                          <div class="home-info">
-                              <h1>We make beautiful websites for all people.</h1>
-                              <a href="{{route('register')}}" class="btn section-btn smoothScroll">Start a project</a>
-                              <span>
-                                   CALL US (+66) 010-020-0340
-                                   <small>For any inquiry</small>
-                              </span>
+                              <h1>notre mission est d'aider nos clients à gérer leurs projets</h1>
+                              <a href="{{route('register')}}" class="btn section-btn smoothScroll">Restez organisés</a>
+                               
                          </div>
                     </div>
 
                     <div class="col-md-6 col-sm-12">
-                         <div class="home-video">
+                         <div class="home-video" >
                               <div class="embed-responsive embed-responsive-16by9">
                                    <iframe src="https://www.youtube.com/embed/AqcjdkPMPJA" frameborder="0" allowfullscreen></iframe>
                               </div>
@@ -113,46 +111,19 @@
           <div class="container">
                <div class="row">
 
-                    <div class="col-md-5 col-sm-6">
+                    <div class="col-lg-6 col-md-6 col-xd-12">
                          <div class="about-info">
                               <div class="section-title">
-                                   <h2>Let us introduce</h2>
+                                   <h2>Laissez-nous vous présenter</h2>
                                    <span class="line-bar">...</span>
                               </div>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+                              <p>Gérer des projets en ligne, c’est possible. Unipro est une plateforme de gestion de projet en ligne gratuite. Créez et gérez autant de projets que vous le souhaitez sur Unipro. Profitez des nombreuses fonctionnalités pour optimiser votre gestion : diagrammes de Gantt, gestion des tâches, rappels, outils de collaboration et bien plus encore.</p>
+                              
                          </div>
                     </div>
 
-                    <div class="col-md-3 col-sm-6">
-                         <div class="about-info skill-thumb">
-
-                              <strong>Web Design</strong>
-                                   <span class="pull-right">85%</span>
-                                        <div class="progress">
-                                             <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"></div>
-                                        </div>
-
-                              <strong>Photography</strong>
-                                   <span class="pull-right">90%</span>
-                                        <div class="progress">
-                                             <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
-                                        </div>
-
-                              <strong>Content Marketing</strong>
-                                   <span class="pull-right">75%</span>
-                                        <div class="progress">
-                                             <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
-                                        </div>
-
-                              <strong>CMS Admin</strong>
-                                   <span class="pull-right">70%</span>
-                                        <div class="progress">
-                                             <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
-                                        </div>
-
-                         </div>
-                    </div>
+                    <div class="col-lg-6 col-md-6 col-xd-12">
+                         <img class="ui fluid image img_logo" src="assets/images/full_logo.png">
 
                     <div class="col-md-4 col-sm-12">
                          <div class="about-image">
@@ -459,6 +430,7 @@
      <script src="assets/js/jquery.magnific-popup.min.js"></script>
      <script src="assets/js/smoothscroll.js"></script>
      <script src="assets/js/jquery.stellar.min.js"></script>
+     <script src="assets/semantic_ui/semantic.min.js"></script>
 
 </body>
 </html>
