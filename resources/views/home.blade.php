@@ -21,12 +21,12 @@
 </head>
 <body>
 
-     <!-- PRE LOADER -->
+      <!-- PRE LOADER -->
      {{-- <section class="preloader">
           <div class="spinner">
                <span class="spinner-rotate"></span>
           </div>
-     </section> --}}
+     </section> - --}}
 
 
      <!-- MENU -->
@@ -41,17 +41,16 @@
                     </button>
 
                     <!-- lOGO TEXT HERE -->
-                    <a class="navbar-brand logo-navbar" href="#">Unipro</a>
+                    <a class="navbar-brand logo-navbar" href="#home">Unipro</a>
                </div>
 
                <!-- MENU LINKS -->
                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-nav-first">
-                         <li><a href="#home" class="smoothScroll">Acceuil</a></li>
-                         <li><a href="#about" class="smoothScroll">à propos de </a></li>
-                         <li><a href="#blog" class="smoothScroll">Blog</a></li>
-                         <li><a href="#work" class="smoothScroll">Our Work</a></li>
-                         <li><a href="#contact" class="smoothScroll">Contacts</a></li>
+                         <li><a href="#home" >Acceuil</a></li>
+                         <li><a href="#about">à propos de nous</a></li>
+                         <li><a href="#services">Services</a></li>
+                         <li><a href="#contact">Contact</a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
@@ -63,10 +62,10 @@
                              @auth
                                  <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
                              @else
-                              <li class="section-btn"> <a href="{{ route('login') }}" >Log in</a></li>  
+                              <li class="section-btn"> <a href="{{ route('login') }}" >Connecter</a></li>  
          
                                  @if (Route::has('register'))
-                                <li class="section-btn">   <a href="{{ route('register') }}" >Register</a> </li>  
+                                <li class="section-btn">   <a href="{{ route('register') }}" >S'inscrire</a> </li>  
                                  @endif
                              @endauth
                          
@@ -87,7 +86,7 @@
 
                     <div class="col-md-6 col-sm-12">
                          <div class="home-info">
-                              <h1>notre mission est d'aider nos clients à gérer leurs projets</h1>
+                              <h1>notre mission est de vous aider à gérer vos projets</h1>
                               <a href="{{route('register')}}" class="btn section-btn smoothScroll">Restez organisés</a>
                                
                          </div>
@@ -106,7 +105,7 @@
      </section>
 
 
-     <!-- ABOUT -->
+     <!-- A PROPOS DE NOUS -->
      <section id="about" data-stellar-background-ratio="0.5">
           <div class="container">
                <div class="row">
@@ -136,197 +135,139 @@
      </section>
 
 
-     <!-- BLOG -->
-     <section id="blog" data-stellar-background-ratio="0.5">
+     <!-- SERVICES -->
+     <section id="services" data-stellar-background-ratio="0.5">
           <div class="container">
                <div class="row">
 
                     <div class="col-md-12 col-sm-12">
                          <div class="section-title">
-                              <h2>Our Blog</h2>
+                              <h2>Services</h2>
                               <span class="line-bar">...</span>
                          </div>
                     </div>
-
-                    <div class="col-md-6 col-sm-6">
-                         <!-- BLOG THUMB -->
-                         <div class="media blog-thumb">
-                              <div class="media-object media-left">
-                                   <a href="blog-detail.html"><img src="images/blog-image1.jpg" class="img-responsive" alt=""></a>
-                              </div>
-                              <div class="media-body blog-info">
-                                   <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
-                                   <h3><a href="blog-detail.html">How To Find Out Beautiful Workspace.</a></h3>
-                                   <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
-                                   <a href="blog-detail.html" class="btn section-btn">Read article</a>
-                              </div>
-                         </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                         <h2 class="ui center aligned icon header">
+                              <i class="tasks icon"></i>
+                              Tâches et gestion de projet
+                            </h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis delectus
+                              numquam voluptas possimus minima in,
+                              facere doloribus asperiores. Incidunt aut tempora et mollitia
+                               ducimus ipsam quos sunt voluptates debitis accusamus.</p>
                     </div>
-
-                    <div class="col-md-6 col-sm-6">
-                         <!-- BLOG THUMB -->
-                         <div class="media blog-thumb">
-                              <div class="media-object media-left">
-                                   <a href="blog-detail.html"><img src="images/blog-image2.jpg" class="img-responsive" alt=""></a>
-                              </div>
-                              <div class="media-body blog-info">
-                                   <small><i class="fa fa-clock-o"></i> December 18, 2017</small>
-                                   <h3><a href="blog-detail.html">woman sportwear.</a></h3>
-                                   <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
-                                   <a href="blog-detail.html" class="btn section-btn">Read more</a>
-                              </div>
-                         </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                         <h2 class="ui center aligned icon header">
+                              <i class="calendar alternate icon"></i>
+                              Gestion du temps
+                            </h2>
+                            <p>Le temps passé sur chaque tâche du projet peut être suivi et les tâches
+                                  sont intégrées au calendrier du groupe. 
+                                 Vous pouvez également gérer les heures de travail de vos employés.</p>
                     </div>
-
-                    <div class="col-md-6 col-sm-6">
-                         <!-- BLOG THUMB -->
-                         <div class="media blog-thumb">
-                              <div class="media-object media-left">
-                                   <a href="blog-detail.html"><img src="images/blog-image3.jpg" class="img-responsive" alt=""></a>
-                              </div>
-                              <div class="media-body blog-info">
-                                   <small><i class="fa fa-clock-o"></i> December 14, 2017</small>
-                                   <h3><a href="blog-detail.html">new creative fashion.</a></h3>
-                                   <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
-                                   <a href="blog-detail.html" class="btn section-btn">Read article</a>
-                              </div>
-                         </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                         <h2 class="ui center aligned icon header">
+                              <i class="chart bar icon"></i>
+                              Diagramme de Gantt
+                         </h2>
+                         <p>Le diagramme de Gantt, couramment utilisé en gestion de projet, est l'un des outils
+                               les plus efficaces pour représenter visuellement 
+                              l'état d'avancement des différentes activités (tâches) qui constituent un projet</p>
                     </div>
-
-                    <div class="col-md-6 col-sm-6">
-                         <!-- BLOG THUMB -->
-                         <div class="media blog-thumb">
-                              <div class="media-object media-left">
-                                   <a href="blog-detail.html"><img src="images/blog-image4.jpg" class="img-responsive" alt=""></a>
-                              </div>
-                              <div class="media-body blog-info">
-                                   <small><i class="fa fa-clock-o"></i> December 10, 2017</small>
-                                   <h3><a href="blog-detail.html">minimalist design trend in 2018.</a></h3>
-                                   <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
-                                   <a href="blog-detail.html" class="btn section-btn">View Detail</a>
-                              </div>
-                         </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                         <h2 class="ui center aligned icon header">
+                              <i class="clipboard list icon"></i>
+                              Gestion des ressources
+                            </h2>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis delectus
+                              numquam voluptas possimus minima in,
+                              facere doloribus asperiores. Incidunt aut tempora et mollitia
+                               ducimus ipsam quos sunt voluptates debitis accusamus.</p>
                     </div>
-                    
-               </div>
+               </div>     
           </div>
      </section>
 
 
-     <!-- WORK -->
-     <section id="work" data-stellar-background-ratio="0.5">
+     <!-- NOTRE CILENTS -->
+     <section id="clients" data-stellar-background-ratio="0.5">
           <div class="container">
                <div class="row">
 
                     <div class="col-md-12 col-sm-12">
                          <div class="section-title">
-                              <h2>Our work</h2>
+                              <h2>Notre clients</h2>
                               <span class="line-bar">...</span>
                          </div>
                     </div>
-
-                    <div class="col-md-3 col-sm-6">
-                         <!-- WORK THUMB -->
-                         <div class="work-thumb">
-                              <a href="images/work-image1.jpg" class="image-popup">
-                                   <img src="images/work-image1.jpg" class="img-responsive" alt="Work">
-
-                                   <div class="work-info">
-                                        <h3>Clean &amp; Minimal</h3>
-                                        <small>Product Design</small>
-                                   </div>
-                              </a>
-                         </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                         <img class="ui centered medium circular image" src="assets/images/about-image.jpg">
+                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                               Optio, voluptatibus. At quod magnam accusantium beatae architecto, 
+                               magni, repellat harum aperiam dolore natus,
+                               quis minima laborum asperiores distinctio deleniti ratione eum.</p>
                     </div>
-
-                    <div class="col-md-3 col-sm-6">
-                         <!-- WORK THUMB -->
-                         <div class="work-thumb">
-                              <a href="images/work-image2.jpg" class="image-popup">
-                                   <img src="images/work-image2.jpg" class="img-responsive" alt="Work">
-
-                                   <div class="work-info">
-                                        <h3>Studio Bag</h3>
-                                        <small>Branding</small>
-                                   </div>
-                              </a>
-                         </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                         <img class="ui centered medium circular image" src="assets/images/about-image.jpg">
+                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                               Optio, voluptatibus. At quod magnam accusantium beatae architecto, 
+                               magni, repellat harum aperiam dolore natus,
+                               quis minima laborum asperiores distinctio deleniti ratione eum.</p>
                     </div>
-
-                    <div class="col-md-3 col-sm-6">
-                         <!-- WORK THUMB -->
-                         <div class="work-thumb">
-                              <a href="images/work-image3.jpg" class="image-popup">
-                                   <img src="images/work-image3.jpg" class="img-responsive" alt="Work">
-
-                                   <div class="work-info">
-                                        <h3>Frame Design</h3>
-                                        <small>Photography</small>
-                                   </div>
-                              </a>
-                         </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                         <img class="ui centered medium circular image" src="assets/images/about-image.jpg">
+                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                               Optio, voluptatibus. At quod magnam accusantium beatae architecto, 
+                               magni, repellat harum aperiam dolore natus,
+                               quis minima laborum asperiores distinctio deleniti ratione eum.</p>
                     </div>
-
-                    <div class="col-md-3 col-sm-6">
-                         <!-- WORK THUMB -->
-                         <div class="work-thumb">
-                              <a href="images/work-image4.jpg" class="image-popup">
-                                   <img src="images/work-image4.jpg" class="img-responsive" alt="Work">
-
-                                   <div class="work-info">
-                                        <h3>Paint Work</h3>
-                                        <small>Art, Design</small>
-                                   </div>
-                              </a>
-                         </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                         <img class="ui centered medium circular image" src="assets/images/about-image.jpg">
+                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                               Optio, voluptatibus. At quod magnam accusantium beatae architecto, 
+                               magni, repellat harum aperiam dolore natus,
+                               quis minima laborum asperiores distinctio deleniti ratione eum.</p>
                     </div>
-
+                   
                </div>
           </div>
      </section>
 
-     <!-- CONTACT -->
+     <!-- CONTACTS -->
      <section id="contact" data-stellar-background-ratio="0.5">
           <div class="container">
                <div class="row">
 
                     <div class="col-md-12 col-sm-12">
                          <div class="section-title">
-                              <h2>Contact us</h2>
+                              <h2>Contact</h2>
                               <span class="line-bar">...</span>
                          </div>
                     </div>
+                   
 
-                    <div class="col-md-8 col-sm-8">
-                        
+                    <div class="col-md-12 col-sm-12">
                          <!-- CONTACT FORM HERE -->
                          <form id="contact-form" role="form" action="#" method="post">
                               <div class="col-md-6 col-sm-6">
-                                   <input type="text" class="form-control" placeholder="Full Name" id="cf-name" name="cf-name" required="">
+                                   <input type="text" class="form-control" placeholder="Nom complet" id="cf-name" name="cf-name" required="">
                               </div>
 
                               <div class="col-md-6 col-sm-6">
-                                   <input type="email" class="form-control" placeholder="Your Email" id="cf-email" name="cf-email" required="">
+                                   <input type="email" class="form-control" placeholder="Email" id="cf-email" name="cf-email" required="">
                               </div>
 
                               <div class="col-md-6 col-sm-6">
-                                   <input type="tel" class="form-control" placeholder="Your Phone" id="cf-number" name="cf-number" required="">
+                                   <input type="tel" class="form-control" placeholder="Téléphone" id="cf-number" name="cf-number" required="">
+                              </div>
+                              <div class="col-md-6 col-sm-6">
+                                   <input type="text" class="form-control" placeholder="Objet" id="cf-objet" name="cf-number" required="">
                               </div>
 
-                              <div class="col-md-6 col-sm-6">
-                                   <select class="form-control" id="cf-budgets" name="cf-budgets">
-                                        <option>Budget Level</option>
-                                        <option>$500 to $1,000</option>
-                                        <option>$1,000 to $2,200</option>
-                                        <option>$2,200 to $4,500</option>
-                                        <option>$4,500 to $7,500</option>
-                                        <option>$7,500 to $12,000</option>
-                                        <option>$12,000 or more</option>
-                                   </select>
-                              </div>
+                             
 
                               <div class="col-md-12 col-sm-12">
-                                   <textarea class="form-control" rows="6" placeholder="Your requirements" id="cf-message" name="cf-message" required=""></textarea>
+                                   <textarea class="form-control" rows="6" placeholder="Message" id="cf-message" name="cf-message" required=""></textarea>
                               </div>
 
                               <div class="col-md-4 col-sm-12">
@@ -335,16 +276,10 @@
 
                          </form>
                     </div>
-
+                           
                     <div class="col-md-4 col-sm-4">
-                         <div class="google-map">
-	<!-- How to change your own map point
-            1. Go to Google Maps
-            2. Click on your location point
-            3. Click "Share" and choose "Embed map" tab
-            4. Copy only URL and paste it within the src="" field below
-	-->
-                              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3647.3030413476204!2d100.5641230193719!3d13.757206847615207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf51ce6427b7918fc!2sG+Tower!5e0!3m2!1sen!2sth!4v1510722015945" allowfullscreen></iframe>
+                         <div class="about_information">
+                                
                          </div>
                     </div>
 
@@ -360,7 +295,7 @@
 
                     <div class="col-md-5 col-sm-12">
                          <div class="footer-thumb footer-info"> 
-                              <h2>Hydro Company</h2>
+                              <h2>Unipro</h2>
                               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                          </div>
                     </div>
@@ -369,10 +304,11 @@
                          <div class="footer-thumb"> 
                               <h2>Company</h2>
                               <ul class="footer-link">
-                                   <li><a href="#">About Us</a></li>
-                                   <li><a href="#">Join our team</a></li>
-                                   <li><a href="#">Read Blog</a></li>
-                                   <li><a href="#">Press</a></li>
+                                   <li><a href="#">Acceuil</a></li>
+                                   <li><a href="#">à propos de nous</a></li>
+                                   <li><a href="#">Services</a></li>
+                                   <li><a href="#">Notre clients</a></li>
+                                   <li><a href="#">Contact</a></li>
                               </ul>
                          </div>
                     </div>
@@ -381,9 +317,10 @@
                          <div class="footer-thumb"> 
                               <h2>Services</h2>
                               <ul class="footer-link">
-                                   <li><a href="#">Pricing</a></li>
-                                   <li><a href="#">Documentation</a></li>
-                                   <li><a href="#">Support</a></li>
+                                   <li><a href="#">Tâches et gestion de projet</a></li>
+                                   <li><a href="#">Gestion du temps</a></li>
+                                   <li><a href="#">Diagramme de Gantt</a></li>
+                                   <li><a href="#">Gestion des ressources</a></li>
                               </ul>
                          </div>
                     </div>
@@ -391,7 +328,8 @@
                     <div class="col-md-3 col-sm-4"> 
                          <div class="footer-thumb"> 
                               <h2>Find us</h2>
-                              <p>123 Grand Rama IX, <br> Krung Thep Maha Nakhon 10400</p>
+                              <p>Unipro@gmail.com, <br> 515 W. 8th Lane
+                                   Neptune, NJ 07753</p>
                          </div>
                     </div>                    
 
@@ -399,12 +337,12 @@
                          <div class="footer-bottom">
                               <div class="col-md-6 col-sm-5">
                                    <div class="copyright-text"> 
-                                        <p>Copyright &copy; 2017 Your Company</p>
+                                        <p>Copyright &copy; {{ date('Y') }} Unipro</p>
                                    </div>
                               </div>
                               <div class="col-md-6 col-sm-7">
                                    <div class="phone-contact"> 
-                                        <p>Call us <span>(+66) 010-020-0340</span></p>
+                                        <p>Appelez-nous <span>06XXXXXXXX</span></p>
                                    </div>
                                    <ul class="social-icon">
                                         <li><a href="https://www.facebook.com/templatemo" class="fa fa-facebook-square" attr="facebook icon"></a></li>
@@ -431,6 +369,7 @@
      <script src="assets/js/smoothscroll.js"></script>
      <script src="assets/js/jquery.stellar.min.js"></script>
      <script src="assets/semantic_ui/semantic.min.js"></script>
+     <script src="assets/js/form_validation.js"></script>
 
 </body>
 </html>
