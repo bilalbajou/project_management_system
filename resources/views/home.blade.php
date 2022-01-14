@@ -60,7 +60,7 @@
                               @if (Route::has('login'))
                               
                              @auth
-                                 <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
+                                 <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Tableau du board</a>
                              @else
                               <li class="section-btn"> <a href="{{ route('login') }}" >Connecter</a></li>  
          
