@@ -201,32 +201,24 @@
                          </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
-                         <img class="ui centered medium circular image" src="assets/images/about-image.jpg">
-                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                               Optio, voluptatibus. At quod magnam accusantium beatae architecto, 
-                               magni, repellat harum aperiam dolore natus,
-                               quis minima laborum asperiores distinctio deleniti ratione eum.</p>
+                         <img class="ui centered medium circular image" src="assets/images/Coinbase New.png">
+                         <p>On pense que se programme et trop efficace et utile pour 
+                              tous projets avec une équipe de réalisation.</p>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
-                         <img class="ui centered medium circular image" src="assets/images/about-image.jpg">
-                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                               Optio, voluptatibus. At quod magnam accusantium beatae architecto, 
-                               magni, repellat harum aperiam dolore natus,
-                               quis minima laborum asperiores distinctio deleniti ratione eum.</p>
+                         <img class="ui centered medium circular image" src="assets/images/Loopring.png">
+                         <p>Cette solution étais trop utile a notre chef de projet aussi que les employées</p>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
-                         <img class="ui centered medium circular image" src="assets/images/about-image.jpg">
-                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                               Optio, voluptatibus. At quod magnam accusantium beatae architecto, 
-                               magni, repellat harum aperiam dolore natus,
-                               quis minima laborum asperiores distinctio deleniti ratione eum.</p>
+                         <img class="ui centered medium circular image" src="assets/images/Webflow.png">
+                         <p>
+                              Les services fournit par ce site sont utiles et bien pratique,
+                               nos employées trouvent le site facile à utiliser.</p>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
-                         <img class="ui centered medium circular image" src="assets/images/about-image.jpg">
-                         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                               Optio, voluptatibus. At quod magnam accusantium beatae architecto, 
-                               magni, repellat harum aperiam dolore natus,
-                               quis minima laborum asperiores distinctio deleniti ratione eum.</p>
+                         <img class="ui centered medium circular image" src="assets/images/TC TechCrunch.png">
+                         <p>Ce site nous a aidée à accélérer le processus de réalisation de nos projets aussi qu'améliore 
+                              le niveau de contact entre les membres de l'équipe.</p>
                     </div>
                    
                </div>
