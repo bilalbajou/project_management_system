@@ -203,7 +203,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                          <img class="ui centered medium circular image" src="assets/images/Coinbase New.png">
                          <p>On pense que se programme et trop efficace et utile pour 
-                              tous projets avec une équipe de réalisation.</p>
+                              tous projets avec une équipe de réalisation .</p>
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
                          <img class="ui centered medium circular image" src="assets/images/Loopring.png">
