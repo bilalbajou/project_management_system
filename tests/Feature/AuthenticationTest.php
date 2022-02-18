@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Auth;
 use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
@@ -21,14 +22,16 @@ class AuthenticationTest extends TestCase
     public function test_users_can_authenticate_using_the_login_screen()
     {
         $user = User::factory()->create();
-
+        $user_type=Auth::user()->user_type;
         $response = $this->post('/login', [
             'email' => $user->email,
             'password' => 'password',
         ]);
-
+      
         $this->assertAuthenticated();
         $response->assertRedirect(RouteServiceProvider::HOME);
+           
+     
     }
 
     public function test_users_can_not_authenticate_with_invalid_password()
