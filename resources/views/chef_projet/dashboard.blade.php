@@ -1,0 +1,404 @@
+{{-- <x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            
+            {{ __('Bonjour') }} {{ Auth::user()->name }}
+        </h2>
+    </x-slot> --}}
+    
+ 
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Unipro</title>
+      <!-- plugins:css -->
+      <link rel="stylesheet" href="vendors/feather/feather.css">
+      <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+      <!-- endinject -->
+      <!-- Plugin css for this page -->
+      
+      <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
+      
+      <!-- End plugin css for this page -->
+      <!-- inject:css -->
+      <link rel="stylesheet" href="css_template/vertical-layout-light/style.css">
+      <!-- endinject -->
+      <link rel="shortcut icon" href="images/favicon.png" />
+    </head>
+    <body>
+      <div class="container-scroller">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+          <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="images/logo.svg" class="mr-2" alt="logo"/></a>
+            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
+          </div>
+          <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+              <span class="icon-menu"></span>
+            </button>
+          
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item dropdown">
+                <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                  <i class="icon-bell mx-0"></i>
+                  <span class="count"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                  <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+                  
+                </div>
+              </li>
+              <li class="nav-item nav-profile dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                  <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"/>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                  <a class="dropdown-item" href="{{ route('profile.show') }}">
+                    <i class="ti-settings text-primary"></i>
+                    Profile
+                  </a>
+                  <a href="dropdown-item">
+                  <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    
+                    <x-jet-dropdown-link href="{{ route('logout') }}"
+                             onclick="event.preventDefault();
+                                    this.closest('form').submit();"> 
+                     <i class="ti-power-off text-primary"></i>  {{ __('Déconnexion') }}
+                    </x-jet-dropdown-link> 
+                    </form>
+                    </a>
+                 
+              </div>
+              </li>
+              <li class="nav-item nav-settings d-none d-lg-flex">
+                <a class="nav-link" href="#">
+                  <i class="icon-ellipsis"></i>
+                </a>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="icon-menu"></span>
+            </button>
+          </div>
+        </nav>
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+          <!-- partial:partials/_settings-panel.html -->
+          <!-- <div class="theme-setting-wrapper">
+            <div id="settings-trigger"><i class="ti-settings"></i></div>
+            <div id="theme-settings" class="settings-panel">
+              <i class="settings-close ti-close"></i>
+              <p class="settings-heading">Thème</p>
+              <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
+              <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+              <p class="settings-heading mt-2">HEADER SKINS</p>
+              <div class="color-tiles mx-0 px-4">
+                <div class="tiles success"></div>
+                <div class="tiles warning"></div>
+                <div class="tiles danger"></div>
+                <div class="tiles info"></div>
+                <div class="tiles dark"></div>
+                <div class="tiles default"></div>
+              </div>
+            </div>
+          </div> -->
+          <div id="right-sidebar" class="settings-panel">
+            <i class="settings-close ti-close"></i>
+            <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">Réunions</a>
+              </li>
+              
+            </ul>
+            <div class="tab-content" id="setting-content">
+              <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
+                <div class="events pt-2 px-3">
+                  <div class="wrapper d-flex mb-2">
+                    <i class="ti-control-record text-primary mr-2"></i>
+                    <span>Feb 11 2018</span>
+                  </div>
+                  <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
+                  <p class="text-gray mb-0">The total number of sessions</p>
+                </div>
+                <div class="events pt-4 px-3">
+                  <div class="wrapper d-flex mb-2">
+                    <i class="ti-control-record text-primary mr-2"></i>
+                    <span>Feb 7 2018</span>
+                  </div>
+                  <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
+                  <p class="text-gray mb-0 ">Call Sarah Graves</p>
+                </div>
+              </div>
+              <!-- To do section tab ends -->
+              <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
+                <div class="d-flex align-items-center justify-content-between border-bottom">
+                  <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
+                  <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">See All</small>
+                </div>
+                <ul class="chat-list">
+                  <li class="list active">
+                    <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span class="online"></span></div>
+                    <div class="info">
+                      <p>Thomas Douglas</p>
+                      <p>Available</p>
+                    </div>
+                    <small class="text-muted my-auto">19 min</small>
+                  </li>
+                  <li class="list">
+                    <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
+                    <div class="info">
+                      <div class="wrapper d-flex">
+                        <p>Catherine</p>
+                      </div>
+                      <p>Away</p>
+                    </div>
+                    <div class="badge badge-success badge-pill my-auto mx-2">4</div>
+                    <small class="text-muted my-auto">23 min</small>
+                  </li>
+                  <li class="list">
+                    <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span class="online"></span></div>
+                    <div class="info">
+                      <p>Daniel Russell</p>
+                      <p>Available</p>
+                    </div>
+                    <small class="text-muted my-auto">14 min</small>
+                  </li>
+                  <li class="list">
+                    <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
+                    <div class="info">
+                      <p>James Richardson</p>
+                      <p>Away</p>
+                    </div>
+                    <small class="text-muted my-auto">2 min</small>
+                  </li>
+                  <li class="list">
+                    <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span class="online"></span></div>
+                    <div class="info">
+                      <p>Madeline Kennedy</p>
+                      <p>Available</p>
+                    </div>
+                    <small class="text-muted my-auto">5 min</small>
+                  </li>
+                  <li class="list">
+                    <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span class="online"></span></div>
+                    <div class="info">
+                      <p>Sarah Graves</p>
+                      <p>Available</p>
+                    </div>
+                    <small class="text-muted my-auto">47 min</small>
+                  </li>
+                </ul>
+              </div>
+              <!-- chat tab ends -->
+            </div>
+          </div>
+          <!-- partial -->
+          <!-- partial:partials/_sidebar.html -->
+          <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('dashboard') }}">
+                  <i class="icon-grid menu-icon"></i>
+                  <span class="menu-title">Tableau du board</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                  <i class="icon-layout menu-icon"></i>
+                  <span class="menu-title">Projets</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Liste des projets</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Ajouter un projet</a></li>
+                    
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+                  <i class="icon-columns menu-icon"></i>
+                  <span class="menu-title">Tâche</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="form-elements">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Liste des Tâche</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Ajouter Tâche</a></li>
+                  </ul>     
+                </div>
+    
+              </li>
+    
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+                  <i class="icon-bar-graph menu-icon"></i>
+                  <span class="menu-title">Membres</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="charts">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"><a class="nav-link" href="pages/charts/chartjs.html">Liste des Membres</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/charts/chartjs.html">Ajouter Membre</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+                  <i class="icon-grid-2 menu-icon"></i>
+                  <span class="menu-title">Réunions</span>
+                  <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="tables">
+                  <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Liste des Réunions</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Ajouter Réunion</a></li>
+                  </ul>
+                </div>
+              </li>
+             
+            </ul>
+          </nav>
+          <!-- partial -->
+          <div class="main-panel">
+            <div class="content-wrapper pb-0">
+              <div class="row">
+                <div class="col-md-12 grid-margin">
+                  <div class="row">
+                    <div class="col-12 col-xl-8 mb-1 mb-xl-0">
+                      <h3 class="font-weight-bold">Bonjour {{ Auth::user()->name}}</h3>
+                      <!-- <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6> -->
+                    </div>
+                    <div class="col-12 col-xl-4">
+                         <p>12:12:01</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 grid-margin stretch-card">
+                  <div class="card tale-bg">
+                    <div class="card-people mt-auto">
+                      <img src="images/dashboard/people.svg" alt="people">
+                      <div class="weather-info">
+                        <div class="d-flex">
+                          <div>
+                            <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
+                          </div>
+                          <div class="ml-2">
+                            <h4 class="location font-weight-normal">Bangalore</h4>
+                            <h6 class="font-weight-normal">India</h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 grid-margin transparent">
+                  <div class="row">
+                    <div class="col-md-6 mb-4 stretch-card transparent">
+                      <div class="card card-tale">
+                        <div class="card-body">
+                          <p class="mb-4">Nombre des Membres</p>
+                          <p class="fs-30 mb-2">4006</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4 stretch-card transparent">
+                      <div class="card card-dark-blue">
+                        <div class="card-body">
+                          <p class="mb-4">Nombre des Projets</p>
+                          <p class="fs-30 mb-2">34040</p>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                      <div class="card card-light-blue">
+                        <div class="card-body">
+                          <p class="mb-4">Nombre des Réunions</p>
+                          <p class="fs-30 mb-2">34040</p>
+                          
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 stretch-card transparent">
+                      <div class="card card-light-danger">
+                        <div class="card-body">
+                          <p class="mb-4">Nombre des Tâche </p>
+                          <p class="fs-30 mb-2">47033</p>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            <!-- content-wrapper ends -->
+            <!-- partial:partials/_footer.html -->
+            <footer class="footer pt-5">
+              <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2022 <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
+                
+              </div>
+            </footer>
+            
+            <!-- partial -->
+          </div>
+          <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+      </div>
+      <!-- container-scroller -->
+    
+      <!-- plugins:js -->
+      <script src="vendors/js/vendor.bundle.base.js"></script>
+      <!-- endinject -->
+     
+      <script src="js_template/off-canvas.js"></script>
+      <script src="js_template/hoverable-collapse.js"></script>
+      <script src="js_template/template.js"></script>
+      <script src="js_template/settings.js"></script>
+       <script src="js_template/todolist.js"></script> 
+      <!-- endinject -->
+      <!-- Custom js for this page-->
+      <script src="js_teplate/dashboard.js"></script>
+      <script src="js_template/Chart.roundedBarCharts.js"></script>
+      <!-- End custom js for this page-->
+    </body>
+    
+    </html>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {{-- <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <x-jet-welcome />
+            </div>
+        </div>
+    </div> --}}
+{{-- </x-app-layout> --}}
