@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\delete;
 use App\Http\Controllers\homeController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[homeController::class,"index"]);
+Route::get('/',[homeController::class,"index"])->name('Homepage');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('chef_projet.dashboard');
 })->name('dashboard');

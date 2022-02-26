@@ -6,12 +6,13 @@ use Illuminate\Contracts\Auth\MustVerifyEmail as AuthMustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\Contracts\VerifyEmailViewResponse;
 use luminate\Contracts\Auth\MustVerifyEmail;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable 
+class User extends Authenticatable implements AuthMustVerifyEmail
 {
     use HasApiTokens;
     use HasFactory;

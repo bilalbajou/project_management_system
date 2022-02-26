@@ -32,65 +32,13 @@
     <body>
       <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
-        <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-          <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="images/logo.svg" class="mr-2" alt="logo"/></a>
-            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
-          </div>
-          <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-              <span class="icon-menu"></span>
-            </button>
-          
-            <ul class="navbar-nav navbar-nav-right">
-              <li class="nav-item dropdown">
-                <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-                  <i class="icon-bell mx-0"></i>
-                  <span class="count"></span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                  <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                  
-                </div>
-              </li>
-              <li class="nav-item nav-profile dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-                  <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"/>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                  <a class="dropdown-item" href="{{ route('profile.show') }}">
-                    <i class="ti-settings text-primary"></i>
-                    Profile
-                  </a>
-                  <a href="dropdown-item">
-                  <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-                    
-                    <x-jet-dropdown-link href="{{ route('logout') }}"
-                             onclick="event.preventDefault();
-                                    this.closest('form').submit();"> 
-                     <i class="ti-power-off text-primary"></i>  {{ __('Déconnexion') }}
-                    </x-jet-dropdown-link> 
-                    </form>
-                    </a>
-                 
-              </div>
-              </li>
-              <li class="nav-item nav-settings d-none d-lg-flex">
-                <a class="nav-link" href="#">
-                  <i class="icon-ellipsis"></i>
-                </a>
-              </li>
-            </ul>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-              <span class="icon-menu"></span>
-            </button>
-          </div>
-        </nav>
+       
+        @extends('chef_projet.bloc.navbar')
+       
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
           <!-- partial:partials/_settings-panel.html -->
-          <!-- <div class="theme-setting-wrapper">
+           {{-- <div class="theme-setting-wrapper">
             <div id="settings-trigger"><i class="ti-settings"></i></div>
             <div id="theme-settings" class="settings-panel">
               <i class="settings-close ti-close"></i>
@@ -107,7 +55,7 @@
                 <div class="tiles default"></div>
               </div>
             </div>
-          </div> -->
+          </div> 
           <div id="right-sidebar" class="settings-panel">
             <i class="settings-close ti-close"></i>
             <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
@@ -135,71 +83,12 @@
                   <p class="text-gray mb-0 ">Call Sarah Graves</p>
                 </div>
               </div>
-              <!-- To do section tab ends -->
-              <div class="tab-pane fade" id="chats-section" role="tabpanel" aria-labelledby="chats-section">
-                <div class="d-flex align-items-center justify-content-between border-bottom">
-                  <p class="settings-heading border-top-0 mb-3 pl-3 pt-0 border-bottom-0 pb-0">Friends</p>
-                  <small class="settings-heading border-top-0 mb-3 pt-0 border-bottom-0 pb-0 pr-3 font-weight-normal">See All</small>
-                </div>
-                <ul class="chat-list">
-                  <li class="list active">
-                    <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span class="online"></span></div>
-                    <div class="info">
-                      <p>Thomas Douglas</p>
-                      <p>Available</p>
-                    </div>
-                    <small class="text-muted my-auto">19 min</small>
-                  </li>
-                  <li class="list">
-                    <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
-                    <div class="info">
-                      <div class="wrapper d-flex">
-                        <p>Catherine</p>
-                      </div>
-                      <p>Away</p>
-                    </div>
-                    <div class="badge badge-success badge-pill my-auto mx-2">4</div>
-                    <small class="text-muted my-auto">23 min</small>
-                  </li>
-                  <li class="list">
-                    <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span class="online"></span></div>
-                    <div class="info">
-                      <p>Daniel Russell</p>
-                      <p>Available</p>
-                    </div>
-                    <small class="text-muted my-auto">14 min</small>
-                  </li>
-                  <li class="list">
-                    <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
-                    <div class="info">
-                      <p>James Richardson</p>
-                      <p>Away</p>
-                    </div>
-                    <small class="text-muted my-auto">2 min</small>
-                  </li>
-                  <li class="list">
-                    <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span class="online"></span></div>
-                    <div class="info">
-                      <p>Madeline Kennedy</p>
-                      <p>Available</p>
-                    </div>
-                    <small class="text-muted my-auto">5 min</small>
-                  </li>
-                  <li class="list">
-                    <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span class="online"></span></div>
-                    <div class="info">
-                      <p>Sarah Graves</p>
-                      <p>Available</p>
-                    </div>
-                    <small class="text-muted my-auto">47 min</small>
-                  </li>
-                </ul>
-              </div>
-              <!-- chat tab ends -->
+              
             </div>
-          </div>
+          </div> --}}
           <!-- partial -->
           <!-- partial:partials/_sidebar.html -->
+          
           <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
               <li class="nav-item">
@@ -266,9 +155,11 @@
              
             </ul>
           </nav>
+          
           <!-- partial -->
-          <div class="main-panel">
-            <div class="content-wrapper pb-0">
+          <div class="main-panel"> 
+            <div class="content-wrapper pb-0"> 
+            
               <div class="row">
                 <div class="col-md-12 grid-margin">
                   <div class="row">
@@ -342,16 +233,14 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>   
               
+              
+            </div> 
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
-            <footer class="footer pt-5">
-              <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2022 <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
-                
-              </div>
-            </footer>
+            
+            @extends('chef_projet.bloc.footer')
             
             <!-- partial -->
           </div>

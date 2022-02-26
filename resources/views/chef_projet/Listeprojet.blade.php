@@ -1,0 +1,1 @@
+@extends('chef_projet.bloc.navbar')
