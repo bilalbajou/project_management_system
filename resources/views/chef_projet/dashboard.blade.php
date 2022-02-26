@@ -5,8 +5,6 @@
             {{ __('Bonjour') }} {{ Auth::user()->name }}
         </h2>
     </x-slot> --}}
-    
- 
     <!DOCTYPE html>
     <html lang="en">
     
@@ -15,19 +13,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>Unipro</title>
-      <!-- plugins:css -->
-      <link rel="stylesheet" href="vendors/feather/feather.css">
-      <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
-      <!-- endinject -->
-      <!-- Plugin css for this page -->
-      
-      <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
-      
-      <!-- End plugin css for this page -->
-      <!-- inject:css -->
-      <link rel="stylesheet" href="css_template/vertical-layout-light/style.css">
-      <!-- endinject -->
-      <link rel="shortcut icon" href="images/favicon.png" />
+      @extends('style.style')
     </head>
     <body>
       <div class="container-scroller">
@@ -55,7 +41,7 @@
                 <div class="tiles default"></div>
               </div>
             </div>
-          </div> 
+          </div>  --}}
           <div id="right-sidebar" class="settings-panel">
             <i class="settings-close ti-close"></i>
             <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
@@ -85,7 +71,7 @@
               </div>
               
             </div>
-          </div> --}}
+          </div> 
           <!-- partial -->
           <!-- partial:partials/_sidebar.html -->
           
@@ -249,21 +235,7 @@
         <!-- page-body-wrapper ends -->
       </div>
       <!-- container-scroller -->
-    
-      <!-- plugins:js -->
-      <script src="vendors/js/vendor.bundle.base.js"></script>
-      <!-- endinject -->
-     
-      <script src="js_template/off-canvas.js"></script>
-      <script src="js_template/hoverable-collapse.js"></script>
-      <script src="js_template/template.js"></script>
-      <script src="js_template/settings.js"></script>
-       <script src="js_template/todolist.js"></script> 
-      <!-- endinject -->
-      <!-- Custom js for this page-->
-      <script src="js_teplate/dashboard.js"></script>
-      <script src="js_template/Chart.roundedBarCharts.js"></script>
-      <!-- End custom js for this page-->
+      @extends('js.js')
     </body>
     
     </html>
