@@ -91,8 +91,8 @@
                 </a>
                 <div class="collapse" id="ui-basic">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Liste des projets</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Ajouter un projet</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('listeProjet')}}">Liste des projets</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('addProjet')}}">Ajouter un projet</a></li>
                     
                   </ul>
                 </div>
@@ -106,7 +106,7 @@
                 <div class="collapse" id="form-elements">
                   <ul class="nav flex-column sub-menu">
                     <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Liste des Tâche</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Ajouter Tâche</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('addTache')}} ">Ajouter Tâche</a></li>
                   </ul>     
                 </div>
     
@@ -145,81 +145,35 @@
           <!-- partial -->
           <div class="main-panel"> 
             <div class="content-wrapper pb-0"> 
-            
-              <div class="row">
-                <div class="col-md-12 grid-margin">
-                  <div class="row">
-                    <div class="col-12 col-xl-8 mb-1 mb-xl-0">
-                      <h3 class="font-weight-bold">Bonjour {{ Auth::user()->name}}</h3>
-                      <!-- <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6> -->
-                    </div>
-                    <div class="col-12 col-xl-4">
-                         <p>12:12:01</p>
-                    </div>
+               <form class="ui form">
+                <div class="fields">
+                  <div class="six wide field">
+                    <label>Nom du projet</label>
+                    <input type="text" name="nomProjet">
+                  </div>
+                  <div class="four wide field">
+                    <label>Date de début</label>
+                    <input type="date" name="dateDebut" >
+                  </div>
+                  <div class="six wide field">
+                    <label>Date de fin</label>
+                    <input type="date" name="dateFin">
+                  </div>
+                 
+                </div>
+                <div class="fields">
+                  <div class="field sixteen wide">
+                    <label>Description</label>
+                    <textarea rows="3" name="descr"></textarea>
                   </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 grid-margin stretch-card">
-                  <div class="card tale-bg">
-                    <div class="card-people mt-auto">
-                      <img src="images/dashboard/people.svg" alt="people">
-                      <div class="weather-info">
-                        <div class="d-flex">
-                          <div>
-                            <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
-                          </div>
-                          <div class="ml-2">
-                            <h4 class="location font-weight-normal">Bangalore</h4>
-                            <h6 class="font-weight-normal">India</h6>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <div class="ui error message">
+                  <i class="close icon"></i>
+                  <p>Form validation</p>
                 </div>
-                <div class="col-md-6 grid-margin transparent">
-                  <div class="row">
-                    <div class="col-md-6 mb-4 stretch-card transparent">
-                      <div class="card card-tale">
-                        <div class="card-body">
-                          <p class="mb-4">Nombre des Membres</p>
-                          <p class="fs-30 mb-2">4006</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6 mb-4 stretch-card transparent">
-                      <div class="card card-dark-blue">
-                        <div class="card-body">
-                          <p class="mb-4">Nombre des Projets</p>
-                          <p class="fs-30 mb-2">34040</p>
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-                      <div class="card card-light-blue">
-                        <div class="card-body">
-                          <p class="mb-4">Nombre des Réunions</p>
-                          <p class="fs-30 mb-2">34040</p>
-                          
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6 stretch-card transparent">
-                      <div class="card card-light-danger">
-                        <div class="card-body">
-                          <p class="mb-4">Nombre des Tâche </p>
-                          <p class="fs-30 mb-2">47033</p>
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>   
+                <div class="ui black button" tabindex="0">Ajouter</div>
+               </form>
+              
               
               
             </div> 

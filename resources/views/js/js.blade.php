@@ -1,5 +1,5 @@
   <!-- plugins:js -->
-  <script src="assets/semantic_ui/semantic.min.js"></script>
+  {{-- <script src="assets/semantic_ui/semantic.min.js"></script> --}}
   <script src="vendors/js/vendor.bundle.base.js"></script>
   
   <!-- endinject -->

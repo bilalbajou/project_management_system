@@ -50,6 +50,5 @@
 
 })(jQuery);
 
-  // form validation 
-    
+ 
   
