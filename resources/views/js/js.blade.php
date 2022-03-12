@@ -1,5 +1,5 @@
   <!-- plugins:js -->
-  {{-- <script src="assets/semantic_ui/semantic.min.js"></script> --}}
+  <script src="assets/semantic_ui/semantic.min.js"></script>
   <script src="vendors/js/vendor.bundle.base.js"></script>
   
   <!-- endinject -->
@@ -11,6 +11,7 @@
    <script src="js_template/todolist.js"></script> 
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="js_teplate/dashboard.js"></script>
+  <script src="js_template/index.js"></script>
+  <script src="js_template/dashboard.js"></script>
   <script src="js_template/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->

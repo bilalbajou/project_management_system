@@ -146,7 +146,6 @@
           <!-- partial -->
           <div class="main-panel"> 
             <div class="content-wrapper pb-0"> 
-            
               <div class="row">
                 <div class="col-md-12 grid-margin">
                   <div class="row">
@@ -228,7 +227,7 @@
             <!-- partial:partials/_footer.html -->
             
             @extends('chef_projet.bloc.footer')
-            
+           
             <!-- partial -->
           </div>
           <!-- main-panel ends -->
@@ -236,6 +235,15 @@
         <!-- page-body-wrapper ends -->
       </div>
       <!-- container-scroller -->
+      <script>
+        document.querySelector("body").style.display = "none";
+        document.querySelector("body").classList.add("spinner-1");
+        setTimeout(() => {
+         document.querySelector("body").classList.remove("spinner-1");
+         document.querySelector("body").style.display = "block";
+        }, 1000);
+
+      </script>
       @extends('js.js')
     </body>
     
