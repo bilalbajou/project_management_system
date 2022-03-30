@@ -19,7 +19,7 @@
       <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
        
-        @extends('chef_projet.bloc.navbar')
+        @extends('bloc.navbar')
        
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
@@ -79,13 +79,13 @@
             <ul class="nav">
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('dashboard') }}">
-                  <i class="icon-grid menu-icon"></i>
+                  <i class="th icon menu-icon mb-1"></i>
                   <span class="menu-title">Tableau du board</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                  <i class="icon-layout menu-icon"></i>
+                  <i class="briefcase icon menu-icon mb-1"></i>
                   <span class="menu-title">Projets</span>
                   <i class="menu-arrow"></i>
                 </a>
@@ -99,7 +99,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-                  <i class="icon-columns menu-icon"></i>
+                  <i class="tasks icon menu-icon mb-1"></i>
                   <span class="menu-title">Tâche</span>
                   <i class="menu-arrow"></i>
                 </a>
@@ -114,7 +114,7 @@
     
               <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                  <i class="icon-bar-graph menu-icon"></i>
+                  <i class="user icon menu-icon mb-1"></i>
                   <span class="menu-title">Membres</span>
                   <i class="menu-arrow"></i>
                 </a>
@@ -127,7 +127,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                  <i class="icon-grid-2 menu-icon"></i>
+                  <i class="calendar icon menu-icon mb-1"></i>
                   <span class="menu-title">Réunions</span>
                   <i class="menu-arrow"></i>
                 </a>
@@ -145,7 +145,8 @@
           <!-- partial -->
           <div class="main-panel"> 
             <div class="content-wrapper pb-0"> 
-               <form class="ui form">
+              <h2 class="ui header">Ajouter nouveaux projet</h2>
+               <form class="ui form error">
                 <div class="fields">
                   <div class="six wide field">
                     <label>Nom du projet</label>
@@ -167,11 +168,8 @@
                     <textarea rows="3" name="descr"></textarea>
                   </div>
                 </div>
-                <div class="ui error message">
-                  <i class="close icon"></i>
-                  <p>Form validation</p>
-                </div>
-                <div class="ui black button" tabindex="0">Ajouter</div>
+                <div class="ui submit button">Submit</div>
+                <div class="ui error message"></div>
                </form>
               
               
@@ -183,12 +181,13 @@
               document.querySelector("body").style.display = "none";
               document.querySelector("body").classList.add("spinner-1");
               setTimeout(() => {
-               document.querySelector("body").classList.remove("spinner-1");
-               document.querySelector("body").style.display = "block";
+              document.querySelector("body").classList.remove("spinner-1");
+              document.querySelector("body").style.display = "block";
               }, 1000);
-
-            </script>
-            @extends('chef_projet.bloc.footer')
+              </script>
+              
+             
+            @extends('bloc.footer')
             
             <!-- partial -->
           </div>

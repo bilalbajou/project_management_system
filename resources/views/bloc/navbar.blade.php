@@ -27,7 +27,7 @@
             <a class="dropdown-item" href="{{ route('profile.show') }}">
               <i class="ti-settings text-primary"></i>
               Profile
-            </a>
+            </a> 
             <a href="dropdown-item">
             <form method="POST" action="{{ route('logout') }}">
               @csrf
@@ -38,7 +38,7 @@
                <i class="ti-power-off text-primary"></i>  {{ __('Déconnexion') }}
               </x-jet-dropdown-link> 
               </form>
-              </a>
+              </a> 
            
         </div>
         </li>

@@ -8,7 +8,7 @@
 
 <!-- End plugin css for this page -->
 <!-- inject:css -->
-<link rel="stylesheet" type="text/css" href="assets/semantic_ui/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="{{url('assets/semantic_ui/semantic.min.css')}}">
 <link rel="stylesheet" href="css_template/vertical-layout-light/style.css">
 <link rel="stylesheet" href="css_template/index.css">
 <!-- endinject -->

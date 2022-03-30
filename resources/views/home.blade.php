@@ -193,7 +193,7 @@
      <section id="clients" data-stellar-background-ratio="0.5">
           <div class="container">
                <div class="row">
-
+             
                     <div class="col-md-12 col-sm-12">
                          <div class="section-title">
                               <h2>Notre clients</h2>
@@ -240,46 +240,49 @@
 
                     <div class="col-md-12 col-sm-12">
                          <!-- CONTACT FORM HERE -->
-                         <form id="contact-form" role="form" action="#" method="post">
+                         <form id="contact-form" action="{{route('addMessage')}}" method="post">
+                              @csrf
+                              
                               <div class="col-md-6 col-sm-6">
-                                   <input type="text" class="form-control" placeholder="Nom complet" id="cf-name" name="cf-name" required="">
+                                   <input  class="form-control" placeholder="Nom complet" id="Nom" value="{{old('Nom')}}" name="Nom" >
                               </div>
 
                               <div class="col-md-6 col-sm-6">
-                                   <input type="email" class="form-control" placeholder="Email" id="cf-email" name="cf-email" required="">
+                                   <input  class="form-control" placeholder="Email" type="text" id="Email" value="{{old('Email')}}" name="Email" >
                               </div>
 
                               <div class="col-md-6 col-sm-6">
-                                   <input type="tel" class="form-control" placeholder="Téléphone" id="cf-number" name="cf-number" required="">
+                                   <input  class="form-control" type="text"  placeholder="Téléphone" id="Numéro" value="{{old('Numéro')}}" name="Numéro">
                               </div>
                               <div class="col-md-6 col-sm-6">
-                                   <input type="text" class="form-control" placeholder="Objet" id="cf-objet" name="cf-number" required="">
+                                   <input  class="form-control" placeholder="Objet" id="objet" name="objet" value="{{old('objet')}}" >
                               </div>
-
-                             
-
                               <div class="col-md-12 col-sm-12">
-                                   <textarea class="form-control" rows="6" placeholder="Message" id="cf-message" name="cf-message" required=""></textarea>
+                                   <textarea class="form-control" rows="6" placeholder="Message" id="message" value="{{old('message')}}" name="message"></textarea>
                               </div>
 
                               <div class="col-md-4 col-sm-12">
-                                   <input type="submit" class="form-control" name="submit" value="Send Message">
+                                   <input type="submit" class="form-control" value="Send Message">
                               </div>
 
                          </form>
                     </div>
-                           
-                    <div class="col-md-4 col-sm-4">
-                         <div class="about_information">
-                                
-                         </div>
-                    </div>
 
                </div>
+               @if ($errors->any())
+               <div class="ui error message">
+                    <div class="header">Veuillez de vérifier votre informations</div>
+                    @foreach($errors->all() as $error)
+                    <p>{{$error}}</p>
+                    @endforeach
+               </div>
+               @endif  
+               
           </div>
+          
      </section>
 
-
+       
      <!-- FOOTER -->
      <footer data-stellar-background-ratio="0.5">
           <div class="container">
