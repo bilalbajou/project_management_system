@@ -12,7 +12,6 @@
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-     <link rel="stylesheet" href="assets/css/magnific-popup.css">
      <link rel="stylesheet" href="assets/css/font-awesome.min.css">
      <Link rel="stylesheet" href="assets/semantic_ui/semantic.min.css">
 
@@ -360,11 +359,8 @@
      <script src="assets/js/jquery.js"></script>
      <script src="assets/js/bootstrap.min.js"></script>
      <script src="assets/js/custom.js"></script>
-     <script src="assets/js/jquery.magnific-popup.min.js"></script>
-     <script src="assets/js/smoothscroll.js"></script>
-     <script src="assets/js/jquery.stellar.min.js"></script>
      <script src="assets/semantic_ui/semantic.min.js"></script>
-     <script src="assets/js/form_validation.js"></script>
+     
 
 </body>
 </html>

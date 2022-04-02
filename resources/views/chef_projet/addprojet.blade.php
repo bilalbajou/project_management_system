@@ -168,7 +168,7 @@
                     <textarea rows="3" name="descr"></textarea>
                   </div>
                 </div>
-                <div class="ui submit button">Submit</div>
+                <div class="ui submit button black">Ajouter</div>
                 <div class="ui error message"></div>
                </form>
               
