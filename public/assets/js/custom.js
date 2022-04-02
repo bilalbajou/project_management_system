@@ -50,5 +50,67 @@
 
 })(jQuery);
 
- 
-  
+$(document).ready(function(){
+  $("#btn_ajout").click(function(){
+     $('form')
+    .form({
+      on: 'blur',
+      fields: {
+        Nom: {
+          identifier  : 'Nom',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Veuillez saisir votre nom'
+            }
+          ],
+        },
+        Email: {
+          identifier  : 'Email',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Veuillez saisir votre email'
+            },
+            {
+              type : 'email',
+              prompt : 'Adresse E-mail non valide'
+            }
+          ]
+        },
+        Numéro: {
+          identifier  : 'Numéro',
+          rules: [
+            {
+              type   : 'number',
+              prompt : 'Please check the checkbox'
+            }
+          ]
+        },
+        objet:{
+            identifier : 'objet',
+            rules : [
+                 {
+                   type : 'empty',
+                   prompt : 'Veuillez mentionner objet de votre message'
+                 }
+            ]
+        },
+        message:{
+             identifier : 'message',
+             rules : [
+                 {
+                   type : 'empty',
+                   prompt : 'Veuillez saisir votre message'
+                 },
+                 {
+                   type : 'maxCount[255]',
+                   prompt : 'Ne doit dépasse 255 caractère'
+                 }
+             ]
+        }
+      }
+    })
+  ;
+  });
+});

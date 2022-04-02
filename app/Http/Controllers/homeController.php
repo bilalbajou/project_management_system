@@ -11,13 +11,7 @@ class homeController extends Controller
     
     public function store(Request $request){
 
-        $validated = $request->validate([
-            'Nom' => 'required|string|max:30|',
-            'Email' => 'required|email',
-            'objet'=>'required|string',
-            'message'=>'required|max:255',
-            'Numéro'=>'digits_between:10,30'
-        ]);
+       
 
          Contact::create([
              'Nom'=>$request->Nom,

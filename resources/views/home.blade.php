@@ -239,7 +239,7 @@
 
                     <div class="col-md-12 col-sm-12">
                          <!-- CONTACT FORM HERE -->
-                         <form id="contact-form" action="{{route('addMessage')}}" method="post">
+                         <form class="ui form" id="contact-form" action="{{route('addMessage')}}" method="post">
                               @csrf
                               
                               <div class="col-md-6 col-sm-6">
@@ -261,9 +261,11 @@
                               </div>
 
                               <div class="col-md-4 col-sm-12">
-                                   <input type="submit" class="form-control" value="Send Message">
+                                   <input type="submit" id="btn_ajout" class="form-control" value="Envoyer">
                               </div>
-
+                              <div class="col-md-12 col-sm-12">
+                                   <div class="ui error message"></div>
+                              </div>
                          </form>
                     </div>
 
@@ -278,7 +280,6 @@
                @endif  
                
           </div>
-          
      </section>
 
        
