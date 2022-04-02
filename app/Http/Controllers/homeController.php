@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+
+use App\Mail\ContactMail;
 use App\Models\Contact;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+
 class homeController extends Controller
 {
     public function index(){
@@ -13,14 +17,16 @@ class homeController extends Controller
 
        
 
-         Contact::create([
+       $contact=Contact::create([
              'Nom'=>$request->Nom,
              'email'=>$request->Email,
              'objet'=>$request->objet,
              'Numéro'=>$request->Numéro,
              'Message'=>$request->message
          ]);
-         
+
+          Mail::to($request->Email)->send(new ContactMail($contact));
+          return back();
     }
 }
 

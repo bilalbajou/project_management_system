@@ -146,7 +146,7 @@
           <div class="main-panel"> 
             <div class="content-wrapper pb-0"> 
               <h2 class="ui header">Ajouter nouveaux projet</h2>
-               <form class="ui form error">
+               <form class="ui form" action="">
                 <div class="fields">
                   <div class="six wide field">
                     <label>Nom du projet</label>
@@ -168,10 +168,10 @@
                     <textarea rows="3" name="descr"></textarea>
                   </div>
                 </div>
-                <div class="ui submit button black">Ajouter</div>
-                <div class="ui error message"></div>
+                <div class="ui submit button black" id="btn_ajout">Ajouter</div>
+                <div class="ui error message" ></div>
                </form>
-              
+               
               
               
             </div> 

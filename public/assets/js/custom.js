@@ -50,6 +50,9 @@
 
 })(jQuery);
 
+         // Vérification contact form
+
+       
 $(document).ready(function(){
   $("#btn_ajout").click(function(){
      $('form')
@@ -83,7 +86,7 @@ $(document).ready(function(){
           rules: [
             {
               type   : 'number',
-              prompt : 'Please check the checkbox'
+              prompt : 'Le champs n\'accepte que les digits'
             }
           ]
         },
