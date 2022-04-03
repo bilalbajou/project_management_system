@@ -86,7 +86,7 @@ $(document).ready(function(){
           rules: [
             {
               type   : 'number',
-              prompt : 'Le champs n\'accepte que les digits'
+              prompt : 'Le champs numéro n\'accepte que les digits'
             }
           ]
         },

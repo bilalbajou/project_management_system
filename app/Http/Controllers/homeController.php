@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactMail;
+use App\Mail\ContactMailToWebmaster;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -26,6 +27,7 @@ class homeController extends Controller
          ]);
 
           Mail::to($request->Email)->send(new ContactMail($contact));
+          Mail::to('bilalbajou05@gmail.com')->send(new ContactMailToWebmaster($contact));
           return back();
     }
 }
