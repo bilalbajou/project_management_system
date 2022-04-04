@@ -25,7 +25,7 @@
                     <tr>
                         <td style="text-align:center;">
                           <a href="{{route('Homepage')}}" title="logo" target="_blank">
-                            <img width="60" src="assets/images/logo.png" title="logo" alt="logo">
+                            <img width="60" src="https://i.ibb.co/SwkB5Pb/full-logo.png" title="logo" alt="logo">
                           </a>
                         </td>
                     </tr>

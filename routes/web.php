@@ -27,9 +27,6 @@ Route::post('/addContact',[homeController::class,"store"])->name('addMessage');
 Route::get('/addProjet',[addprojetController::class,"index"])->name('addProjet');
 Route::get('/listeProjet',[listProjetController::class,"index"])->name('listeProjet');
 Route::get('/addTache',[addTacheController::class,"index"])->name('addTache');
-
-
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('chef_projet.dashboard');
 })->name('dashboard');
