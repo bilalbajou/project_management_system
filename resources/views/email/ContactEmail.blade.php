@@ -23,9 +23,10 @@
                         <td style="height:80px;">&nbsp;</td>
                     </tr>
                     <tr>
+                        
                         <td style="text-align:center;">
                           <a href="{{route('Homepage')}}" title="logo" target="_blank">
-                            <img width="60" src="https://i.ibb.co/SwkB5Pb/full-logo.png" title="logo" alt="logo">
+                            <img  src="https://i.ibb.co/yB9Rfgw/Untitled-design.png" title="logo" alt="logo">
                           </a>
                         </td>
                     </tr>

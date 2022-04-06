@@ -235,12 +235,12 @@
       </div>
       <!-- container-scroller -->
       <script>
-        document.querySelector("body").style.display = "none";
-        document.querySelector("body").classList.add("spinner-1");
-        setTimeout(() => {
-         document.querySelector("body").classList.remove("spinner-1");
-         document.querySelector("body").style.display = "block";
-        }, 1000);
+       document.querySelector("body").style.display = "none";
+document.querySelector("body").classList.add("spinner-1");
+setTimeout(() => {
+ document.querySelector("body").classList.remove("spinner-1");
+ document.querySelector("body").style.display = "block";
+}, 1000);
       </script>
       @extends('js.js')
     </body>

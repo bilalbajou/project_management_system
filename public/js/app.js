@@ -5451,6 +5451,12 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
+document.querySelector("body").style.display = "none";
+document.querySelector("body").classList.add("spinner-1");
+setTimeout(function () {
+  document.querySelector("body").classList.remove("spinner-1");
+  document.querySelector("body").style.display = "block";
+}, 1000);
 
 /***/ }),
 

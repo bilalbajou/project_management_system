@@ -12,7 +12,7 @@
    <script src="js_template/todolist.js"></script> 
   <!-- endinject -->
   <!-- Custom js for this page-->
-  <script src="js/index.js"></script>
+  <script src="{{asset('js/app.js')}}"></script>
   <script src="js_template/dashboard.js"></script>
   {{-- <script src="js_template/Chart.roundedBarCharts.js"></script> --}}
   <!-- End custom js for this page-->
