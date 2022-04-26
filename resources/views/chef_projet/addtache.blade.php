@@ -14,6 +14,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>Unipro</title>
       @extends('style.style')
+      <link rel="icon" href="assets/images/dashboard.png"/>
     </head>
     <body>
       <div class="container-scroller">

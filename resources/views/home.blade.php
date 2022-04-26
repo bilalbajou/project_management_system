@@ -14,7 +14,7 @@
      <link rel="stylesheet" href="assets/css/bootstrap.min.css">
      <link rel="stylesheet" href="assets/css/font-awesome.min.css">
      <Link rel="stylesheet" href="assets/semantic_ui/semantic.min.css">
-
+     <link rel="icon" href="assets/images/home.png">
      <!-- MAIN CSS -->
      <link rel="stylesheet" href="assets/css/templatemo-style.css">
 </head>

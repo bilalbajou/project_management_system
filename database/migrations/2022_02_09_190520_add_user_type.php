@@ -15,7 +15,7 @@ class AddUserType extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             Schema::table('users', function (Blueprint $table) {
-                $table->enum('user_type', ['Chef du projet', 'Webmaster','Employée']);
+                $table->enum('user_type', ['Chef du projet', 'Webmaster','Collaborateur']);
             });
         });
     }

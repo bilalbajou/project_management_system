@@ -1,7 +1,7 @@
+<link rel="icon" href="assets/images/login.png">
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            {{-- <x-jet-authentication-card-logo /> --}}
 
             <img src="assets/images/full_logo.png">
         </x-slot>

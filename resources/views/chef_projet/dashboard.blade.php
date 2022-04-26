@@ -13,6 +13,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       @extends('style.style')
+      <link rel="icon" href="assets/images/dashboard.png"/>
       <title>Unipro</title>
       
     </head>

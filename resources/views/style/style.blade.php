@@ -12,4 +12,3 @@
 <link rel="stylesheet" href="css_template/vertical-layout-light/style.css">
 <link rel="stylesheet" href="css_template/index.css">
 <!-- endinject -->
-<link rel="shortcut icon" href="images/favicon.png" />

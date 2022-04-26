@@ -14,6 +14,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title>Unipro</title>
       @extends('style.style')
+      <link rel="icon" href="assets/images/dashboard.png"/>
     </head>
     <body>
       <div class="container-scroller">
@@ -159,7 +160,8 @@
                     <td class="center aligned"  data-label="Age">Projet 1</td>
                     <td class="center aligned"  data-label="Job">date 2</td>
                     <td  class="center aligned" data-label="Job">date 2</td>
-                    <td class="center aligned"  data-label="Job">En cours</td>      
+                    <td class="center aligned"  data-label="Job">En cours</td> 
+                        
                   </tr>
                 </tbody>
               </table>
