@@ -146,14 +146,14 @@
           <!-- partial -->
           <div class="main-panel"> 
             <div class="content-wrapper pb-0"> 
-              <h2 class="ui header">Ajouter nouveaux projet</h2>
+              <h2 class="ui header">Ajouter nouveaux projet </h2>
+              
                <form class="ui form" action="{{route('addProjet')}}" method="POST">
                  @csrf
                 <div class="fields">
                   <div class="six wide field">
                     <label>Nom du projet</label>
                     <input type="text" name="nomProjet">
-                    <input type="hidden" name="Chef_projet_id">
                     
                   </div>
                   <div class="four wide field">

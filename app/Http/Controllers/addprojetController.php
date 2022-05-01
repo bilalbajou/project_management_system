@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class addprojetController extends Controller
 {
     function index(){
-        $idChefProjet=Auth::user()->id;
-        return view('chef_projet.addprojet');
+          $id_chef=Auth::user()->id;
+        return view('chef_projet.addprojet')->with('chef',$id_chef);
     }
     function store(Request $request){
          
@@ -20,15 +20,13 @@ class addprojetController extends Controller
             'dateFin'=>['bail','required','Date'],
             'descr'=>['max:255']
         ]);
-        $idChefProjet=Auth::user()->id;
-
-         projet::create([
-            'Nom_projet'=>$request->nomProjet,
-            'Date_début'=>$request->dateDebut,
-            'Date_fin'=>$request->dateFin,
-            'description_projet'=>$request->descr,
-            
-         ]);
-         return view("chef_projet.Listeprojet");
+          $projet=new projet();
+          $projet->Nom_projet=$request->input('nomProjet');
+          $projet->Date_début=$request->input('dateDebut');
+          $projet->Date_fin=$request->input('dateFin');
+          $projet->description_projet=$request->input('descr');
+          $projet->Chef_projet=Auth::user()->id;
+          $projet->save();
+          return redirect()->route('listeProjet');
     }
 }
