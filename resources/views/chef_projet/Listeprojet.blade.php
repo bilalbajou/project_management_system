@@ -153,16 +153,26 @@
                   <th class="center aligned" >Date début</th>
                   <th class="center aligned" >date fin</th>
                   <th class="center aligned" >Statut</th> 
+                  <th class="center aligned" ></th> 
                 </tr></thead>
                 <tbody>
+                  @foreach($projets as $value)
                   <tr>
-                    <td class="center aligned" data-label="Name">1</td>
-                    <td class="center aligned"  data-label="Age">Projet 1</td>
-                    <td class="center aligned"  data-label="Job">date 2</td>
-                    <td  class="center aligned" data-label="Job">date 2</td>
-                    <td class="center aligned"  data-label="Job">En cours</td> 
+                    <td class="center aligned" data-label="Name">{{$value->id_projet}}</td>
+                    <td class="center aligned"  data-label="Age">{{$value->Nom_projet}}</td>
+                    <td class="center aligned"  data-label="Job">{{$value->Date_début}}</td>
+                    <td  class="center aligned" data-label="Job">{{$value->Date_fin}}</td>
+                    <td class="center aligned"  data-label="Job">{{$value->etat_projet}}</td>    
+                    <td class="center aligned"  data-label="Job">
+                      <div class="ui icon button" data-tooltip="Modifier"> 
+                      <a href=""><i class="edit icon"></i> </a> </div> 
+                      <div class="ui icon button" data-tooltip="Modifier"> 
+                        <a href=""><i class="trash icon"></i> </a> </div> 
+
                         
+                    </td>    
                   </tr>
+                 @endforeach
                 </tbody>
               </table>
             </div> 
