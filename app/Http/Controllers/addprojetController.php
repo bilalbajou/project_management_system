@@ -19,7 +19,17 @@ class addprojetController extends Controller
             'dateDebut' => ['bail','required','Date','before:dateFin'],
             'dateFin'=>['bail','required','Date'],
             'descr'=>['max:255']
-        ]);
+        ],
+        [
+            'nomProjet.required' => 'Vous devez saisir le nom du projet',
+            'dateDebut.required' => 'Vous devez saisir la date de début',
+            'dateFin.required' => 'Vous devez saisir le date de fin',
+            'dateDebut.before' => 'La date de début doit être avant la date de fin.',
+            'descr.max'=>'ne dépasse 255 caractère'
+        ]
+         
+    );
+        
           $projet=new projet();
           $projet->Nom_projet=$request->input('nomProjet');
           $projet->Date_début=$request->input('dateDebut');
@@ -29,4 +39,6 @@ class addprojetController extends Controller
           $projet->save();
           return redirect()->route('listeProjet');
     }
+ 
+    
 }
