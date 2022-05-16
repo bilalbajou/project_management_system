@@ -17,7 +17,7 @@
       <title>Unipro</title>
       
     </head>
-    <body>
+    <body onload="showDate();">
       <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
        
@@ -155,7 +155,7 @@
                       <!-- <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6> -->
                     </div>
                     <div class="col-12 col-xl-4">
-                         <p>12:12:01</p>
+                         <p id="horloge"></p>
                     </div>
                   </div>
                 </div>
@@ -171,8 +171,8 @@
                             <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
                           </div>
                           <div class="ml-2">
-                            <h4 class="location font-weight-normal">Bangalore</h4>
-                            <h6 class="font-weight-normal">India</h6>
+                            <h4 class="location font-weight-normal" id="city">Bangalore</h4>
+                            <h6 class="font-weight-normal" id="country">India</h6>
                           </div>
                         </div>
                       </div>
@@ -242,7 +242,27 @@ setTimeout(() => {
  document.querySelector("body").classList.remove("spinner-1");
  document.querySelector("body").style.display = "block";
 }, 1000);
+            
       </script>
+         <script type="text/javascript"> 
+          function refresh(){
+              var t = 1000; // rafraîchissement en millisecondes
+              setTimeout('showDate()',t)
+          }
+          function showDate() {
+              var date = new Date()
+              var h = date.getHours();
+              var m = date.getMinutes();
+              var s = date.getSeconds();
+              if( h < 10 ){ h = '0' + h; }
+              if( m < 10 ){ m = '0' + m; }
+              if( s < 10 ){ s = '0' + s; }
+              var time = h + ':' + m + ':' + s
+              document.getElementById('horloge').innerHTML = time;
+              refresh();
+           }    
+       </script>
+      
       @extends('js.js')
     </body>
     

@@ -54,3 +54,8 @@
       transform: rotate(360deg);
     }
   }
+  #horloge{
+        font-size: 2rem;
+        font-weight: bold;
+        font-family: 'Courier New', Courier, monospace;
+  }

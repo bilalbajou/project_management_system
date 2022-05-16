@@ -197,6 +197,7 @@ setTimeout(() => {
 }, 1000);
    
       </script>
+       
       @extends('js.js')
     </body>
     

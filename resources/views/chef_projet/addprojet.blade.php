@@ -202,6 +202,7 @@
                   }, 1000);
               </script>
               
+              
              
             @extends('bloc.footer')
             
