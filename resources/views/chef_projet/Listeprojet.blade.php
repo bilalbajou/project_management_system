@@ -164,11 +164,28 @@
                     <td  class="center aligned" data-label="Job">{{$value->Date_fin}}</td>
                     <td class="center aligned"  data-label="Job">{{$value->etat_projet}}</td>    
                     <td class="center aligned"  data-label="Job">
-                      <div class="ui icon button" data-tooltip="Modifier"> 
+                      {{-- <div class="ui icon button" data-tooltip="Modifier"> 
                       <a href=""><i class="edit icon"></i> </a> </div> 
                       <div class="ui icon button" data-tooltip="Modifier"> 
-                        <a href=""><i class="trash icon"></i> </a> </div> 
-
+                        <a href=""><i class="trash icon"></i> </a> </div>  --}}
+                    {{-- <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a> --}}
+                <div class="container_form">
+                <form action="{{url('projet/' . $value->id_projet)}}" method="POST" id="form_modifier">
+                      @csrf
+                      @method('DELETE')
+                      <div class="ui icon button" data-tooltip="Modifier"> 
+                        <a><i class="edit icon"></i> </a> </div>
+                </form>
+                <form action="{{url('projet/' . $value->id_projet)}}" method="POST" id="form_suppr">
+                   
+                    @csrf
+                    @method('DELETE')
+                    <div class="ui icon button"  data-tooltip="Supprimer"> 
+                      <a ><i id="btn_supprimer" class="trash icon"></i></a></div>
+                </form>
+              </div>
+            </td>
+                     
                         
                     </td>    
                   </tr>
