@@ -170,18 +170,19 @@
                         <a href=""><i class="trash icon"></i> </a> </div>  --}}
                     {{-- <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a> --}}
                 <div class="container_form">
-                <form action="{{url('projet/' . $value->id_projet)}}" method="POST" id="form_modifier">
-                      @csrf
-                      @method('DELETE')
+                <form action="{{url('/projet/update/' . $value->id_projet)}}" method="POST" id="form_modifier">
+                       
+                  @csrf
+                  @method('DELETE')
                       <div class="ui icon button" data-tooltip="Modifier"> 
-                        <a><i class="edit icon"></i> </a> </div>
+                        <a><button type="submit" class="btn_update"><i class="edit icon"></i></button></a> </div>
                 </form>
                 <form action="{{url('projet/' . $value->id_projet)}}" method="POST" id="form_suppr">
                    
                     @csrf
                     @method('DELETE')
                     <div class="ui icon button"  data-tooltip="Supprimer"> 
-                      <a ><i id="btn_supprimer" class="trash icon"></i></a></div>
+                      <a ><button type="submit" class="btn_supp"><i class="trash icon"></i></button></a></div>
                 </form>
               </div>
             </td>
@@ -193,6 +194,7 @@
                 </tbody>
               </table>
             </div> 
+            
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
             

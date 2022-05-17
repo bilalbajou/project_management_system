@@ -5451,13 +5451,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
-document.getElementById("btn_supprimer").addEventListener('click', function () {
-  var confim = confirm("Êtes-vous sûr de supprimer ce projet");
-
-  if (confim) {
-    document.getElementById("form_suppr").submit();
-  }
-});
 
 /***/ }),
 
