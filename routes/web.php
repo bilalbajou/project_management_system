@@ -21,7 +21,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::fallback(function() {
+        return view('404');
+});
 Route::get('/',[homeController::class,"index"])->name('Homepage');
 Route::post('/addContact',[homeController::class,"store"])->name('addMessage');
 Route::get('/addProjet',[addprojetController::class,"index"])->name('addProjet');
@@ -29,6 +31,7 @@ Route::post('/addProjet',[addprojetController::class,"store"]);
 Route::get('/listeProjet',[listProjetController::class,"index"])->name('listeProjet');
 Route::delete('/projet/{id_projet}',[listProjetController::class,"destroy"])->name('projet.destroy');
 Route::delete('/projet/update/{id_projet}',[listProjetController::class,"edit"])->name('projet.edit');
+
 // Route::delete('/projet/update/{id_projet}',[listProjetController::class,"update"])->name('projet.update');
 Route::get('/addTache',[addTacheController::class,"index"])->name('addTache');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
