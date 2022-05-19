@@ -41,6 +41,7 @@ Route::middleware(['auth:sanctum', 'verified','chef_projet'])->get('/dashboard',
     return view('chef_projet.dashboard');
 })->name('dashboard');
 
+ 
 
 Route::get('redirects','App\Http\Controllers\RoleController@index')->name('redirect');
 

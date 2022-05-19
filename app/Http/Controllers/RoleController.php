@@ -16,10 +16,10 @@ class RoleController extends Controller
             return view('admin.adminHome');
         }
         else if($role=="Collaborateur"){
-                
+                return view('collaborateur.test');
         }
         else 
-          return view('403');
+         abort('403');
     }
 }
 
