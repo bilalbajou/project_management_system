@@ -136,7 +136,7 @@
                 <div class="collapse" id="tables">
                   <ul class="nav flex-column sub-menu">
                     <li class="nav-item"><a class="nav-link" href="pages/tables/basic-table.html">Liste des Réunions</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Ajouter Réunion</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('reunions.create')}}">Ajouter Réunion</a></li>
                   </ul>
                 </div>
               </li>

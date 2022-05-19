@@ -6,6 +6,7 @@ use App\Http\Controllers\addTacheController;
 use App\Http\Controllers\delete;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\listProjetController;
+use App\Http\Controllers\reunionController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -32,7 +33,7 @@ Route::middleware(['auth','chef_projet'])->group(function () {
     Route::delete('/projet/update/{id_projet}',[listProjetController::class,"edit"])->name('projet.edit');
     // Route::delete('/projet/update/{id_projet}',[listProjetController::class,"update"])->name('projet.update');
     Route::get('/addTache',[addTacheController::class,"index"])->name('addTache');
-    
+    Route::resource('reunions', reunionController::class);
 });
 Route::get('/',[homeController::class,"index"])->name('Homepage');
 Route::post('/addContact',[homeController::class,"store"])->name('addMessage');
@@ -40,8 +41,6 @@ Route::post('/addContact',[homeController::class,"store"])->name('addMessage');
 Route::middleware(['auth:sanctum', 'verified','chef_projet'])->get('/dashboard', function () {
     return view('chef_projet.dashboard');
 })->name('dashboard');
-
- 
 
 Route::get('redirects','App\Http\Controllers\RoleController@index')->name('redirect');
 

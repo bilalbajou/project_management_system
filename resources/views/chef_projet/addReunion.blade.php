@@ -1,48 +1,21 @@
-{{-- <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            
-            {{ __('Bonjour') }} {{ Auth::user()->name }}
-        </h2>
-    </x-slot> --}}
-    <!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>Update</title>
-      @extends('style.style')
-      <link rel="icon" href="assets/images/dashboard.png"/>
-    </head>
-    <body>
-      <div class="container-scroller">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="assets/images/dashboard.png"/>
+    @extends('style.style')
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
        
         @extends('bloc.navbar')
        
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
-          <!-- partial:partials/_settings-panel.html -->
-           {{-- <div class="theme-setting-wrapper">
-            <div id="settings-trigger"><i class="ti-settings"></i></div>
-            <div id="theme-settings" class="settings-panel">
-              <i class="settings-close ti-close"></i>
-              <p class="settings-heading">Thème</p>
-              <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
-              <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
-              <p class="settings-heading mt-2">HEADER SKINS</p>
-              <div class="color-tiles mx-0 px-4">
-                <div class="tiles success"></div>
-                <div class="tiles warning"></div>
-                <div class="tiles danger"></div>
-                <div class="tiles info"></div>
-                <div class="tiles dark"></div>
-                <div class="tiles default"></div>
-              </div>
-            </div>
-          </div>  --}}
           <div id="right-sidebar" class="settings-panel">
             <i class="settings-close ti-close"></i>
             <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
@@ -106,7 +79,7 @@
                 </a>
                 <div class="collapse" id="form-elements">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Liste des Tâche</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Liste des Tâche</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('addTache')}} ">Ajouter Tâche</a></li>
                   </ul>     
                 </div>
@@ -116,13 +89,13 @@
               <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
                   <i class="user icon menu-icon mb-1"></i>
-                  <span class="menu-title">Collaborateurs</span>
+                  <span class="menu-title">coloborateur</span>
                   <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="charts">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="pages/charts/chartjs.html">Liste des collaborateurs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pages/charts/chartjs.html">Ajouter collaborateur</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Liste des coloborateurs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Ajouter Membre</a></li>
                   </ul>
                 </div>
               </li>
@@ -134,8 +107,8 @@
                 </a>
                 <div class="collapse" id="tables">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Liste des Réunions</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Ajouter Réunion</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="">Liste des Réunions</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="">Ajouter Réunion</a></li>
                   </ul>
                 </div>
               </li>
@@ -146,15 +119,12 @@
           <!-- partial -->
           <div class="main-panel"> 
             <div class="content-wrapper pb-0"> 
-              <h2 class="ui header">Ajouter nouveaux projet </h2>
-              
-               <form class="ui form" action="{{route('addProjet')}}" method="POST">
-                 @csrf
+              <h2 class="ui header">Ajouter une nouvelle reunion</h2>
+               <form class="ui form" action="">
                 <div class="fields">
                   <div class="six wide field">
-                    <label>Nom du projet</label>
-                    <input type="text" name="nomProjet">
-                    
+                    <label>Nom du reunion</label>
+                    <input type="text" name="nomreunion">
                   </div>
                   <div class="four wide field">
                     <label>Date de début</label>
@@ -164,7 +134,10 @@
                     <label>Date de fin</label>
                     <input type="date" name="dateFin">
                   </div>
-                 
+                  <div class="six wide field">
+                    <label>inviter</label>
+                    <input type="text" name="lesinviter">
+                  </div>
                 </div>
                 <div class="fields">
                   <div class="field sixteen wide">
@@ -172,22 +145,10 @@
                     <textarea rows="3" name="descr"></textarea>
                   </div>
                 </div>
-                <input class="ui submit button black" id="btn_ajout" type="submit" value="Ajouter">
-                @if ($errors->any())
-                <div class="ui info message">
-                  <div class="header">
-                    Vérifiez vos informations !
-                  </div>
-                  <ul class="list">
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                     @endforeach
-                  </ul>
-                </div>
-                @endif
+                <div class="ui submit button black" id="btn_ajout">Ajouter</div>
+                <div class="ui error message" ></div>
                </form>
                
-              
               
               
             </div> 
@@ -202,7 +163,6 @@
                   }, 1000);
               </script>
               
-              
              
             @extends('bloc.footer')
             
@@ -210,34 +170,9 @@
           </div>
           <!-- main-panel ends -->
         </div>
+        
         <!-- page-body-wrapper ends -->
       </div>
-      <!-- container-scroller -->
-      @extends('js.js')
-    </body>
-    
-    </html>
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    {{-- <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
-            </div>
-        </div>
-    </div> --}}
-{{-- </x-app-layout> --}}
+    @extends('js.js')
+</body>
+</html>
