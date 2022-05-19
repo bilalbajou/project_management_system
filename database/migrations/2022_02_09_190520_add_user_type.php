@@ -28,7 +28,7 @@ class AddUserType extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->enum('user_type', ['Chef du projet', 'Webmaster','Employée']);
+            $table->enum('type_utilisateur', ['Chef du projet', 'Webmaster','Collaborateur']);
         });
          
     }
