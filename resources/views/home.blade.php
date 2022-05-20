@@ -93,9 +93,7 @@
 
                     <div class="col-md-6 col-sm-12">
                          <div class="home-video" >
-                              <div class="embed-responsive embed-responsive-16by9">
-                                   <iframe src="https://www.youtube.com/embed/AqcjdkPMPJA" frameborder="0" allowfullscreen></iframe>
-                              </div>
+                              
                          </div>
                     </div>
                     
@@ -115,7 +113,7 @@
                                    <h2>Laissez-nous vous présenter</h2>
                                    <span class="line-bar">...</span>
                               </div>
-                              <p>Gérer des projets en ligne, c’est possible. Unipro est une plateforme de gestion de projet en ligne gratuite. Créez et gérez autant de projets que vous le souhaitez sur Unipro. Profitez des nombreuses fonctionnalités pour optimiser votre gestion : diagrammes de Gantt, gestion des tâches, rappels, outils de collaboration et bien plus encore.</p>
+                              <p>Gérer des projets en ligne, c’est possible. Unipro est une plateforme de gestion de projet en ligne gratuite. Créez et gérez autant de projets que vous le souhaitez sur Unipro. Profitez des nombreuses fonctionnalités pour optimiser votre gestion :  gestion des tâches, rappels, outils de collaboration et bien plus encore.</p>
                               
                          </div>
                     </div>
@@ -147,8 +145,8 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
                          <h2 class="ui center aligned icon header">
-                              <i class="tasks icon"></i>
-                              Tâches et gestion de projet
+                              <i class="suitcase icon"></i>
+                              Suivi du projet
                             </h2>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis delectus
                               numquam voluptas possimus minima in,
@@ -157,8 +155,8 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
                          <h2 class="ui center aligned icon header">
-                              <i class="calendar alternate icon"></i>
-                              Gestion du temps
+                              <i class="tasks icon"></i>
+                              Gestion des tâches
                             </h2>
                             <p>Le temps passé sur chaque tâche du projet peut être suivi et les tâches
                                   sont intégrées au calendrier du groupe. 
@@ -166,8 +164,8 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-sm-12">
                          <h2 class="ui center aligned icon header">
-                              <i class="chart bar icon"></i>
-                              Diagramme de Gantt
+                              <i class="calendar check outline icon"></i>
+                              Gestion des réunions
                          </h2>
                          <p>Le diagramme de Gantt, couramment utilisé en gestion de projet, est l'un des outils
                                les plus efficaces pour représenter visuellement 
@@ -291,13 +289,13 @@
                     <div class="col-md-5 col-sm-12">
                          <div class="footer-thumb footer-info"> 
                               <h2>Unipro</h2>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>Unipro c'est la meilleure outil pour gérer vos projets, Unipro propose les outils nécessaires pour la gestion de vos projets</p>
                          </div>
                     </div>
 
                     <div class="col-md-2 col-sm-4"> 
                          <div class="footer-thumb"> 
-                              <h2>Company</h2>
+                              <h2>Entreprise</h2>
                               <ul class="footer-link">
                                    <li><a href="#">Acceuil</a></li>
                                    <li><a href="#">à propos de nous</a></li>
@@ -312,9 +310,9 @@
                          <div class="footer-thumb"> 
                               <h2>Services</h2>
                               <ul class="footer-link">
-                                   <li><a href="#">Tâches et gestion de projet</a></li>
-                                   <li><a href="#">Gestion du temps</a></li>
-                                   <li><a href="#">Diagramme de Gantt</a></li>
+                                   <li><a href="#">Suivi du projet</a></li>
+                                   <li><a href="#">Gestion des tâches</a></li>
+                                   <li><a href="#">Gestion des réunions</a></li>
                                    <li><a href="#">Gestion des ressources</a></li>
                               </ul>
                          </div>
@@ -322,7 +320,7 @@
 
                     <div class="col-md-3 col-sm-4"> 
                          <div class="footer-thumb"> 
-                              <h2>Find us</h2>
+                              <h2>Trouvez-nous</h2>
                               <p>Unipro@gmail.com, <br> 515 W. 8th Lane
                                    Neptune, NJ 07753</p>
                          </div>
