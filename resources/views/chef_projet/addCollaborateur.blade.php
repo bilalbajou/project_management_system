@@ -79,7 +79,7 @@
           <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('dashboard') }}">
+                <a class="nav-link" href="{{ route('redirect') }}">
                   <i class="th icon menu-icon mb-1"></i>
                   <span class="menu-title">Tableau du board</span>
                 </a>
@@ -106,8 +106,8 @@
                 </a>
                 <div class="collapse" id="form-elements">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="">Liste des Tâche</a></li>
-                    <li class="nav-item"><a class="nav-link" href=" ">Ajouter Tâche</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Liste des Tâche</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('taches.create')}} ">Ajouter Tâche</a></li>
                   </ul>     
                 </div>
     
@@ -116,13 +116,13 @@
               <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
                   <i class="user icon menu-icon mb-1"></i>
-                  <span class="menu-title">coloborateur</span>
+                  <span class="menu-title">Collaborateurs</span>
                   <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="charts">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="">Liste des coloborateur</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Ajouter des coloborateur</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/charts/chartjs.html">Liste des Collaborateurs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('collaborateurs.create') }}">Ajouter Collaborateur</a></li>
                   </ul>
                 </div>
               </li>
@@ -134,8 +134,8 @@
                 </a>
                 <div class="collapse" id="tables">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="">Liste des Réunions</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="">Ajouter Réunion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/tables/basic-table.html">Liste des Réunions</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('reunions.create')}}">Ajouter Réunion</a></li>
                   </ul>
                 </div>
               </li>

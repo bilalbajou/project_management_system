@@ -70,6 +70,7 @@
                   <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
                   <p class="text-gray mb-0 ">Call Sarah Graves</p>
                 </div>
+               
               </div>
               
             </div>
@@ -80,7 +81,7 @@
           <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('dashboard') }}">
+                <a class="nav-link" href="{{ route('redirect') }}">
                   <i class="th icon menu-icon mb-1"></i>
                   <span class="menu-title">Tableau du board</span>
                 </a>
@@ -117,13 +118,13 @@
               <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
                   <i class="user icon menu-icon mb-1"></i>
-                  <span class="menu-title">Membres</span>
+                  <span class="menu-title">Collaborateurs</span>
                   <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="charts">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="pages/charts/chartjs.html">Liste des Membres</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('collaborateurs.create') }}">Ajouter Membre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/charts/chartjs.html">Liste des Collaborateurs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('collaborateurs.create') }}">Ajouter Collaborateur</a></li>
                   </ul>
                 </div>
               </li>
@@ -184,7 +185,7 @@
                     <div class="col-md-6 mb-4 stretch-card transparent">
                       <div class="card card-tale">
                         <div class="card-body">
-                          <p class="mb-4">Nombre des Membres</p>
+                          <p class="mb-4">Nombre des Collaborateurs</p>
                           <p class="fs-30 mb-2">4006</p>
                         </div>
                       </div>
