@@ -46,6 +46,9 @@ class listProjetController extends Controller
         $projet = projet::where('id_projet', $id)->delete();
         return back();
     }
+    public function more(){
+           return view("chef_projet.projetPlus");
+    }
 }
     
 

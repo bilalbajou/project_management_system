@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class reunion extends Model
 {
     use HasFactory;
-    public function projets(){
+    public function projet(){
         $this->belongsTo(projet::class);
    }
 }

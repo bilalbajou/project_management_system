@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class tache extends Model
 {
     use HasFactory;
+    public function projet(){
+        return $this->belongsTo(projet::class);
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    
 }

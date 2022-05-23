@@ -21,7 +21,9 @@ class CreateTachesTable extends Migration
             $table->unsignedBigInteger("durée");
             $table->enum("état_tache",["En Cours","Terminée"])->default("En Cours");
             $table->unsignedBigInteger("projet");
+            $table->unsignedBigInteger("collaborateur");
             $table->foreign("projet")->references("id_projet")->on("projets");
+            $table->foreign("collaborateur")->references("id")->on("users");
             $table->timestamps();
         });
     }

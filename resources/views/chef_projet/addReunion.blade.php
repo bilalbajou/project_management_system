@@ -1,21 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="assets/images/dashboard.png"/>
-    @extends('style.style')
-    <title>Document</title>
-</head>
-<body>
-    <div class="container-scroller">
+{{-- <x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            
+            {{ __('Bonjour') }} {{ Auth::user()->name }}
+        </h2>
+    </x-slot> --}}
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Unipro</title>
+      @extends('style.style')
+      <link rel="icon" href="assets/images/dashboard.png"/>
+    </head>
+    <body>
+      <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
        
         @extends('bloc.navbar')
        
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
+          <!-- partial:partials/_settings-panel.html -->
+           {{-- <div class="theme-setting-wrapper">
+            <div id="settings-trigger"><i class="ti-settings"></i></div>
+            <div id="theme-settings" class="settings-panel">
+              <i class="settings-close ti-close"></i>
+              <p class="settings-heading">Thème</p>
+              <div class="sidebar-bg-options selected" id="sidebar-light-theme"><div class="img-ss rounded-circle bg-light border mr-3"></div>Light</div>
+              <div class="sidebar-bg-options" id="sidebar-dark-theme"><div class="img-ss rounded-circle bg-dark border mr-3"></div>Dark</div>
+              <p class="settings-heading mt-2">HEADER SKINS</p>
+              <div class="color-tiles mx-0 px-4">
+                <div class="tiles success"></div>
+                <div class="tiles warning"></div>
+                <div class="tiles danger"></div>
+                <div class="tiles info"></div>
+                <div class="tiles dark"></div>
+                <div class="tiles default"></div>
+              </div>
+            </div>
+          </div>  --}}
           <div id="right-sidebar" class="settings-panel">
             <i class="settings-close ti-close"></i>
             <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
@@ -108,7 +135,7 @@
                 <div class="collapse" id="tables">
                   <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" href="">Liste des Réunions</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="">Ajouter Réunion</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('reunions.create')}}">Ajouter Réunion</a></li>
                   </ul>
                 </div>
               </li>
@@ -170,9 +197,34 @@
           </div>
           <!-- main-panel ends -->
         </div>
-        
         <!-- page-body-wrapper ends -->
       </div>
-    @extends('js.js')
-</body>
-</html>
+      <!-- container-scroller -->
+      @extends('js.js')
+    </body>
+    
+    </html>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {{-- <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <x-jet-welcome />
+            </div>
+        </div>
+    </div> --}}
+{{-- </x-app-layout> --}}

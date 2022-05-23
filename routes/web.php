@@ -33,7 +33,10 @@ Route::middleware(['auth','chef_projet'])->group(function () {
     Route::delete('/projet/update/{id_projet}',[listProjetController::class,"edit"])->name('projet.edit');
     // Route::delete('/projet/update/{id_projet}',[listProjetController::class,"update"])->name('projet.update');
     Route::get('/addTache',[addTacheController::class,"index"])->name('addTache');
-    Route::resource('reunions', reunionController::class);
+    Route::get('/addReunion',[reunionController::class,"create"])->name('reunions.create');
+    Route::delete('/projet/détails/{id_projet}',[listProjetController::class,"more"])->name('projets.more');
+    
+
 });
 Route::get('/',[homeController::class,"index"])->name('Homepage');
 Route::post('/addContact',[homeController::class,"store"])->name('addMessage');
@@ -43,7 +46,6 @@ Route::middleware(['auth:sanctum', 'verified','chef_projet'])->get('/dashboard',
 })->name('dashboard');
 
 Route::get('redirects','App\Http\Controllers\RoleController@index')->name('redirect');
-
 
 
 

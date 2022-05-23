@@ -63,6 +63,9 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
     public function projets(){
-         $this->hasMany(projet::class);
+        return $this->hasMany(projet::class);
+    }
+    public function taches(){
+       return $this->hasMany(tache::class);
     }
 }

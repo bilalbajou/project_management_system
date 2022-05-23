@@ -19,4 +19,10 @@ class projet extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function taches(){
+        return $this->hasMany(tache::class);
+    }
+    public function reunions(){
+        return $this->hasMany(reunion::class);
+    }
 }

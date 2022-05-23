@@ -3,8 +3,6 @@
  <script src="assets/semantic_ui/semantic.min.js"></script>
  <script src="vendors/js/vendor.bundle.base.js"></script>
  <!-- endinject -->
- 
- 
  <script src="js_template/off-canvas.js"></script>
  <script src="js_template/hoverable-collapse.js"></script>
  <script src="js_template/template.js"></script>

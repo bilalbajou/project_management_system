@@ -184,6 +184,13 @@
                     <div class="ui icon button"  data-tooltip="Supprimer"> 
                       <a ><button type="submit" class="btn_supp"><i class="trash icon"></i></button></a></div>
                 </form>
+                <form action="{{url('projet/détails/' . $value->id_projet)}}" method="POST" id="form_view">
+                   
+                  @csrf
+                  @method('DELETE')
+                  <div class="ui icon button"  data-tooltip="Plus"> 
+                    <a ><button type="submit" class="btn_supp"><i class="eye icon"></i></button></a></div>
+              </form>
               </div>
             </td>
                      
