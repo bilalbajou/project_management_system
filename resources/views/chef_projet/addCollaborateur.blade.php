@@ -12,12 +12,11 @@
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Unipro</title>
       @extends('style.style')
       <link rel="icon" href="assets/images/dashboard.png"/>
-      <title>Unipro</title>
-      
     </head>
-    <body onload="showDate();">
+    <body>
       <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
        
@@ -107,8 +106,8 @@
                 </a>
                 <div class="collapse" id="form-elements">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Liste des Tâche</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('taches.create')}} ">Ajouter Tâche</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Liste des Tâche</a></li>
+                    <li class="nav-item"><a class="nav-link" href=" ">Ajouter Tâche</a></li>
                   </ul>     
                 </div>
     
@@ -117,13 +116,13 @@
               <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
                   <i class="user icon menu-icon mb-1"></i>
-                  <span class="menu-title">Membres</span>
+                  <span class="menu-title">coloborateur</span>
                   <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="charts">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="pages/charts/chartjs.html">Liste des Membres</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('collaborateurs.create') }}">Ajouter Membre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Liste des coloborateur</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Ajouter des coloborateur</a></li>
                   </ul>
                 </div>
               </li>
@@ -135,8 +134,8 @@
                 </a>
                 <div class="collapse" id="tables">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="pages/tables/basic-table.html">Liste des Réunions</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route('reunions.create')}}">Ajouter Réunion</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="">Liste des Réunions</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="">Ajouter Réunion</a></li>
                   </ul>
                 </div>
               </li>
@@ -147,87 +146,63 @@
           <!-- partial -->
           <div class="main-panel"> 
             <div class="content-wrapper pb-0"> 
-              <div class="row">
-                <div class="col-md-12 grid-margin">
-                  <div class="row">
-                    <div class="col-12 col-xl-8 mb-1 mb-xl-0">
-                      <h3 class="font-weight-bold">Bonjour {{ Auth::user()->name}}</h3>
-                      <!-- <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6> -->
-                    </div>
-                    <div class="col-12 col-xl-4">
-                         <p id="horloge"></p>
-                    </div>
+              <h2 class="ui header">Ajouter un nouveaux collaborateur</h2>
+               <form class="ui form" action="{{route('collaborateurs.store')}}" method="post">
+                 @csrf
+                <div class="fields">
+                  <div class="eight wide field">
+                    <label>Nom</label>
+                    <input type="text" name="nom">
                   </div>
+                  <div class="eight wide field">
+                    <label>Prenom</label>
+                    <input type="text" name="prenom">
+                  </div>
+                  
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6 grid-margin stretch-card">
-                  <div class="card tale-bg">
-                    <div class="card-people mt-auto">
-                      <img src="images/dashboard/people.svg" alt="people">
-                      <div class="weather-info">
-                        <div class="d-flex">
-                          <div>
-                            <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>31<sup>C</sup></h2>
-                          </div>
-                          <div class="ml-2">
-                            <h4 class="location font-weight-normal" id="city">Bangalore</h4>
-                            <h6 class="font-weight-normal" id="country">India</h6>
-                          </div>
-                        </div>
+                
+                <div class="fields">
+                    <div class="eight wide field">
+                        <label>Email</label>
+                        <input type="text" name="email">
                       </div>
-                    </div>
-                  </div>
+                     <div class="eight wide field">
+                    <label>Mot de passe</label>
+                    <input type="text" name="pass">
+                      </div>
                 </div>
-                <div class="col-md-6 grid-margin transparent">
-                  <div class="row">
-                    <div class="col-md-6 mb-4 stretch-card transparent">
-                      <div class="card card-tale">
-                        <div class="card-body">
-                          <p class="mb-4">Nombre des Membres</p>
-                          <p class="fs-30 mb-2">4006</p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6 mb-4 stretch-card transparent">
-                      <div class="card card-dark-blue">
-                        <div class="card-body">
-                          <p class="mb-4">Nombre des Projets</p>
-                          <p class="fs-30 mb-2">34040</p>
-                          
-                        </div>
-                      </div>
-                    </div>
+                <input class="ui submit button black" id="btn_ajout" type="submit" value="Ajouter">
+                @if ($errors->any())
+                <div class="ui info message">
+                  <div class="header">
+                    Vérifiez vos informations !
                   </div>
-                  <div class="row">
-                    <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-                      <div class="card card-light-blue">
-                        <div class="card-body">
-                          <p class="mb-4">Nombre des Réunions</p>
-                          <p class="fs-30 mb-2">34040</p>
-                          
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-6 stretch-card transparent">
-                      <div class="card card-light-danger">
-                        <div class="card-body">
-                          <p class="mb-4">Nombre des Tâche </p>
-                          <p class="fs-30 mb-2">47033</p>
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <ul class="list">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                     @endforeach
+                  </ul>
                 </div>
-              </div>   
-
+                @endif
+               </form>
+               
+              
+              
             </div> 
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
-            
+            <script>
+                 document.querySelector("body").style.display = "none";
+                  document.querySelector("body").classList.add("spinner-1");
+                  setTimeout(() => {
+                  document.querySelector("body").classList.remove("spinner-1");
+                  document.querySelector("body").style.display = "block";
+                  }, 1000);
+              </script>
+              
+             
             @extends('bloc.footer')
-           
+            
             <!-- partial -->
           </div>
           <!-- main-panel ends -->
@@ -235,34 +210,6 @@
         <!-- page-body-wrapper ends -->
       </div>
       <!-- container-scroller -->
-      <script>
-       document.querySelector("body").style.display = "none";
-document.querySelector("body").classList.add("spinner-1");
-setTimeout(() => {
- document.querySelector("body").classList.remove("spinner-1");
- document.querySelector("body").style.display = "block";
-}, 1000);
-            
-      </script>
-         <script type="text/javascript"> 
-          function refresh(){
-              var t = 1000; // rafraîchissement en millisecondes
-              setTimeout('showDate()',t)
-          }
-          function showDate() {
-              var date = new Date()
-              var h = date.getHours();
-              var m = date.getMinutes();
-              var s = date.getSeconds();
-              if( h < 10 ){ h = '0' + h; }
-              if( m < 10 ){ m = '0' + m; }
-              if( s < 10 ){ s = '0' + s; }
-              var time = h + ':' + m + ':' + s
-              document.getElementById('horloge').innerHTML = time;
-              refresh();
-           }    
-       </script>
-      
       @extends('js.js')
     </body>
     

@@ -107,7 +107,7 @@
                 <div class="collapse" id="form-elements">
                   <ul class="nav flex-column sub-menu">
                     <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Liste des Tâche</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('addTache')}} ">Ajouter Tâche</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('taches.create')}} ">Ajouter Tâche</a></li>
                   </ul>     
                 </div>
     
@@ -147,44 +147,40 @@
           <div class="main-panel"> 
             <div class="content-wrapper pb-0"> 
               <h2 class="ui header">Ajouter nouveaux tâche</h2>
-                <form class="ui form">
+                <form class="ui form" action="{{route('taches.store')}}" method="POST">
+                  @csrf
                     <div class="fields">
                       <div class="six wide field">
                         <label>Nom du Tâche</label>
-                        <input type="text" name="nomTâche">
+                        <input type="text" name="nomTache">
                       </div>
                       <div class="four wide field">
                         <label>Date de début</label>
                         <input type="date" name="dateDebut" >
                       </div>
                       <div class="six wide field">
-                        <label>Durée du Tâche</label>
-                        <input type="text" name="dureeTâche">
+                        <label>Durée du Tâche ( En jours )</label>
+                        <input type="text" name="dureeTache">
                       </div>
                     </div>
                     <div class="fields">
-                        <div class="six wide field">
+                        <div class="eight wide field">
                           <label>Affecter à</label>
-                          <input type="text" name="nomMembre">
+                          <select class="ui dropdown" name="collab">
+                            @foreach ($collab as $item)
+                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
+                            @endforeach
+                          </select>
                         </div>
-                        <div class="four wide field">
+                        <div class="eight wide field">
                           <label>Projet</label>
-                          <select class="ui dropdown" name="nomProjet">
-                            <option value="">Gender</option>
-                            <option value="1">Male</option>
-                            <option value="0">Female</option>
+                          <select class="ui dropdown" name="projet">
+                            @foreach ($projets as $value)
+                                <option value="{{ $value->id_projet }}"> {{$value->Nom_projet}} </option>
+                            @endforeach
                           </select>
                         </div>
-                        <div class="six wide field">
-                          <label>Tâche Antérieure</label>
-                          <select class="ui search dropdown" name="antTâche">
-                            <option value="">State</option>
-                            <option value="AL">Alabama</option>
-                            <option value="AK">Alaska</option>
-                            <option value="AZ">Arizona</option>
-                            <option value="AR">Arkansas</option>
-                          </select>
-                        </div>
+                    
                        
                       </div>
                     <div class="fields">
@@ -193,11 +189,19 @@
                         <textarea rows="3" name="descr"></textarea>
                       </div>
                     </div>
-                    <div class="ui error message">
-                      <i class="close icon"></i>
-                      <p>Form validation</p>
+                    <input class="ui black button" type="submit" value="Ajouter">
+                     @if ($errors->any())
+                    <div class="ui info message">
+                      <div class="header">
+                        Vérifiez vos informations !
+                      </div>
+                      <ul class="list">
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                         @endforeach
+                      </ul>
                     </div>
-                    <div class="ui black button" tabindex="0">Ajouter</div>
+                    @endif
                    </form>
                   
             </div> 
