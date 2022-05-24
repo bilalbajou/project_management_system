@@ -215,7 +215,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-12">
                          <img class="ui centered medium circular image" src="assets/images/TC TechCrunch.png">
                          <p>Ce site nous a aidée à accélérer le processus de réalisation de nos projets aussi qu'améliore 
-                              le niveau de contact entre les membres de l'équipe.</p>
+                              le niveau de contact entre les Collaborateurs de l'équipe.</p>
                     </div>
                    
                </div>

@@ -142,69 +142,65 @@
              
             </ul>
           </nav>
+          
           <!-- partial -->
           <div class="main-panel"> 
             <div class="content-wrapper pb-0"> 
-              <h2 class="ui header">Liste des projets</h2>
-              <table class="ui celled table">
-                <thead>
-                  <tr class="center aligned" ><th>#</th>
-                  <th class="center aligned" >Nom du projet</th>
-                  <th class="center aligned" >Date début</th>
-                  <th class="center aligned" >date fin</th>
-                  <th class="center aligned" >Statut</th> 
-                  <th class="center aligned" ></th> 
-                </tr></thead>
-                <tbody>
-                  @foreach($projets as $value)
-                  <tr>
-                    <td class="center aligned" data-label="Name">{{$value->id_projet}}</td>
-                    <td class="center aligned"  data-label="Age">{{$value->Nom_projet}}</td>
-                    <td class="center aligned"  data-label="Job">{{$value->Date_début}}</td>
-                    <td  class="center aligned" data-label="Job">{{$value->Date_fin}}</td>
-                    <td class="center aligned"  data-label="Job">{{$value->etat_projet}}</td>    
-                    <td class="center aligned"  data-label="Job">
-                      {{-- <div class="ui icon button" data-tooltip="Modifier"> 
-                      <a href=""><i class="edit icon"></i> </a> </div> 
-                      <div class="ui icon button" data-tooltip="Modifier"> 
-                        <a href=""><i class="trash icon"></i> </a> </div>  --}}
-                    {{-- <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a> --}}
-                <div class="container_form">
-                <form action="{{url('/projet/update/' . $value->id_projet)}}" method="POST" id="form_modifier">
-                       
-                  @csrf
-                  @method('DELETE')
-                      <div class="ui icon button" data-tooltip="Modifier"> 
-                        <a><button type="submit" class="btn_update"><i class="edit icon"></i></button></a> </div>
-                </form>
-                <form action="{{url('projet/' . $value->id_projet)}}" method="POST" id="form_suppr">
-                   
-                    @csrf
-                    @method('DELETE')
-                    <div class="ui icon button"  data-tooltip="Supprimer"> 
-                      <a ><button type="submit" class="btn_supp"><i class="trash icon"></i></button></a></div>
-                </form>
-                <form action="{{url('projet/détails/' . $value->id_projet)}}" method="POST" id="form_view">
-                   
-                  @csrf
-                  @method('DELETE')
-                  <div class="ui icon button"  data-tooltip="Plus"> 
-                    <a ><button type="submit" class="btn_supp"><i class="eye icon"></i></button></a></div>
-              </form>
-              </div>
-            </td>
-                     
-                        
-                    </td>    
-                  </tr>
-                 @endforeach
-                </tbody>
-              </table>
+              <h2 class="ui header">Ajouter un nouveaux collaborateur</h2>
+               <form class="ui form" action="{{route('collaborateurs.store')}}" method="post">
+                 @csrf
+                <div class="fields">
+                  <div class="eight wide field">
+                    <label>Nom</label>
+                    <input type="text" name="nom">
+                  </div>
+                  <div class="eight wide field">
+                    <label>Prenom</label>
+                    <input type="text" name="prenom">
+                  </div>
+                  
+                </div>
+                
+                <div class="fields">
+                    <div class="eight wide field">
+                        <label>Email</label>
+                        <input type="text" name="email">
+                      </div>
+                     <div class="eight wide field">
+                    <label>Mot de passe</label>
+                    <input type="text" name="pass">
+                      </div>
+                </div>
+                <input class="ui submit button black" id="btn_ajout" type="submit" value="Ajouter">
+                @if ($errors->any())
+                <div class="ui info message">
+                  <div class="header">
+                    Vérifiez vos informations !
+                  </div>
+                  <ul class="list">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                     @endforeach
+                  </ul>
+                </div>
+                @endif
+               </form>
+               
+              
+              
             </div> 
-            
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
-            
+            <script>
+                 document.querySelector("body").style.display = "none";
+                  document.querySelector("body").classList.add("spinner-1");
+                  setTimeout(() => {
+                  document.querySelector("body").classList.remove("spinner-1");
+                  document.querySelector("body").style.display = "block";
+                  }, 1000);
+              </script>
+              
+             
             @extends('bloc.footer')
             
             <!-- partial -->
@@ -214,16 +210,6 @@
         <!-- page-body-wrapper ends -->
       </div>
       <!-- container-scroller -->
-      <script>
-          document.querySelector("body").style.display = "none";
-document.querySelector("body").classList.add("spinner-1");
-setTimeout(() => {
- document.querySelector("body").classList.remove("spinner-1");
- document.querySelector("body").style.display = "block";
-}, 1000);
-   
-      </script>
-       
       @extends('js.js')
     </body>
     

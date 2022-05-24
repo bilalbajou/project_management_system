@@ -79,7 +79,7 @@
           <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('dashboard') }}">
+                <a class="nav-link" href="{{ route('redirect') }}">
                   <i class="th icon menu-icon mb-1"></i>
                   <span class="menu-title">Tableau du board</span>
                 </a>
@@ -106,8 +106,8 @@
                 </a>
                 <div class="collapse" id="form-elements">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="">Liste des Tâche</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('addTache')}} ">Ajouter Tâche</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Liste des Tâche</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('taches.create')}} ">Ajouter Tâche</a></li>
                   </ul>     
                 </div>
     
@@ -116,13 +116,13 @@
               <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
                   <i class="user icon menu-icon mb-1"></i>
-                  <span class="menu-title">coloborateur</span>
+                  <span class="menu-title">Collaborateurs</span>
                   <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="charts">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="">Liste des coloborateurs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="">Ajouter Membre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/charts/chartjs.html">Liste des Collaborateurs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('collaborateurs.create') }}">Ajouter Collaborateur</a></li>
                   </ul>
                 </div>
               </li>
@@ -134,7 +134,7 @@
                 </a>
                 <div class="collapse" id="tables">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="">Liste des Réunions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/tables/basic-table.html">Liste des Réunions</a></li>
                     <li class="nav-item"> <a class="nav-link" href="{{route('reunions.create')}}">Ajouter Réunion</a></li>
                   </ul>
                 </div>
@@ -147,23 +147,24 @@
           <div class="main-panel"> 
             <div class="content-wrapper pb-0"> 
               <h2 class="ui header">Ajouter une nouvelle reunion</h2>
-               <form class="ui form" action="">
+               <form class="ui form" action="{{route('reunions.store')}}" method="post">
+                @csrf
                 <div class="fields">
                   <div class="six wide field">
-                    <label>Nom du reunion</label>
-                    <input type="text" name="nomreunion">
+                    <label>Sujet du reunion</label>
+                    <input type="text" name="sujetReunion">
                   </div>
                   <div class="four wide field">
-                    <label>Date de début</label>
-                    <input type="date" name="dateDebut" >
+                    <label>Date et Heure</label>
+                    <input type="datetime-local" name="dateDebut" >
                   </div>
                   <div class="six wide field">
-                    <label>Date de fin</label>
-                    <input type="date" name="dateFin">
-                  </div>
-                  <div class="six wide field">
-                    <label>inviter</label>
-                    <input type="text" name="lesinviter">
+                    <label>Projet</label>
+                    <select class="ui dropdown" name="projet">
+                      @foreach ($projets as $item)
+                          <option value="{{  $item->id_projet }}">{{ $item->Nom_projet }}</option>
+                      @endforeach
+                    </select>
                   </div>
                 </div>
                 <div class="fields">
@@ -172,8 +173,19 @@
                     <textarea rows="3" name="descr"></textarea>
                   </div>
                 </div>
-                <div class="ui submit button black" id="btn_ajout">Ajouter</div>
-                <div class="ui error message" ></div>
+                <input class="ui submit button black" id="btn_ajout" type="submit"  value="Ajouter">
+                @if ($errors->any())
+                <div class="ui info message">
+                  <div class="header">
+                    Vérifiez vos informations !
+                  </div>
+                  <ul class="list">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                     @endforeach
+                  </ul>
+                </div>
+                @endif
                </form>
                
               
