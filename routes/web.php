@@ -46,7 +46,7 @@ Route::middleware(['auth','chef_projet'])->group(function () {
     // Routes Collaborateur
     Route::get('/addCollaborateur',[collaborateurController::class,"create"])->name('collaborateurs.create');
     Route::post('/addCollaborateur',[collaborateurController::class,"store"])->name("collaborateurs.store");
-
+    // Routes 
 });
        // Route Acceuil
 Route::get('/',[homeController::class,"index"])->name('Homepage');
