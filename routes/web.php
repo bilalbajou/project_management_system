@@ -40,12 +40,18 @@ Route::middleware(['auth','chef_projet'])->group(function () {
     // Routes taches
     Route::get('/addTache',[tacheController::class,"create"])->name('taches.create');
     Route::post('/addTache',[tacheController::class,"store"])->name('taches.store');
+    Route::get('/listtache',[tacheController::class,"index"])->name('taches.index');
+
     //  Routes Réunion 
     Route::get('/addReunion',[reunionController::class,"create"])->name('reunions.create');
     Route::post('/addReunion',[reunionController::class,"store"])->name("reunions.store");
+    Route::get('/listreunion',[reunionController::class,"index"])->name('reunions.index');
+
     // Routes Collaborateur
     Route::get('/addCollaborateur',[collaborateurController::class,"create"])->name('collaborateurs.create');
     Route::post('/addCollaborateur',[collaborateurController::class,"store"])->name("collaborateurs.store");
+    Route::get('/listcollaborateur',[collaborateurController::class,"index"])->name('collaborateurs.index');
+
     // Routes 
 });
        // Route Acceuil

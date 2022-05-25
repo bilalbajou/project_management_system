@@ -35,5 +35,11 @@ class reunionController extends Controller
                 $reunion->description=$request->input('descr');
                 $reunion->save();
                 
+
       }
-}
+      public function index(){
+            $reunion=reunion::all();
+            return view('chef_projet.Listreunion',compact('reunion'));
+        }
+    }
+

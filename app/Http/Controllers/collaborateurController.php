@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -34,5 +33,9 @@ class collaborateurController extends Controller
         'password' => Hash::make($request['pass']),
         'user_type'=>'Collaborateur'
     ]);
+    }
+    public function index(){
+        $user=user::all();
+        return view('chef_projet.Listcollaborateur',compact('user'));
     }
 }

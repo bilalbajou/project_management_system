@@ -47,4 +47,9 @@ class tacheController extends Controller
                 $tache->description_tache=$request->input('descr');
                 $tache->save();
     }
+    public function index(){
+        $tache=tache::all();
+        return view('chef_projet.Listtache',compact('tache'));
+    }
 }
+

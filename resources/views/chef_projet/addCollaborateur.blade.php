@@ -106,7 +106,7 @@
                 </a>
                 <div class="collapse" id="form-elements">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Liste des Tâche</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('taches.index')}}">Liste des Tâche</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('taches.create')}} ">Ajouter Tâche</a></li>
                   </ul>     
                 </div>
@@ -121,7 +121,7 @@
                 </a>
                 <div class="collapse" id="charts">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="pages/charts/chartjs.html">Liste des Collaborateurs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('collaborateurs.index')}}">Liste des Collaborateurs</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('collaborateurs.create') }}">Ajouter Collaborateur</a></li>
                   </ul>
                 </div>
@@ -134,7 +134,7 @@
                 </a>
                 <div class="collapse" id="tables">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="pages/tables/basic-table.html">Liste des Réunions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('reunions.index')}}">Liste des Réunions</a></li>
                     <li class="nav-item"> <a class="nav-link" href="{{route('reunions.create')}}">Ajouter Réunion</a></li>
                   </ul>
                 </div>
@@ -142,7 +142,6 @@
              
             </ul>
           </nav>
-          
           <!-- partial -->
           <div class="main-panel"> 
             <div class="content-wrapper pb-0"> 
