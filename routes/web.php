@@ -46,13 +46,13 @@ Route::middleware(['auth','chef_projet'])->group(function () {
     // Routes Collaborateur
     Route::get('/addCollaborateur',[collaborateurController::class,"create"])->name('collaborateurs.create');
     Route::post('/addCollaborateur',[collaborateurController::class,"store"])->name("collaborateurs.store");
-    // Routes 
+    
 });
        // Route Acceuil
 Route::get('/',[homeController::class,"index"])->name('Homepage');
 Route::post('/addContact',[homeController::class,"store"])->name('addMessage');
 
-Route::middleware(['auth:sanctum', 'verified','chef_projet'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified','chef_projet'])->get('/redirects', function () {
     return view('chef_projet.dashboard');
 })->name('dashboard');
 
