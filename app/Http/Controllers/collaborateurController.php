@@ -1,9 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Mail\infoCollab;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class collaborateurController extends Controller
 {
@@ -39,7 +43,7 @@ class collaborateurController extends Controller
         $validatedData = $request->validate([
             'nom' => ['required'],
             'prenom' => ['required'],
-            'email'=>['required','email'],
+            'email'=>['bail','required','email','unique:users'],
             'pass'=>['required']
         ],
         [
@@ -47,17 +51,21 @@ class collaborateurController extends Controller
             'prenom.required' => 'Vous devez saisir le prénom du collaborateur',
             'email.required' => 'Vous devez saisir email du collaborateur',
             'email.email'=>'e-mail non valide',
+            'email.unique'=>'e-mail déjà existe',
             'pass.required'=>'Vous de devez saisir un mot de passe'
         ]
         
          
     );
-    User::create([
-        'name' => $request->nom.' '. $request->prenom ,
-        'email' => $request['email'],
-        'password' => Hash::make($request['pass']),
-        'user_type'=>'Collaborateur'
-    ]);
+   $chef=Auth::user();
+   $user= new User();
+   $user->name=$request->nom.' '. $request->prenom ;
+   $user->email=$request['email'];
+   $pass=$request['pass'];
+   $user->password=Hash::make($request['pass']);
+  $user->user_type='Collaborateur';
+  $user->save();
+    Mail::to($user->email)->send(new infoCollab($user,$pass,$chef));
     return  redirect()->back()->with('success','Le sauvegarde est réussi');
     }
 
