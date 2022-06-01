@@ -2,21 +2,44 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\projet;
 use App\Models\tache;
+use App\Models\projet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class tacheController extends Controller
 {
-    public function create(){
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $tache=tache::all();
+        return view('chef_projet.listeTache',compact('tache'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         $projets=projet::all();
         $collab=  DB::table('collab')->get();
         return view('chef_projet.addtache',compact('projets'),compact('collab'));
     }
-    public function store(Request $request){
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
         $validatedData = $request->validate([
             'nomTache' => ['bail','required','string'],
             'dateDebut' => ['bail','required','Date'],
@@ -46,5 +69,50 @@ class tacheController extends Controller
                 $tache->collaborateur=$id_collab;
                 $tache->description_tache=$request->input('descr');
                 $tache->save();
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

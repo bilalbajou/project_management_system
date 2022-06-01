@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\projet;
-use App\Models\reunion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class reunionController extends Controller
+class projetController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class reunionController extends Controller
      */
     public function index()
     {
-        $reunion=reunion::all();
-        return view('chef_projet.listeReunion',compact('reunion'));
+        $projets=projet::all();
+        return view('chef_projet.Listeprojet',compact('projets'));
     }
 
     /**
@@ -26,8 +26,8 @@ class reunionController extends Controller
      */
     public function create()
     {
-        $projets=projet::all();
-        return view('chef_projet.addReunion',compact('projets'));
+        $id_chef=Auth::user()->id;
+        return view('chef_projet.addprojet')->with('chef',$id_chef);
     }
 
     /**
@@ -39,26 +39,29 @@ class reunionController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'sujetReunion' => ['required'],
-            'dateDebut' => ['bail','required','Date'],
-            'projet'=>['required'],
+            'nomProjet' => ['required'],
+            'dateDebut' => ['bail','required','Date','before:dateFin'],
+            'dateFin'=>['bail','required','Date'],
             'descr'=>['max:255']
         ],
         [
-            'sujetReunion.required' => 'Vous devez saisir le sujet du réunion',
-            'dateDebut.required' => 'Vous devez saisir la date de début du réunion',
-            'projet.required' => 'vous devez choisir un projet',
+            'nomProjet.required' => 'Vous devez saisir le nom du projet',
+            'dateDebut.required' => 'Vous devez saisir la date de début',
+            'dateFin.required' => 'Vous devez saisir le date de fin',
+            'dateDebut.before' => 'La date de début doit être avant la date de fin.',
             'descr.max'=>'ne dépasse 255 caractère'
         ]
          
     );
-          $id_projet=$request->get('projet');
-          $reunion=new reunion();
-          $reunion->sujet=$request->input('sujetReunion');
-          $reunion->date_heure=$request->input('dateDebut');
-          $reunion->projet=$id_projet;
-          $reunion->description=$request->input('descr');
-          $reunion->save();
+        
+          $projet=new projet();
+          $projet->Nom_projet=$request->input('nomProjet');
+          $projet->Date_début=$request->input('dateDebut');
+          $projet->Date_fin=$request->input('dateFin');
+          $projet->description_projet=$request->input('descr');
+          $projet->Chef_projet=Auth::user()->id;
+          $projet->save();
+          return redirect()->route('listeProjet');
     }
 
     /**
@@ -69,7 +72,7 @@ class reunionController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -80,7 +83,9 @@ class reunionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $projet = projet::where('id_projet',$id)->first();
+        return view('chef_projet.update.EditProjet',compact('projet'));
+              
     }
 
     /**
@@ -92,7 +97,7 @@ class reunionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**
@@ -103,6 +108,7 @@ class reunionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $projet = projet::where('id_projet', $id)->delete();
+        return redirect()->back();
     }
 }

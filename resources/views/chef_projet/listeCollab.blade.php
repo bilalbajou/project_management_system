@@ -1,7 +1,7 @@
-@extends('layouts.chef_projet.dashboard');
+@extends('layouts.chef_projet.dashboard')
 
 @section('title')
-      Liste des projets
+     Liste collaborateurs
 @endsection
 
 @section('content')
@@ -9,20 +9,20 @@
 <table class="ui celled table">
   <thead>
     <tr class="center aligned" ><th>#</th>
-    <th class="center aligned" >Nom du projet</th>
-    <th class="center aligned" >Date début</th>
-    <th class="center aligned" >date fin</th>
+    <th class="center aligned" >nom et prenom</th>
+    <th class="center aligned" >email </th>
+    <th class="center aligned" >type </th> 
     <th class="center aligned" >Statut</th> 
     <th class="center aligned" ></th> 
   </tr></thead>
   <tbody>
-    @foreach($projets as $value)
+    @foreach($user as $value)
     <tr>
-      <td class="center aligned" data-label="Name">{{$value->id_projet}}</td>
-      <td class="center aligned"  data-label="Age">{{$value->Nom_projet}}</td>
-      <td class="center aligned"  data-label="Job">{{$value->Date_début}}</td>
-      <td  class="center aligned" data-label="Job">{{$value->Date_fin}}</td>
-      <td class="center aligned"  data-label="Job">{{$value->etat_projet}}</td>    
+      <td class="center aligned" data-label="Name">{{$value->id}}</td>
+      <td class="center aligned"  data-label="Age">{{$value->nom }}</td>
+      <td class="center aligned"  data-label="Job">{{$value->email}}</td>
+      <td  class="center aligned" data-label="Job">{{$value->type}}</td>
+      <td class="center aligned"  data-label="Job">{{$value->type}}</td>    
       <td class="center aligned"  data-label="Job">
         {{-- <div class="ui icon button" data-tooltip="Modifier"> 
         <a href=""><i class="edit icon"></i> </a> </div> 
@@ -30,21 +30,21 @@
           <a href=""><i class="trash icon"></i> </a> </div>  --}}
       {{-- <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a> --}}
   <div class="container_form">
-  <form action="{{url('/projet/update/' . $value->id_projet)}}" method="POST" id="form_modifier">
+  <form action="{{url('/projet/update/' . $value->id)}}" method="POST" id="form_modifier">
          
     @csrf
     @method('DELETE')
         <div class="ui icon button" data-tooltip="Modifier"> 
           <a><button type="submit" class="btn_update"><i class="edit icon"></i></button></a> </div>
   </form>
-  <form action="{{url('projet/' . $value->id_projet)}}" method="POST" id="form_suppr">
+  <form action="{{url('projet/' . $value->id)}}" method="POST" id="form_suppr">
      
       @csrf
       @method('DELETE')
       <div class="ui icon button"  data-tooltip="Supprimer"> 
         <a ><button type="submit" class="btn_supp"><i class="trash icon"></i></button></a></div>
   </form>
-  <form action="{{url('projet/détails/' . $value->id_projet)}}" method="POST" id="form_view">
+  <form action="{{url('projet/détails/' . $value->id)}}" method="POST" id="form_view">
      
     @csrf
     @method('DELETE')
@@ -52,8 +52,10 @@
       <a ><button type="submit" class="btn_supp"><i class="eye icon"></i></button></a></div>
 </form>
 </div>
-</td>          
-  </td>    
+</td>
+       
+          
+      </td>    
     </tr>
    @endforeach
   </tbody>
