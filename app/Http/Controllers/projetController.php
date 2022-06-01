@@ -61,7 +61,8 @@ class projetController extends Controller
           $projet->description_projet=$request->input('descr');
           $projet->Chef_projet=Auth::user()->id;
           $projet->save();
-          return redirect()->route('listeProjet');
+          return  redirect()->back()->with('success','Le sauvegarde est réussi');
+
     }
 
     /**

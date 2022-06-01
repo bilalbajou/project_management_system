@@ -59,6 +59,8 @@ class reunionController extends Controller
           $reunion->projet=$id_projet;
           $reunion->description=$request->input('descr');
           $reunion->save();
+          return  redirect()->back()->with('success','Le sauvegarde est réussi');
+
     }
 
     /**

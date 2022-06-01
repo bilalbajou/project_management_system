@@ -43,5 +43,10 @@
    </ul>
  </div>
  @endif
+ @if (\Session::has('success'))
+ <div class="ui visible message" role="alert">
+   <p> {!! \Session::get('success') !!} </p>
+ </div>
+ @endif
 </form>
 @endsection

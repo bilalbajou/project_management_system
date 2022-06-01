@@ -11,7 +11,14 @@
        <link rel="stylesheet" href="{{asset('vendors/css/vendor.bundle.base.css')}}">
 <!-- endinject -->
 <!-- Plugin css for this page -->
-
+<script >
+  document.querySelector("body").style.display = "none";
+document.querySelector("body").classList.add("spinner-1");
+setTimeout(() => {
+document.querySelector("body").classList.remove("spinner-1");
+document.querySelector("body").style.display = "block";
+}, 1000);
+</script>
        <link rel="stylesheet" href="{{asset('vendors/ti-icons/css/themify-icons.css')}}">
 
 <!-- End plugin css for this page -->
@@ -205,15 +212,7 @@
         <!-- page-body-wrapper ends -->
       </div>
       <!-- container-scroller -->
-      <script>
-          document.querySelector("body").style.display = "none";
-document.querySelector("body").classList.add("spinner-1");
-setTimeout(() => {
- document.querySelector("body").classList.remove("spinner-1");
- document.querySelector("body").style.display = "block";
-}, 1000);
-   
-      </script>
+     
  <script src="{{asset('vendors/js/vendor.bundle.base.js')}}" defer></script>
 
        <!-- plugins:js -->
@@ -222,13 +221,13 @@ setTimeout(() => {
  <!-- endinject -->
  <script src="{{asset('js_template/off-canvas.js')}}" defer></script>
  <script src="{{asset('js_template/hoverable-collapse.js')}}"defer ></script>
- <script src="{{asset('js_template/template.js')}}"defer></script>
+ {{-- <script src="{{asset('js_template/template.js')}}"defer></script> --}}
  <script src="{{asset('js_template/settings.js')}}" defer></script>
   <script src="{{asset('js_template/todolist.js')}}" defer></script> 
  <!-- endinject -->
  <!-- Custom js for this page-->
  <script src="{{asset('js/app.js')}}" defer></script>
- <script src="{{asset('js_template/dashboard.js')}}" defer></script>
+ {{-- <script src="{{asset('js_template/dashboard.js')}}" defer></script> --}}
  {{-- <script src="js_template/Chart.roundedBarCharts.js"></script> --}}
  <!-- End custom js for this page-->
     </body>

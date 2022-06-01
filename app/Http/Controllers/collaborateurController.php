@@ -59,6 +59,7 @@ class collaborateurController extends Controller
         'password' => Hash::make($request['pass']),
         'user_type'=>'Collaborateur'
     ]);
+    return  redirect()->back()->with('success','Le sauvegarde est réussi');
     }
 
     /**
