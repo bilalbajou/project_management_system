@@ -174,7 +174,7 @@
                 <form action="{{url('/projet/update/' . $value->id_tache)}}" method="POST" id="form_modifier">
                        
                   @csrf
-                  @method('DELETE')
+                  @method('delete')
                       <div class="ui icon button" data-tooltip="Modifier"> 
                         <a><button type="submit" class="btn_update"><i class="edit icon"></i></button></a> </div>
                 </form>

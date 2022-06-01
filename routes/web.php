@@ -29,14 +29,14 @@ Route::fallback(function() {
         return view('404');
 });
 Route::middleware(['auth','chef_projet'])->group(function () {
-    // Routes projet
+    // Routes projet                                                                                                                                                                                                                           
     Route::get('/addProjet',[addprojetController::class,"index"])->name('addProjet');
     Route::post('/addProjet',[addprojetController::class,"store"]);
     Route::get('/listeProjet',[listProjetController::class,"index"])->name('listeProjet');
     Route::delete('/projet/{id_projet}',[listProjetController::class,"destroy"])->name('projet.destroy');
-    Route::delete('/projet/update/{id_projet}',[listProjetController::class,"edit"])->name('projet.edit');
+    // Route::delete('/projet/update/{id_projet}',[listProjetController::class,"edit"])->name('projet.edit');
     // Route::delete('/projet/update/{id_projet}',[listProjetController::class,"update"])->name('projet.update');
-    Route::delete('/projet/détails/{id_projet}',[listProjetController::class,"more"])->name('projets.more');
+    Route::get('/projet/détails',[listProjetController::class,"more"])->name('projets.more');
     // Routes taches
     Route::get('/addTache',[tacheController::class,"create"])->name('taches.create');
     Route::post('/addTache',[tacheController::class,"store"])->name('taches.store');

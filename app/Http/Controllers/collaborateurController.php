@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\db;
 
 class collaborateurController extends Controller
 {
@@ -38,4 +39,5 @@ class collaborateurController extends Controller
         $user=user::all();
         return view('chef_projet.Listcollaborateur',compact('user'));
     }
+  
 }

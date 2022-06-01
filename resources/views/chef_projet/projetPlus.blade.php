@@ -121,7 +121,7 @@
                 </a>
                 <div class="collapse" id="charts">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{route('collaborateur.index')}}">Liste des Collaborateurs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('collaborateurs.index')}}">Liste des Collaborateurs</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('collaborateurs.create') }}">Ajouter Collaborateur</a></li>
                   </ul>
                 </div>
@@ -142,7 +142,45 @@
              
             </ul>
           </nav>
-         b n 
+          <div class="main-panel"> 
+            <div class="content-wrapper pb-0"> 
+              <h2 class="ui header">nom du projet</h2>
+               <form class="ui form" action="{{route('store')}}" method="post">
+                @csrf
+                @method('delete')
+                <div class="fields">
+                  <div class="six wide field">
+                    <label>chef de projet  </label>
+                    <input type="text" name="chefprojet">
+                  </div>
+                  <div class="six wide field">
+                    <label>etat </label>
+                    <input type="text" name="etat">
+                  </div>
+                </div>
+                <div class="fields"> 
+                       <div class="six wide field">
+                    <label>Date de debut</label>
+                    <input type="date" name="dateDebut" >
+                  </div>
+                  <div class="six wide field">
+                    <label>Date de fin</label>
+                    <input type="datetime-local" name="datefin" >
+                  </div>
+                </div>
+                <div class="fields">
+                  <div class="field fourteen wide">
+                    <label>Description</label>
+                    <textarea rows="3" name="descr"></textarea>
+                  </div>
+                </div>
+                
+               
+                
+               </form>
+
+
+
             @extends('bloc.footer')
             
             <!-- partial -->
