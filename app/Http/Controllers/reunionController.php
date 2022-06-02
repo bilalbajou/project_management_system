@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\projet;
 use App\Models\reunion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class reunionController extends Controller
 {
@@ -15,7 +16,7 @@ class reunionController extends Controller
      */
     public function index()
     {
-        $reunion=reunion::all();
+        $reunion=DB::table('reunion_view')->get();
         return view('chef_projet.listeReunion',compact('reunion'));
     }
 
@@ -105,6 +106,7 @@ class reunionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('reunions')->where('id_reunion',$id)->delete();
+        return redirect()->back()->with('success','La suppression est réussi');
     }
 }
