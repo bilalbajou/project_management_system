@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\reunion;
+use App\Models\tache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

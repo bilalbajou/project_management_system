@@ -11,4 +11,8 @@ class reunion extends Model
     public function projet(){
         $this->belongsTo(projet::class);
    }
+   protected $casts = [
+    'date_heure' => 'datetime'
+];
+
 }

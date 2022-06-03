@@ -65,24 +65,20 @@
     </style>
 </head>
 <body>  
-    <h1 class="display-2 text-center">Informations du compte</h1>
-    <p class="text-center">Le chef du projet: {{$chef->name}} </p>
+    <h1 class="display-2 text-center">Nouvelle réunion planifié</h1>
+    <p class="text-center">Le projet: {{  $projet->Nom_projet  }} </p>
       <div class="container">
         <table id="table">
               <tr>
-                  <td>Nom:</td>
-                  <td>{{$user->name}}</td>
+                  <td>Sujet</td>
+                  <td>{{$reunion->sujet}}</td>
               </tr>
               <tr>
-                <td>Email:</td>
-                <td>{{$user->email}}</td>
+                <td>Date et heure</td>
+                <td>{{$reunion->date_heure->format('d/m/Y  H:i:s')}}</td>
             </tr>
-            <tr>
-                <td>Mot de passe:</td>
-                <td>{{$pass}}</td>
-            </tr>
+            
           </table>
-           <div class="btn"><a href="{{route('login')}}"><button> Connecter</button></a></div>
       </div>
       <footer>
               

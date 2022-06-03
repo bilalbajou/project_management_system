@@ -1,7 +1,7 @@
 @extends('layouts.chef_projet.dashboard')
 
 @section('title')
-      Liste des tache
+      Liste des tâches
 @endsection
 
 @section('content')

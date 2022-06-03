@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\projet;
 use App\Models\reunion;
+use App\Mail\infoCollab;
+use App\Mail\reunionMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class reunionController extends Controller
 {
@@ -60,6 +63,13 @@ class reunionController extends Controller
           $reunion->projet=$id_projet;
           $reunion->description=$request->input('descr');
           $reunion->save();
+          $projet=DB::table('projets')->where('id_projet',$reunion->projet)->first();
+          $collabs=DB::table('view_collab_email')->get();
+          if($collabs->count()!=0){
+             foreach ($collabs as $value) {
+                Mail::to($value->email)->send(new reunionMail($reunion,$projet));
+            }
+          }
           return  redirect()->back()->with('success','Le sauvegarde est réussi');
 
     }

@@ -1,7 +1,7 @@
 @extends('layouts.chef_projet.dashboard')
 
-@section('title')
-     Liste collaborateurs
+@section('title') 
+   Liste des collaborateurs
 @endsection
 
 @section('content')
