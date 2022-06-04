@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {{-- <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -76,6 +75,7 @@
           </div> 
           <!-- partial -->
           <!-- partial:partials/_sidebar.html -->
+          
           <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
               <li class="nav-item">
@@ -145,52 +145,45 @@
           <!-- partial -->
           <div class="main-panel"> 
             <div class="content-wrapper pb-0"> 
-              <h2 class="ui header">Liste des projets</h2>
+              <h2 class="ui header">Liste des info</h2>
               <table class="ui celled table">
                 <thead>
                   <tr class="center aligned" ><th>#</th>
-                  <th class="center aligned" >Nom du projet</th>
-                  <th class="center aligned" >Date début</th>
-                  <th class="center aligned" >date fin</th>
-                  <th class="center aligned" >Statut</th> 
-                  <th class="center aligned" >description du projet</th> 
-
+                  <th class="center aligned" >id tache</th>
+                  <th class="center aligned" >nom tache</th>
+                  <th class="center aligned" >etat de tache</th>
+                  <th class="center aligned" >nom du collaborateurs</th> 
                   <th class="center aligned" ></th> 
                 </tr></thead>
                 <tbody>
-                  @foreach($projets as $value)
+                  @foreach($tache as $value)
+
                   <tr>
-                    <td class="center aligned" data-label="Name">{{$value->id_projet}}</td>
-                    <td class="center aligned"  data-label="Age">{{$value->Nom_projet}}</td>
-                    <td class="center aligned"  data-label="Job">{{$value->Date_début}}</td>
-                    <td  class="center aligned" data-label="Job">{{$value->Date_fin}}</td>
-                    <td class="center aligned"  data-label="Job">{{$value->etat_projet}}</td>    
-                    <td class="center aligned"  data-label="Job">{{$value->description_projet}}</td>    
-                    <td class="center aligned"  data-label="Job">
-                      {{-- <div class="ui icon button" data-tooltip="Modifier"> 
-                      <a href=""><i class="edit icon"></i> </a> </div> 
-                      <div class="ui icon button" data-tooltip="Modifier"> 
-                        <a href=""><i class="trash icon"></i> </a> </div>  --}}
-                    {{-- <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a> --}}
+                    <td class="center aligned" data-label="Name">{{$value->id_tache}}</td>
+                    <td class="center aligned"  data-label="Age">{{$value->Nom_tache}}</td>
+                    <td class="center aligned"  data-label="Job">{{$value->etat}}</td>
+                    <td  class="center aligned" data-label="Job">{{$value->name}}</td>
+                    <td class="center aligned"  data-label="Job">{{$value->état_tache}}</td>    
+            
                 <div class="container_form">
-                <form action="{{url('/projet/update/' . $value->id_projet)}}" method="POST" id="form_modifier">
+                <form action="{{url('/projet/update/' . $value->id_tache)}}" method="POST" id="form_modifier">
                        
                   @csrf
                   @method('delete')
                       <div class="ui icon button" data-tooltip="Modifier"> 
                         <a><button type="submit" class="btn_update"><i class="edit icon"></i></button></a> </div>
                 </form>
-                <form action="{{url('projet/' . $value->id_projet)}}" method="POST" id="form_suppr">
+                <form action="{{url('projet/' . $value->id_tache)}}" method="POST" id="form_suppr">
                    
                     @csrf
-                    @method('delete')
+                    @method('DELETE')
                     <div class="ui icon button"  data-tooltip="Supprimer"> 
                       <a ><button type="submit" class="btn_supp"><i class="trash icon"></i></button></a></div>
                 </form>
-                <form action="{{url('projet/détails/' . $value->id_projet)}}" method="POST" id="form_view">
+                <form action="{{url('projet/détails/' . $value->id_tache)}}" method="POST" id="form_view">
                    
                   @csrf
-                  @method('delete')
+                  @method('DELETE')
                   <div class="ui icon button"  data-tooltip="Plus"> 
                     <a ><button type="submit" class="btn_supp"><i class="eye icon"></i></button></a></div>
               </form>
@@ -233,66 +226,25 @@ setTimeout(() => {
     </html>
     
     
-=======
-@extends('layouts.chef_projet.dashboard');
->>>>>>> 6051ec991e298887add1d91d60c2c2cb4c98a764
 
-@section('title')
-      Liste des projets
-@endsection
 
-@section('content')
-<h2 class="ui header">Liste des projets</h2>
-<table class="ui celled table">
-  <thead>
-    <tr class="center aligned" ><th>#</th>
-    <th class="center aligned" >Nom du projet</th>
-    <th class="center aligned" >Date début</th>
-    <th class="center aligned" >date fin</th>
-    <th class="center aligned" >Statut</th> 
-    <th class="center aligned" ></th> 
-  </tr></thead>
-  <tbody>
-    @foreach($projets as $value)
-    <tr>
-      <td class="center aligned" data-label="Name">{{$value->id_projet}}</td>
-      <td class="center aligned"  data-label="Age">{{$value->Nom_projet}}</td>
-      <td class="center aligned"  data-label="Job">{{$value->Date_début}}</td>
-      <td  class="center aligned" data-label="Job">{{$value->Date_fin}}</td>
-      <td class="center aligned"  data-label="Job">{{$value->etat_projet}}</td>    
-      <td class="center aligned"  data-label="Job">
-        {{-- <div class="ui icon button" data-tooltip="Modifier"> 
-        <a href=""><i class="edit icon"></i> </a> </div> 
-        <div class="ui icon button" data-tooltip="Modifier"> 
-          <a href=""><i class="trash icon"></i> </a> </div>  --}}
-      {{-- <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a> --}}
-  <div class="container_form">
-  <form action="{{url('/projet/update/' . $value->id_projet)}}" method="POST" id="form_modifier">
-         
-    @csrf
-    @method('DELETE')
-        <div class="ui icon button" data-tooltip="Modifier"> 
-          <a><button type="submit" class="btn_update"><i class="edit icon"></i></button></a> </div>
-  </form>
-  <form action="{{url('projet/' . $value->id_projet)}}" method="POST" id="form_suppr">
-     
-      @csrf
-      @method('DELETE')
-      <div class="ui icon button"  data-tooltip="Supprimer"> 
-        <a ><button type="submit" class="btn_supp"><i class="trash icon"></i></button></a></div>
-  </form>
-  <form action="{{url('projet/détails/' . $value->id_projet)}}" method="POST" id="form_view">
-     
-    @csrf
-    @method('DELETE')
-    <div class="ui icon button"  data-tooltip="Plus"> 
-      <a ><button type="submit" class="btn_supp"><i class="eye icon"></i></button></a></div>
-</form>
-</div>
-</td>          
-  </td>    
-    </tr>
-   @endforeach
-  </tbody>
-</table>
-@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+    {{-- <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                <x-jet-welcome />
+            </div>
+        </div>
+    </div> --}}
+{{-- </x-app-layout> --}}

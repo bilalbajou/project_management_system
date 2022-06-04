@@ -27,7 +27,7 @@ class reunionController extends Controller
     public function create()
     {
         $projets=projet::all();
-        return view('chef_projet.addReunion',compact('projets'));
+        return view('chef_projet.addReunion',compact('reunion'));
     }
 
     /**
@@ -94,7 +94,9 @@ class reunionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $reunion = reunion::where('id_reunion',$id)->first();
+        return view('chef_projet.inforeunion');
+ 
     }
 
     /**
@@ -105,6 +107,7 @@ class reunionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reunion = reunion::where('id_reunion', $id)->delete();
+        return redirect()->back();
     }
 }

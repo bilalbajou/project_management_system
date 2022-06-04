@@ -5,24 +5,20 @@
 @endsection
 
 @section('content')
-<h2 class="ui header">Liste des projets</h2>
+<h2 class="ui header">Liste des collaborateurs</h2>
 <table class="ui celled table">
   <thead>
     <tr class="center aligned" ><th>#</th>
     <th class="center aligned" >nom et prenom</th>
     <th class="center aligned" >email </th>
-    <th class="center aligned" >type </th> 
-    <th class="center aligned" >Statut</th> 
     <th class="center aligned" ></th> 
   </tr></thead>
   <tbody>
     @foreach($user as $value)
     <tr>
       <td class="center aligned" data-label="Name">{{$value->id}}</td>
-      <td class="center aligned"  data-label="Age">{{$value->nom }}</td>
+      <td class="center aligned"  data-label="Age">{{$value->name }}</td>
       <td class="center aligned"  data-label="Job">{{$value->email}}</td>
-      <td  class="center aligned" data-label="Job">{{$value->type}}</td>
-      <td class="center aligned"  data-label="Job">{{$value->type}}</td>    
       <td class="center aligned"  data-label="Job">
         {{-- <div class="ui icon button" data-tooltip="Modifier"> 
         <a href=""><i class="edit icon"></i> </a> </div> 

@@ -1,29 +1,28 @@
-@extends('layouts.chef_projet.dashboard');
-
+@extends('layouts.chef_projet.dashboard')
 @section('title')
-     Ajouter projet
+      modifier reunion
 @endsection
-
 @section('content')
-<h2 class="ui header">Ajouter un nouveaux projet </h2>
-              
-<form class="ui form" action="{{route('projets.store')}}" method="POST">
-  @csrf
+<h2 class="ui header">modifier une  reunion</h2>
+<form class="ui form" action="{{route('reunions.update')}}" method="post">
+ @csrf
  <div class="fields">
    <div class="six wide field">
-     <label>Nom du projet</label>
-     <input type="text" name="nomProjet">
-     
+     <label>Sujet du reunion</label>
+     <input type="text" name="sujetReunion" >
    </div>
    <div class="four wide field">
-     <label>Date de début</label>
-     <input type="date" name="dateDebut" >
+     <label>Date et Heure</label>
+     <input type="datetime-local" name="dateDebut" >
    </div>
    <div class="six wide field">
-     <label>Date de fin</label>
-     <input type="date" name="dateFin">
+     <label>Projet</label>
+     <select class="ui dropdown" name="projet">
+       @foreach ($projets as $item)
+           <option value="{{  $item->id_projet }}">{{ $item->Nom_projet }}</option>
+       @endforeach
+     </select>
    </div>
-  
  </div>
  <div class="fields">
    <div class="field sixteen wide">
@@ -31,7 +30,7 @@
      <textarea rows="3" name="descr"></textarea>
    </div>
  </div>
- <input class="ui submit button black" id="btn_ajout" type="submit" value="Ajouter">
+ <input class="ui submit button black" id="btn_modifier" type="submit"  value="modifier">
  @if ($errors->any())
  <div class="ui info message">
    <div class="header">
@@ -49,5 +48,5 @@
    <p> {!! \Session::get('success') !!} </p>
  </div>
  @endif
-</form> 
+</form>
 @endsection

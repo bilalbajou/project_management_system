@@ -139,8 +139,8 @@ document.querySelector("body").style.display = "block";
                 </a>
                 <div class="collapse" id="ui-basic">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{route('projets.index')}}">Liste des projets</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route('projets.create')}}">Ajouter un projet</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('projet.index')}}">Liste des projets</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('PROJET.create')}}">Ajouter un projet</a></li>
                     
                   </ul>
                 </div>
@@ -168,8 +168,8 @@ document.querySelector("body").style.display = "block";
                 </a>
                 <div class="collapse" id="charts">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{route('collabs.index')}}">Liste des Collaborateurs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('collabs.create') }}">Ajouter Collaborateur</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('collaborateurs.index')}}">Liste des Collaborateurs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('collaborateurs.create') }}">Ajouter Collaborateur</a></li>
                   </ul>
                 </div>
               </li>
@@ -191,8 +191,7 @@ document.querySelector("body").style.display = "block";
           </nav>
           <!-- partial -->
           <div class="main-panel"> 
-            <div class="content-wrapper pb-0"> 
-<<<<<<< HEAD:resources/views/chef_projet/listcollaborateur.blade.php
+        {{--     <div class="content-wrapper pb-0"> 
               <h2 class="ui header">Liste des collaborateurs</h2>
               <table class="ui celled table">
                 <thead>
@@ -217,7 +216,7 @@ document.querySelector("body").style.display = "block";
                       <div class="ui icon button" data-tooltip="Modifier"> 
                         <a href=""><i class="trash icon"></i> </a> </div>  --}}
                     {{-- <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a> --}}
-                <div class="container_form">
+                {{-- <div class="container_form">
                 <form action="{{url('/projet/update/' . $value->id)}}" method="POST" id="form_modifier">
                        
                   @csrf
@@ -247,10 +246,9 @@ document.querySelector("body").style.display = "block";
                   </tr>
                  @endforeach
                 </tbody>
-              </table>
-=======
+              </table> --}} 
+
                 @yield('content')
->>>>>>> 6051ec991e298887add1d91d60c2c2cb4c98a764:resources/views/layouts/chef_projet/dashboard.blade.php
             </div> 
             
             <!-- content-wrapper ends -->

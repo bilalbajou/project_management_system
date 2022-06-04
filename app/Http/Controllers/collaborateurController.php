@@ -100,7 +100,9 @@ class collaborateurController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $collaborateur = user::where('id',$id)->first();
+        return view('chef_projet.infocollaborateur');
+ 
     }
 
     /**

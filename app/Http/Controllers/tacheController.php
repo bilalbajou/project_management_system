@@ -103,7 +103,9 @@ class tacheController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tache = tache::where('id_tache',$id)->first();
+        return view('chef_projet.infotache');
+ 
     }
 
     /**
@@ -114,7 +116,8 @@ class tacheController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tache = tache::where('id_tache', $id)->delete();
+        return redirect()->back();
     }
    
 }

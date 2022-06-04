@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\projet;
+use App\Models\vue_projet;
+use App\vue_projet as AppVue_projet;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -73,7 +75,9 @@ class projetController extends Controller
      */
     public function show($id)
     {
-        
+        $vue = appVue_projet::select('id_projet',$id)
+        ->get();
+        return view('chef_projet.more',compact('projet'));
     }
 
     /**
@@ -83,11 +87,11 @@ class projetController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+     {
         $projet = projet::where('id_projet',$id)->first();
         return view('chef_projet.update.EditProjet',compact('projet'));
               
-    }
+        }
 
     /**
      * Update the specified resource in storage.
@@ -98,7 +102,9 @@ class projetController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $projet = projet::where('id_projet',$id)->first();
+        return view('chef_projet.infoprojet');
+ 
     }
 
     /**

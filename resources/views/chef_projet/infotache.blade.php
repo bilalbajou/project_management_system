@@ -1,25 +1,25 @@
 @extends('layouts.chef_projet.dashboard')
 
 @section('title')
-     Ajouter tache
+     modifier tache
 @endsection
 
 @section('content')
-<h2 class="ui header">Ajouter une nouvelle tâche</h2>
+<h2 class="ui header">modifier une tâche</h2>
 <form class="ui form" action="{{route('taches.store')}}" method="POST">
   @csrf
     <div class="fields">
       <div class="six wide field">
         <label>Nom du Tâche</label>
-        <input type="text" name="nomTache">
+        <input type="text" name="nomTache" value="{{$id->nom_tache}}">
       </div>
       <div class="four wide field">
         <label>Date de début</label>
-        <input type="date" name="dateDebut" >
+        <input type="date" name="dateDebut" value="{{$id->date_début}}" >
       </div>
       <div class="six wide field">
         <label>Durée du Tâche ( En jours )</label>
-        <input type="text" name="dureeTache">
+        <input type="text" name="dureeTache" value="{{$id->durée}}">
       </div>
     </div>
     <div class="fields">
@@ -48,7 +48,7 @@
         <textarea rows="3" name="descr"></textarea>
       </div>
     </div>
-    <input class="ui black button" type="submit" value="Ajouter">
+    <input class="ui black button" type="submit" value="modifier">
      @if ($errors->any())
     <div class="ui info message">
       <div class="header">

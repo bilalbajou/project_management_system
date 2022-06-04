@@ -5,12 +5,11 @@
 @endsection
 
 @section('content')
-<h2 class="ui header">Liste des projets</h2>
+<h2 class="ui header">Liste des reunions</h2>
 <table class="ui celled table">
   <thead>
     <tr class="center aligned" ><th>#</th>
     <th class="center aligned" >titre du reunion</th>
-    <th class="center aligned" >sujet</th>
     <th class="center aligned" >date et heure</th>
     <th class="center aligned" >Description</th> 
     <th class="center aligned" >Statut</th> 
@@ -31,7 +30,7 @@
           <a href=""><i class="trash icon"></i> </a> </div>  --}}
       {{-- <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a> --}}
   <div class="container_form">
-  <form action="{{url('/projet/update/' . $value->id_reunion)}}" method="POST" id="form_modifier">
+  <form action="{{url('/reunion/update/{id_reunion}' . $value->id_reunion)}}" method="POST" id="form_modifier">
          
     @csrf
     @method('DELETE')

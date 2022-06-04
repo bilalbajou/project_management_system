@@ -1,13 +1,13 @@
 @extends('layouts.chef_projet.dashboard');
 
 @section('title')
-     Ajouter projet
+     modifier projet
 @endsection
 
 @section('content')
-<h2 class="ui header">Ajouter un nouveaux projet </h2>
+<h2 class="ui header">modifier un projet </h2>
               
-<form class="ui form" action="{{route('projets.store')}}" method="POST">
+<form class="ui form" action="{{route('projets.update')}}" method="POST">
   @csrf
  <div class="fields">
    <div class="six wide field">
@@ -31,7 +31,7 @@
      <textarea rows="3" name="descr"></textarea>
    </div>
  </div>
- <input class="ui submit button black" id="btn_ajout" type="submit" value="Ajouter">
+ <input class="ui submit button black" id="btn_mod" type="submit" value="modifier">
  @if ($errors->any())
  <div class="ui info message">
    <div class="header">
