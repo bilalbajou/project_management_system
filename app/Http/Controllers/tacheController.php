@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\tache;
 use App\Models\projet;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class tacheController extends Controller
@@ -16,8 +17,8 @@ class tacheController extends Controller
      */
     public function index()
     {
-        $tache=tache::all();
-        return view('chef_projet.listeTache',compact('tache'));
+        $taches=DB::table('view_tache')->get();
+        return view('chef_projet.listeTache',compact('taches'));
     }
 
     /**
@@ -116,8 +117,8 @@ class tacheController extends Controller
      */
     public function destroy($id)
     {
-        $tache = tache::where('id_tache', $id)->delete();
-        return redirect()->back();
+          DB::table('taches')->where('id_tache',$id)->delete();
+          return redirect()->back()->with('success','La suppression est réussi');
     }
    
 }

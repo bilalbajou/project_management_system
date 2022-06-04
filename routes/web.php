@@ -41,6 +41,7 @@ Route::middleware(['auth','chef_projet'])->group(function () {
 
     // Routes projet
       Route::resource('projets',projetController::class);
+      Route::get('/projets/détails',[projetController::class,'plus'])->name('projets.plus');
     // Routes taches
     Route::resource('taches',tacheController::class);
     Route::get('/addtache',[tacheController::class,"create"])->name('taches.crete');

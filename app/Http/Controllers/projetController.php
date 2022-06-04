@@ -116,6 +116,9 @@ class projetController extends Controller
     public function destroy($id)
     {
         $projet = projet::where('id_projet', $id)->delete();
-        return redirect()->back();
+        return redirect()->back()->with('success','La suppression est réussi');
+    }
+    public function plus(){
+            
     }
 }

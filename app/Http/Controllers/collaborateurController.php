@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\infoCollab;
 use App\Models\User;
+use App\Mail\infoCollab;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -18,7 +19,7 @@ class collaborateurController extends Controller
      */
     public function index()
     {
-        $user=user::all();
+        $user=user::all()->where('user_type','Collaborateur');
         return view('chef_projet.listeCollab',compact('user'));
     }
 
@@ -63,8 +64,8 @@ class collaborateurController extends Controller
    $user->email=$request['email'];
    $pass=$request['pass'];
    $user->password=Hash::make($request['pass']);
-  $user->user_type='Collaborateur';
-  $user->save();
+    $user->user_type='Collaborateur';
+    $user->save();
     Mail::to($user->email)->send(new infoCollab($user,$pass,$chef));
     return  redirect()->back()->with('success','Le sauvegarde est réussi');
     }
@@ -113,7 +114,8 @@ class collaborateurController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('users')->where('id',$id)->delete();
+        return redirect()->back()->with('success','La suppression est réussi');
     }
     
 }

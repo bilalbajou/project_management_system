@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\projet;
 use App\Models\reunion;
+use App\Mail\infoCollab;
+use App\Mail\reunionMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class reunionController extends Controller
 {
@@ -15,7 +19,7 @@ class reunionController extends Controller
      */
     public function index()
     {
-        $reunion=reunion::all();
+        $reunion=DB::table('reunion_view')->get();
         return view('chef_projet.listeReunion',compact('reunion'));
     }
 
@@ -59,6 +63,13 @@ class reunionController extends Controller
           $reunion->projet=$id_projet;
           $reunion->description=$request->input('descr');
           $reunion->save();
+          $projet=DB::table('projets')->where('id_projet',$reunion->projet)->first();
+          $collabs=DB::table('view_collab_email')->get();
+          if($collabs->count()!=0){
+             foreach ($collabs as $value) {
+                Mail::to($value->email)->send(new reunionMail($reunion,$projet));
+            }
+          }
           return  redirect()->back()->with('success','Le sauvegarde est réussi');
 
     }
@@ -107,7 +118,7 @@ class reunionController extends Controller
      */
     public function destroy($id)
     {
-        $reunion = reunion::where('id_reunion', $id)->delete();
-        return redirect()->back();
+        DB::table('reunions')->where('id_reunion',$id)->delete();
+        return redirect()->back()->with('success','La suppression est réussi');
     }
 }
