@@ -32,7 +32,7 @@ class tacheController extends Controller
     public function create()
     {
         $projets=DB::table('view_projets')->where('Chef_projet',Auth::user()->id)->get();
-        $collab=DB::table('view_collabs')->where('Chef_projet',Auth::user()->id)->get();
+        $collab=DB::table('users')->where('invited_by',Auth::user()->id)->get();
         return view('chef_projet.addtache',compact('projets'),compact('collab'));
     }
 

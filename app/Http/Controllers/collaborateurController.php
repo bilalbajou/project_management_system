@@ -65,6 +65,7 @@ class collaborateurController extends Controller
    $pass=$request['pass'];
    $user->password=Hash::make($request['pass']);
     $user->user_type='Collaborateur';
+    $user->invited_by=Auth::user()->id;
     $user->save();
     Mail::to($user->email)->send(new infoCollab($user,$pass,$chef));
     return  redirect()->back()->with('success','Le sauvegarde est réussi');

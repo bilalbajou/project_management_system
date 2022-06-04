@@ -34,7 +34,7 @@
         <div class="eight wide field">
           <label>Projet</label>
           @if ($projets->count()==0)
-          <a href="{{route('projets.create')}}"><button class="ui black button">Ajouter Projet</button></a>
+          <a href="{{route('projets.create')}}"><button type="button" class="btn btn-outline-info">Info</button></a>
           @else
           <select class="ui dropdown" name="projet">
             @foreach ($projets as $value)
