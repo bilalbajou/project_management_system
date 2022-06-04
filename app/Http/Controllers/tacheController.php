@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\tache;
 use App\Models\projet;
+use App\Mail\tacheMail;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class tacheController extends Controller
 {
@@ -17,7 +20,7 @@ class tacheController extends Controller
      */
     public function index()
     {
-        $taches=DB::table('view_tache')->get();
+        $taches=DB::table('view_tache')->where('Chef_projet',Auth::user()->id)->get();
         return view('chef_projet.listeTache',compact('taches'));
     }
 
@@ -28,8 +31,8 @@ class tacheController extends Controller
      */
     public function create()
     {
-        $projets=projet::all();
-        $collab=  DB::table('collab')->get();
+        $projets=DB::table('view_projets')->where('Chef_projet',Auth::user()->id)->get();
+        $collab=DB::table('view_collabs')->where('Chef_projet',Auth::user()->id)->get();
         return view('chef_projet.addtache',compact('projets'),compact('collab'));
     }
 
@@ -70,6 +73,9 @@ class tacheController extends Controller
                 $tache->collaborateur=$id_collab;
                 $tache->description_tache=$request->input('descr');
                 $tache->save();
+                $collab=DB::table('users')->where('id',$tache->collaborateur)->first();
+                $projet=DB::table('projets')->where('id_projet',$tache->projet)->first();
+                Mail::to($collab->email)->send(new tacheMail($tache,$projet));
                 return  redirect()->back()->with('success','Le sauvegarde est réussi');
     }
 

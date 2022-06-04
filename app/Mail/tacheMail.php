@@ -2,13 +2,17 @@
 
 namespace App\Mail;
 
+use App\Models\projet;
+use App\Models\tache;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 class tacheMail extends Mailable
-{
+{ 
+    public $tache;
+    public $projet;
     use Queueable, SerializesModels;
 
     /**
@@ -16,9 +20,10 @@ class tacheMail extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(tache $tache,$projet)
     {
-        //
+        $this->tache=$tache;
+        $this->projet=$projet;
     }
 
     /**
@@ -28,6 +33,8 @@ class tacheMail extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->subject('Affectation')
+                    ->from('unipro@gmail.com')
+                    ->view('email.infoTache');
     }
 }

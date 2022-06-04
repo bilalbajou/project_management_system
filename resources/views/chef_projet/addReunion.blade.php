@@ -22,6 +22,7 @@
            <option value="{{  $item->id_projet }}">{{ $item->Nom_projet }}</option>
        @endforeach
      </select>
+    
    </div>
  </div>
  <div class="fields">

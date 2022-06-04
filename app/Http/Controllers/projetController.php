@@ -17,7 +17,7 @@ class projetController extends Controller
      */
     public function index()
     {
-        $projets=projet::all();
+        $projets=projet::all()->where('Chef_projet',Auth::user()->id);
         return view('chef_projet.Listeprojet',compact('projets'));
     }
 

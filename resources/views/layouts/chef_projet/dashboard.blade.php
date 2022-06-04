@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="en">
     
     <head>
@@ -43,15 +43,6 @@ document.querySelector("body").style.display = "block";
               </button>
             
               <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item dropdown">
-                  <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-                    <i class="icon-bell mx-0"></i>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                    <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                    
-                  </div>
-                </li>
                 <li class="nav-item nav-profile dropdown">
                   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                     <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"/>
@@ -75,11 +66,7 @@ document.querySelector("body").style.display = "block";
                    
                 </div>
                 </li>
-                <li class="nav-item nav-settings d-none d-lg-flex">
-                  <a class="nav-link" href="#">
-                    <i class="icon-ellipsis"></i>
-                  </a>
-                </li>
+           
               </ul>
               <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                 <span class="icon-menu"></span>
@@ -89,37 +76,7 @@ document.querySelector("body").style.display = "block";
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
           <!-- partial:partials/_settings-panel.html -->
-          
-          <div id="right-sidebar" class="settings-panel">
-            <i class="settings-close ti-close"></i>
-            <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">Réunions</a>
-              </li>
-              
-            </ul>
-            <div class="tab-content" id="setting-content">
-              <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
-                <div class="events pt-2 px-3">
-                  <div class="wrapper d-flex mb-2">
-                    <i class="ti-control-record text-primary mr-2"></i>
-                    <span>Feb 11 2018</span>
-                  </div>
-                  <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
-                  <p class="text-gray mb-0">The total number of sessions</p>
-                </div>
-                <div class="events pt-4 px-3">
-                  <div class="wrapper d-flex mb-2">
-                    <i class="ti-control-record text-primary mr-2"></i>
-                    <span>Feb 7 2018</span>
-                  </div>
-                  <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
-                  <p class="text-gray mb-0 ">Call Sarah Graves</p>
-                </div>
-              </div>
-              
-            </div>
-          </div> 
+         
           <!-- partial -->
           <!-- partial:partials/_sidebar.html -->
           
@@ -139,8 +96,8 @@ document.querySelector("body").style.display = "block";
                 </a>
                 <div class="collapse" id="ui-basic">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{route('projet.index')}}">Liste des projets</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route('PROJET.create')}}">Ajouter un projet</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('projets.index')}}">Liste des projets</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('projets.create')}}">Ajouter un projet</a></li>
                     
                   </ul>
                 </div>
@@ -168,8 +125,8 @@ document.querySelector("body").style.display = "block";
                 </a>
                 <div class="collapse" id="charts">
                   <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{route('collaborateurs.index')}}">Liste des Collaborateurs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('collaborateurs.create') }}">Ajouter Collaborateur</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('collabs.index')}}">Liste des Collaborateurs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('collabs.create') }}">Ajouter Collaborateur</a></li>
                   </ul>
                 </div>
               </li>
@@ -191,63 +148,7 @@ document.querySelector("body").style.display = "block";
           </nav>
           <!-- partial -->
           <div class="main-panel"> 
-        {{--     <div class="content-wrapper pb-0"> 
-              <h2 class="ui header">Liste des collaborateurs</h2>
-              <table class="ui celled table">
-                <thead>
-                  <tr class="center aligned" ><th>#</th>
-                  <th class="center aligned" >nom </th>
-                  <th class="center aligned" >email </th>
-                  <th class="center aligned" >type </th> 
-                  <th class="center aligned" >Statu</th> 
-                  <th class="center aligned" ></th> 
-                </tr></thead>
-                <tbody>
-                  @foreach($user as $value)
-                  <tr>
-                    <td class="center aligned" data-label="Name">{{$value->id}}</td>
-                    <td class="center aligned"  data-label="Age">{{$value->nom }}</td>
-                    <td class="center aligned"  data-label="Job">{{$value->email}}</td>
-                    <td  class="center aligned" data-label="Job">{{$value->type}}</td>
-                    <td class="center aligned"  data-label="Job">{{$value->statu}}</td>    
-                    <td class="center aligned"  data-label="Job">
-                      {{-- <div class="ui icon button" data-tooltip="Modifier"> 
-                      <a href=""><i class="edit icon"></i> </a> </div> 
-                      <div class="ui icon button" data-tooltip="Modifier"> 
-                        <a href=""><i class="trash icon"></i> </a> </div>  --}}
-                    {{-- <a class="btn btn-primary" href="{{ route('posts.edit',$post->id) }}">Edit</a> --}}
-                {{-- <div class="container_form">
-                <form action="{{url('/projet/update/' . $value->id)}}" method="POST" id="form_modifier">
-                       
-                  @csrf
-                  @method('DELETE') 
-                      <div class="ui icon button" data-tooltip="Modifier"> 
-                        <a><button type="submit" class="btn_update"><i class="edit icon"></i></button></a> </div>
-                </form>
-                <form action="{{url('projet/' . $value->id)}}" method="POST" id="form_suppr">
-                   
-                    @csrf
-                    @method('DELETE')
-                    <div class="ui icon button"  data-tooltip="Supprimer"> 
-                      <a ><button type="submit" class="btn_supp"><i class="trash icon"></i></button></a></div>
-                </form>
-                <form action="{{url('projet/détails/' . $value->id)}}" method="POST" id="form_view">
-                   
-                  @csrf
-                  @method('DELETE')
-                  <div class="ui icon button"  data-tooltip="Plus"> 
-                    <a ><button type="submit" class="btn_supp"><i class="eye icon"></i></button></a></div>
-              </form>
-              </div>
-            </td>
-                     
-                        
-                    </td>    
-                  </tr>
-                 @endforeach
-                </tbody>
-              </table> --}} 
-
+            <div class="content-wrapper pb-0"> 
                 @yield('content')
             </div> 
             
@@ -289,18 +190,3 @@ document.querySelector("body").style.display = "block";
     </body>
     
     </html>
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-

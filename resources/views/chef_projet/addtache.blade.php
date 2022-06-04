@@ -1,7 +1,7 @@
 @extends('layouts.chef_projet.dashboard')
 
 @section('title')
-     Ajouter tache
+     Ajouter tâche
 @endsection
 
 @section('content')
@@ -25,19 +25,24 @@
     <div class="fields">
         <div class="eight wide field">
           <label>Affecter à</label>
-          <select class="ui dropdown" name="collab">
+           <select class="ui dropdown" name="collab">
             @foreach ($collab as $item)
                  <option value="{{ $item->id }}">{{ $item->name }}</option>
             @endforeach
-          </select>
+          </select>         
         </div>
         <div class="eight wide field">
           <label>Projet</label>
+          @if ($projets->count()==0)
+          <a href="{{route('projets.create')}}"><button class="ui black button">Ajouter Projet</button></a>
+          @else
           <select class="ui dropdown" name="projet">
             @foreach ($projets as $value)
                 <option value="{{ $value->id_projet }}"> {{$value->Nom_projet}} </option>
             @endforeach
           </select>
+          @endif
+         
         </div>
     
        
