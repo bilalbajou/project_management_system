@@ -20,7 +20,7 @@ class CreateReunionsTable extends Migration
             $table->text("description")->nullable();
             $table->enum("etat_reunion",["Planifié","Annulé","Terminée"]);
             $table->unsignedBigInteger("projet");
-            $table->foreign("projet")->references("id_projet")->on("projets");
+            $table->foreign("projet")->references("id_projet")->on("projets")->onDelete('cascade');
             $table->timestamps();
         });
     }
