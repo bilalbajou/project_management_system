@@ -40,7 +40,10 @@ Route::middleware(['auth','chef_projet'])->group(function () {
     // Routes Collaborateur
     Route::resource('collabs',collaborateurController::class);
 
-    
+});
+Route::middleware(['auth','chef_projet'])->group(function () {
+      
+  
 });
        // Route Acceuil
 Route::get('/',[homeController::class,"index"])->name('Homepage');

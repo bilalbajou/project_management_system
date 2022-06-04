@@ -19,7 +19,7 @@ class collaborateurController extends Controller
      */
     public function index()
     {
-        $user=user::all()->where('user_type','Collaborateur');
+        $user=DB::table('view_collabs')->where('Chef_projet',Auth::user()->id)->get();
         return view('chef_projet.listeCollab',compact('user'));
     }
 

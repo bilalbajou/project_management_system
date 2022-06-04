@@ -22,7 +22,6 @@
   </tr></thead>
   <tbody>
     @foreach($reunion as $value)
-
     <tr>
       <td class="center aligned" data-label="Name">{{$value->id_reunion}}</td>
       <td class="center aligned" data-label="Name">{{$value->sujet}}</td>

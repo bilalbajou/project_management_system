@@ -43,15 +43,6 @@ document.querySelector("body").style.display = "block";
               </button>
             
               <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item dropdown">
-                  <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-                    <i class="icon-bell mx-0"></i>
-                  </a>
-                  <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-                    <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                    
-                  </div>
-                </li>
                 <li class="nav-item nav-profile dropdown">
                   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                     <img src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"/>
@@ -75,11 +66,7 @@ document.querySelector("body").style.display = "block";
                    
                 </div>
                 </li>
-                <li class="nav-item nav-settings d-none d-lg-flex">
-                  <a class="nav-link" href="#">
-                    <i class="icon-ellipsis"></i>
-                  </a>
-                </li>
+           
               </ul>
               <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                 <span class="icon-menu"></span>
@@ -89,37 +76,7 @@ document.querySelector("body").style.display = "block";
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
           <!-- partial:partials/_settings-panel.html -->
-          
-          <div id="right-sidebar" class="settings-panel">
-            <i class="settings-close ti-close"></i>
-            <ul class="nav nav-tabs border-top" id="setting-panel" role="tablist">
-              <li class="nav-item">
-                <a class="nav-link active" id="todo-tab" data-toggle="tab" href="#todo-section" role="tab" aria-controls="todo-section" aria-expanded="true">Réunions</a>
-              </li>
-              
-            </ul>
-            <div class="tab-content" id="setting-content">
-              <div class="tab-pane fade show active scroll-wrapper" id="todo-section" role="tabpanel" aria-labelledby="todo-section">
-                <div class="events pt-2 px-3">
-                  <div class="wrapper d-flex mb-2">
-                    <i class="ti-control-record text-primary mr-2"></i>
-                    <span>Feb 11 2018</span>
-                  </div>
-                  <p class="mb-0 font-weight-thin text-gray">Creating component page build a js</p>
-                  <p class="text-gray mb-0">The total number of sessions</p>
-                </div>
-                <div class="events pt-4 px-3">
-                  <div class="wrapper d-flex mb-2">
-                    <i class="ti-control-record text-primary mr-2"></i>
-                    <span>Feb 7 2018</span>
-                  </div>
-                  <p class="mb-0 font-weight-thin text-gray">Meeting with Alisa</p>
-                  <p class="text-gray mb-0 ">Call Sarah Graves</p>
-                </div>
-              </div>
-              
-            </div>
-          </div> 
+         
           <!-- partial -->
           <!-- partial:partials/_sidebar.html -->
           

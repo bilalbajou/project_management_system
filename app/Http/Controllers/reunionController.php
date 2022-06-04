@@ -7,6 +7,7 @@ use App\Models\reunion;
 use App\Mail\infoCollab;
 use App\Mail\reunionMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
@@ -19,7 +20,7 @@ class reunionController extends Controller
      */
     public function index()
     {
-        $reunion=DB::table('reunion_view')->get();
+        $reunion=DB::table('view_reunion')->where('Chef_projet',Auth::user()->id)->get();
         return view('chef_projet.listeReunion',compact('reunion'));
     }
 
@@ -30,7 +31,7 @@ class reunionController extends Controller
      */
     public function create()
     {
-        $projets=projet::all();
+        $projets=projet::all()->where('Chef_projet',Auth::user()->id);
         return view('chef_projet.addReunion',compact('projets'));
     }
 
@@ -64,7 +65,7 @@ class reunionController extends Controller
           $reunion->description=$request->input('descr');
           $reunion->save();
           $projet=DB::table('projets')->where('id_projet',$reunion->projet)->first();
-          $collabs=DB::table('view_collab_email')->get();
+          $collabs=DB::table('view_collabs')->get();
           if($collabs->count()!=0){
              foreach ($collabs as $value) {
                 Mail::to($value->email)->send(new reunionMail($reunion,$projet));

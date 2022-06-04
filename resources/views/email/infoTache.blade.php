@@ -65,18 +65,26 @@
     </style>
 </head>
 <body>  
-    <h1 class="display-2 text-center">Nouvelle réunion planifié</h1>
-    <p class="text-center">Le projet: {{  $projet->Nom_projet  }} </p>
+    <h1 class="display-2 text-center">Affectation du tache</h1>
+    <p class="text-center">Le chef du projet {{Auth::user()->name}} a vous invité de collaborer à le projet :{{$projet->Nom_projet}}</p>
       <div class="container">
         <table id="table">
               <tr>
-                  <td>Sujet</td>
-                  <td>{{$reunion->sujet}}</td>
+                  <td>Tâche</td>
+                  <td>{{$tache->nom_tache}}</td>
               </tr>
               <tr>
-                <td>Date et heure</td>
-                <td>{{$reunion->date_heure->format('d/m/Y  H:i:s')}}</td>
+                <td>Date de début</td>
+                <td>{{$tache->date_début}}</td>
             </tr>
+            <tr>
+                <td>Durée</td>
+                <td>{{$tache->durée}}</td>
+            </tr>
+            <tr>
+              <td>Description</td>
+              <td>{{$tache->description_tache}}</td>
+          </tr>
             
           </table>
       </div>
