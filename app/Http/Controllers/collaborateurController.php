@@ -19,7 +19,7 @@ class collaborateurController extends Controller
      */
     public function index()
     {
-        $user=DB::table('view_collabs')->where('Chef_projet',Auth::user()->id)->get();
+        $user=DB::table('user')->where('Chef_projet',Auth::user()->id)->get();
         return view('chef_projet.listeCollab',compact('user'));
     }
 
@@ -90,7 +90,9 @@ class collaborateurController extends Controller
      */
     public function edit($id)
     {
-        //
+        $collaborateur = user::where('id',$id)->first();
+        return view('chef_projet.infocollaborateur');
+ 
     }
 
     /**

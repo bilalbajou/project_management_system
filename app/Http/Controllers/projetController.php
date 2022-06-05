@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\projet;
-use App\Models\vue_projet;
-use App\vue_projet as AppVue_projet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class projetController extends Controller
@@ -75,9 +74,9 @@ class projetController extends Controller
      */
     public function show($id)
     {
-        $vue = appVue_projet::select('id_projet',$id)
-        ->get();
-        return view('chef_projet.more',compact('projet'));
+        
+        $projet=DB::table('projet_t_u')->where('id_projet',$id)->get();
+        return  view('chef_projet.pluss',compact('projet')) ;
     }
 
     /**
@@ -89,7 +88,8 @@ class projetController extends Controller
     public function edit($id)
      {
         $projet = projet::where('id_projet',$id)->first();
-        return view('chef_projet.update.EditProjet',compact('projet'));
+        return view('chef_projet.infoprojet',compact('projet'));
+        
               
         }
 

@@ -29,15 +29,15 @@ Route::fallback(function() {
         return view('404');
 });
 Route::middleware(['auth','chef_projet'])->group(function () {
-    // Routes projet                                                                                                                                                                                                                           
+                                                                                                                                                                                                                             
    
     // Routes projet
       Route::resource('projets',projetController::class);
-      route::get('/projets/détails',[projetController::class,'plus'])->name("projets.plus");
+      route::get('/projets/détails/{id}',[projetController::class,'show'])->name("projets.show");
 
     // Routes taches
     Route::resource('taches',tacheController::class);
-    route::get('/taches/détails',[tacheController::class,'plus'])->name("projets.plus");
+    route::get('/taches/détails/',[tacheController::class,'plus'])->name("projets.plus");
     
     //  Routes Réunion 
     Route::resource('reunions',reunionController::class);

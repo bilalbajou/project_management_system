@@ -32,8 +32,6 @@
       
   <div class="container_form">
   <form action="{{route('projets.edit',$value->id_projet)}}" method="GET" id="form_modifier">
-         
-    @csrf
         <div class="ui icon button" data-tooltip="Modifier"> 
           <a><button type="submit" class="btn_update"><i class="edit icon"></i></button></a> </div>
   </form>
@@ -43,9 +41,7 @@
       <div class="ui icon button"  data-tooltip="Supprimer"> 
         <a ><button type="submit" class="btn_supp"><i class="trash icon"></i></button></a></div>
   </form>
-  <form action="{{route('projets.plus',$value->id_projet)}}" method="get" id="form_view">
-     
-    @csrf
+  <form action="{{route('projets.show',$value->id_projet)}}" method="get" id="form_view">
     <div class="ui icon button"  data-tooltip="Plus"> 
       <a ><button type="submit" class="btn_supp"><i class="eye icon"></i></button></a></div>
 </form>

@@ -7,28 +7,28 @@
 @section('content')
 <h2 class="ui header">modifier un projet </h2>
               
-<form class="ui form" action="{{route('projets.update')}}" method="POST">
+<form class="ui form" action="{{route('projets.update',$projet->id_projet)}}" method="POST">
   @csrf
  <div class="fields">
-   <div class="six wide field">
+   <div class="eight wide field">
      <label>Nom du projet</label>
-     <input type="text" name="nomProjet">
+     <input type="text" value="{{$projet->Nom_projet}}" name="nomProjet">
      
    </div>
-   <div class="four wide field">
+   {{-- <div class="four wide field">
      <label>Date de début</label>
      <input type="date" name="dateDebut" >
-   </div>
-   <div class="six wide field">
+   </div> --}}
+   <div class="eight wide field">
      <label>Date de fin</label>
-     <input type="date" name="dateFin">
+     <input type="date" value="{{$projet->Date_début}}" name="dateFin">
    </div>
   
  </div>
  <div class="fields">
    <div class="field sixteen wide">
      <label>Description</label>
-     <textarea rows="3" name="descr"></textarea>
+     <textarea rows="3"  name="descr"> {{$projet->description_projet}} </textarea>
    </div>
  </div>
  <input class="ui submit button black" id="btn_mod" type="submit" value="modifier">

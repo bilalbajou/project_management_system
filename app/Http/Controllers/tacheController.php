@@ -20,7 +20,7 @@ class tacheController extends Controller
      */
     public function index()
     {
-        $taches=DB::table('view_tache')->where('Chef_projet',Auth::user()->id)->get();
+        $taches=DB::table('view_tache')->get();
         return view('chef_projet.listeTache',compact('taches'));
     }
 
@@ -31,7 +31,7 @@ class tacheController extends Controller
      */
     public function create()
     {
-        $projets=DB::table('view_projets')->where('Chef_projet',Auth::user()->id)->get();
+        $projets=DB::table('projets')->where('Chef_projet',Auth::user()->id)->get();
         $collab=DB::table('users')->where('invited_by',Auth::user()->id)->get();
         return view('chef_projet.addtache',compact('projets'),compact('collab'));
     }
@@ -87,7 +87,9 @@ class tacheController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        $projet=DB::table('projet_t_u')->where('id_projet',$id)->get();
+        return  view('chef_projet.plus',compact('projet')) ;
     }
 
     /**

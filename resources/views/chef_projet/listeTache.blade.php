@@ -31,7 +31,7 @@
       <td class="center aligned"  data-label="Job">{{$value->date_début}}</td>
       <td  class="center aligned" data-label="Job">{{$value->durée}}</td>
       <td class="center aligned"  data-label="Job">{{$value->état_tache}}</td>    
-      <td class="center aligned"  data-label="Job">{{$value->Nom_projet}}</td>   
+      <td class="center aligned"  data-label="Job">{{$value->nom_projet}}</td>   
       <td class="center aligned"  data-label="Job">{{$value->name}}</td>   
       <td class="center aligned"  data-label="Job">
   <div class="container_form">

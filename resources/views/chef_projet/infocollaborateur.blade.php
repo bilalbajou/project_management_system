@@ -30,7 +30,7 @@
      <input type="text" name="pass">
        </div>
  </div>
- <input class="ui submit button black" id="btn_ajout" type="submit" value="Ajouter">
+ <input class="ui submit button black" id="btn_modifier" type="submit" value="modifier">
  @if ($errors->any())
  <div class="ui info message">
    <div class="header">
