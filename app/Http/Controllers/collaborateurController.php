@@ -91,7 +91,8 @@ class collaborateurController extends Controller
      */
     public function edit($id)
     {
-        //
+       
+ 
     }
 
     /**
@@ -103,7 +104,8 @@ class collaborateurController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
+
     }
 
     /**

@@ -28,13 +28,6 @@
       <td class="center aligned"  data-label="Job">
        
   <div class="container_form">
-  <form action="{{route('collabs.update',$value->id)}}" method="POST" id="form_modifier">
-         
-    @csrf
-    @method('DELETE')
-        <div class="ui icon button" data-tooltip="Modifier"> 
-          <a><button type="submit" class="btn_update"><i class="edit icon"></i></button></a> </div>
-  </form>
   <form action="{{route('collabs.destroy',$value->id)}}" method="POST" id="form_suppr">
       @csrf
       @method('DELETE')

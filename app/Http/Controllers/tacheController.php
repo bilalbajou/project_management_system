@@ -44,7 +44,7 @@ class tacheController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+     {
         $validatedData = $request->validate([
             'nomTache' => ['bail','required','string'],
             'dateDebut' => ['bail','required','Date'],
@@ -94,7 +94,9 @@ class tacheController extends Controller
      */
     public function show($id)
     {
-        //
+        
+        $projet=DB::table('projet_t_u')->where('id_projet',$id)->get();
+        return  view('chef_projet.plus',compact('projet')) ;
     }
 
     /**
@@ -105,7 +107,8 @@ class tacheController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tache = tache::where('id_tache',$id)->first();
+        return view('chef_projet.update.infotache');
     }
 
     /**
@@ -117,7 +120,45 @@ class tacheController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'nomTache' => ['bail','required','string'],
+            'dateDebut' => ['bail','required','Date'],
+            'dureeTache'=>['bail','required','integer','min:1'],
+            'projet'=>['required'],
+            'collab'=>['required'],
+            'descr'=>['max:255']
+        ],
+        [
+            'nomTache.required' => 'Vous devez saisir le nom du Tâche',
+            'dateDebut.required' => 'Vous devez saisir la date de début du Tâche',
+            'projet.required' => 'vous devez choisir un projet',
+            'dureeTache.required'=>'Vous devez saisir la durée du Tâche',
+            'dureeTache.integer'=>'La durée doit être un nombre entier',
+            'dureeTache.min'=>'le champs durée n\'accepte pas un nombre null ou négatif',
+            'descr.max'=>'ne dépasse 255 caractère'
+        ]
+         
+        );
+                $id_projet=$request->get('projet');
+                $id_collab=$request->get('collab');
+                $tache=new tache();
+                $tache->nom_tache=$request->input('nomTache');
+                $tache->date_début=$request->input('dateDebut');
+                $tache->durée=$request->input('dureeTache');
+                $tache->projet=$id_projet;
+                $tache->collaborateur=$id_collab;
+                $tache->description_tache=$request->input('descr');
+                $projet=DB::table('projets')->where('id_projet',$tache->projet)->first();
+                $date_début_projet=$projet->Date_début;
+                $date_début_tache=$tache->date_début;
+                if($date_début_tache<$date_début_projet){
+                    return redirect()->route('taches.create')->withErrors('date de début de tache inférieure à de date début du projet !');
+                } 
+                $tache->save();
+                $collab=DB::table('users')->where('id',$tache->collaborateur)->first();
+                $projet=DB::table('projets')->where('id_projet',$tache->projet)->first();
+                Mail::to($collab->email)->send(new tacheMail($tache,$projet));
+                return  redirect()->back()->with('success','Le sauvegarde est réussi');
     }
 
     /**

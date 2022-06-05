@@ -48,7 +48,6 @@
       <div class="ui icon button"  data-tooltip="Supprimer"> 
         <a ><button type="submit" class="btn_supp"><i class="trash icon"></i></button></a></div>
   </form>
-
 </div>
 </td>
        

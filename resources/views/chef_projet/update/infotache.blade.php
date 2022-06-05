@@ -1,53 +1,43 @@
 @extends('layouts.chef_projet.dashboard')
 
 @section('title')
-     Ajouter tâche
+     modifier tache
 @endsection
 
 @section('content')
-<h2 class="ui header">Ajouter une nouvelle tâche</h2>
+<h2 class="ui header">modifier une tâche</h2>
 <form class="ui form" action="{{route('taches.store')}}" method="POST">
   @csrf
     <div class="fields">
       <div class="six wide field">
         <label>Nom du Tâche</label>
-        <input type="text" name="nomTache" value="{{old('nomTache')}}">
+        <input type="text" name="nomTache" value="{{$id->nom_tache}}">
       </div>
       <div class="four wide field">
         <label>Date de début</label>
-        <input type="date" name="dateDebut" value="{{old('dateDebut')}}">
+        <input type="date" name="dateDebut" value="{{$id->date_début}}" >
       </div>
       <div class="six wide field">
         <label>Durée du Tâche ( En jours )</label>
-        <input type="text" name="dureeTache" value="{{old('dureeTache')}}">
+        <input type="text" name="dureeTache" value="{{$id->durée}}">
       </div>
     </div>
     <div class="fields">
         <div class="eight wide field">
           <label>Affecter à</label>
-           @if ($collab->count()!=0)
-             <select class="ui dropdown" name="collab">
+          <select class="ui dropdown" name="collab">
             @foreach ($collab as $item)
                  <option value="{{ $item->id }}">{{ $item->name }}</option>
             @endforeach
-          </select> 
-            @else
-           <a href="{{route('collabs.create')}}"> <button type="button" class="btn btn-warning">Ajouter Collaborateur</button></a>
-           @endif
-                 
+          </select>
         </div>
         <div class="eight wide field">
           <label>Projet</label>
-          @if ($projets->count()==0)
-          <a href="{{route('projets.create')}}"><button type="button" class="btn btn-warning">Ajouter projet</button></a>
-          @else
           <select class="ui dropdown" name="projet">
             @foreach ($projets as $value)
                 <option value="{{ $value->id_projet }}"> {{$value->Nom_projet}} </option>
             @endforeach
           </select>
-          @endif
-         
         </div>
     
        
@@ -55,10 +45,10 @@
     <div class="fields">
       <div class="field sixteen wide">
         <label>Description</label>
-        <textarea rows="3" name="descr">{{ old('descr') }}</textarea>
+        <textarea rows="3" name="descr"></textarea>
       </div>
     </div>
-    <input class="ui black button" type="submit" value="Ajouter">
+    <input class="ui black button" type="submit" value="modifier">
      @if ($errors->any())
     <div class="ui info message">
       <div class="header">

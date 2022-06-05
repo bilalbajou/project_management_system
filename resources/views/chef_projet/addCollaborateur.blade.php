@@ -11,11 +11,11 @@
  <div class="fields">
    <div class="eight wide field">
      <label>Nom</label>
-     <input type="text" name="nom">
+     <input type="text" name="nom" value="{{old('nom')}}">
    </div>
    <div class="eight wide field">
      <label>Prenom</label>
-     <input type="text" name="prenom">
+     <input type="text" name="prenom" value="{{old('prenom')}}">
    </div>
    
  </div>
@@ -23,11 +23,11 @@
  <div class="fields">
      <div class="eight wide field">
          <label>Email</label>
-         <input type="text" name="email">
+         <input type="text" name="email" value="{{old('email')}}">
        </div>
       <div class="eight wide field">
      <label>Mot de passe</label>
-     <input type="text" name="pass">
+     <input type="text" name="pass" value="{{old('pass')}}">
        </div>
  </div>
  <input class="ui submit button black" id="btn_ajout" type="submit" value="Ajouter">
