@@ -19,9 +19,9 @@
     <th class="center aligned" >Action</th> 
   </tr></thead>
   <tbody>
-    @foreach($user as $value)
+    @foreach($user as  $value)
     <tr>
-      <td class="center aligned" data-label="Name"> </td>
+      <td class="center aligned" data-label="Name" s>{{++$i}}</td>
       <td class="center aligned"  data-label="Age">{{$value->name }}</td>
       <td class="center aligned"  data-label="Job">{{$value->email}}</td>     
 

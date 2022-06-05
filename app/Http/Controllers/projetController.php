@@ -14,9 +14,9 @@ class projetController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   $i=0;
         $projets=projet::all()->where('Chef_projet',Auth::user()->id);
-        return view('chef_projet.Listeprojet',compact('projets'));
+        return view('chef_projet.Listeprojet',compact('projets'))->with('i',$i);
     }
 
     /**
@@ -60,6 +60,7 @@ class projetController extends Controller
           $projet->Date_fin=$request->input('dateFin');
           $projet->description_projet=$request->input('descr');
           $projet->Chef_projet=Auth::user()->id;
+          
           $projet->save();
           return  redirect()->back()->with('success','Le sauvegarde est réussi');
 

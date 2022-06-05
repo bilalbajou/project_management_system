@@ -20,8 +20,9 @@ class tacheController extends Controller
      */
     public function index()
     {
+        $i=0;
         $taches=DB::table('view_tache')->where('Chef_projet',Auth::user()->id)->get();
-        return view('chef_projet.listeTache',compact('taches'));
+        return view('chef_projet.listeTache',compact('taches'))->with('i',$i);
     }
 
     /**
@@ -72,6 +73,12 @@ class tacheController extends Controller
                 $tache->projet=$id_projet;
                 $tache->collaborateur=$id_collab;
                 $tache->description_tache=$request->input('descr');
+                $projet=DB::table('projets')->where('id_projet',$tache->projet)->first();
+                $date_début_projet=$projet->Date_début;
+                $date_début_tache=$tache->date_début;
+                if($date_début_tache<$date_début_projet){
+                    return redirect()->route('taches.create')->withErrors('date de début de tache inférieure à de date début du projet !');
+                } 
                 $tache->save();
                 $collab=DB::table('users')->where('id',$tache->collaborateur)->first();
                 $projet=DB::table('projets')->where('id_projet',$tache->projet)->first();

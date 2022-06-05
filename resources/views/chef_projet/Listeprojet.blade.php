@@ -23,7 +23,7 @@
   <tbody>
     @foreach($projets as $value)
     <tr>
-      <td class="center aligned" data-label="Name">{{$value->id_projet}}</td>
+      <td class="center aligned" data-label="Name">{{++$i}}</td>
       <td class="center aligned"  data-label="Age">{{$value->Nom_projet}}</td>
       <td class="center aligned"  data-label="Job">{{$value->Date_début}}</td>
       <td  class="center aligned" data-label="Job">{{$value->Date_fin}}</td>

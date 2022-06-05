@@ -20,8 +20,9 @@ class reunionController extends Controller
      */
     public function index()
     {
+        $i=0;
         $reunion=DB::table('view_reunion')->where('Chef_projet',Auth::user()->id)->get();
-        return view('chef_projet.listeReunion',compact('reunion'));
+        return view('chef_projet.listeReunion',compact('reunion'))->with('i',$i);
     }
 
     /**

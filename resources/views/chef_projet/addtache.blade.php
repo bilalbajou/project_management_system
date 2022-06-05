@@ -25,16 +25,21 @@
     <div class="fields">
         <div class="eight wide field">
           <label>Affecter à</label>
-           <select class="ui dropdown" name="collab">
+           @if ($collab->count()!=0)
+             <select class="ui dropdown" name="collab">
             @foreach ($collab as $item)
                  <option value="{{ $item->id }}">{{ $item->name }}</option>
             @endforeach
-          </select>         
+          </select> 
+            @else
+           <a href="{{route('collabs.create')}}"> <button type="button" class="btn btn-warning">Ajouter Collaborateur</button></a>
+           @endif
+                 
         </div>
         <div class="eight wide field">
           <label>Projet</label>
           @if ($projets->count()==0)
-          <a href="{{route('projets.create')}}"><button type="button" class="btn btn-outline-info">Info</button></a>
+          <a href="{{route('projets.create')}}"><button type="button" class="btn btn-warning">Ajouter projet</button></a>
           @else
           <select class="ui dropdown" name="projet">
             @foreach ($projets as $value)

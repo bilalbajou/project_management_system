@@ -17,11 +17,16 @@
    </div>
    <div class="six wide field">
      <label>Projet</label>
-     <select class="ui dropdown" name="projet">
+     @if ($projets->count()==0)
+     <a href="{{route('projets.create')}}"><button type="button" class="btn btn-warning">Ajouter projet</button></a>
+     @else
+      <select class="ui dropdown" name="projet">
        @foreach ($projets as $item)
            <option value="{{  $item->id_projet }}">{{ $item->Nom_projet }}</option>
        @endforeach
      </select>
+     @endif
+    
     
    </div>
  </div>

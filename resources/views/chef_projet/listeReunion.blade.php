@@ -23,7 +23,7 @@
   <tbody>
     @foreach($reunion as $value)
     <tr>
-      <td class="center aligned" data-label="Name">{{$value->id_reunion}}</td>
+      <td class="center aligned" data-label="Name">{{++$i}}</td>
       <td class="center aligned" data-label="Name">{{$value->sujet}}</td>
       <td class="center aligned" data-label="Name">{{$value->date_heure}}</td>
       <td class="center aligned" data-label="Name">{{$value->etat_reunion}}</td>
