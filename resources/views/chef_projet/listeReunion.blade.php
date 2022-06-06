@@ -32,7 +32,6 @@
   <div class="container_form">
   <form action="{{route('reunions.edit',$value->id_reunion)}}" method="GET" id="form_modifier">
          
-       @csrf
         <div class="ui icon button" data-tooltip="Modifier"> 
           <a><button type="submit" class="btn_update"><i class="edit icon"></i></button></a> </div>
   </form>

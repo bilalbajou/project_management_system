@@ -26,8 +26,8 @@
          <input type="text" name="email" value="{{old('email')}}">
        </div>
       <div class="eight wide field">
-     <label>Mot de passe</label>
-     <input type="text" name="pass" value="{{old('pass')}}">
+     <label>Téléphone</label>
+     <input type="text" name="tel" value="{{old('tel')}}">
        </div>
  </div>
  <input class="ui submit button black" id="btn_ajout" type="submit" value="Ajouter">

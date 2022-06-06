@@ -46,7 +46,7 @@ class collaborateurController extends Controller
             'nom' => ['required'],
             'prenom' => ['required'],
             'email'=>['bail','required','email','unique:users'],
-            'pass'=>['required']
+            'tel'=>['numeric']
         ],
         [
             'nom.required' => 'Vous devez saisir le nom du collaborateur',
@@ -54,7 +54,7 @@ class collaborateurController extends Controller
             'email.required' => 'Vous devez saisir email du collaborateur',
             'email.email'=>'e-mail non valide',
             'email.unique'=>'e-mail déjà existe',
-            'pass.required'=>'Vous de devez saisir un mot de passe'
+            'tel.numeric'=>'Vous devez saisir un nombre'
         ]
         
          
@@ -63,8 +63,10 @@ class collaborateurController extends Controller
    $user= new User();
    $user->name=$request->nom.' '. $request->prenom ;
    $user->email=$request['email'];
-   $pass=$request['pass'];
-   $user->password=Hash::make($request['pass']);
+   $user->telephone=$request['tel'];
+   $random = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!$%^&!$%^&');
+   $pass = substr($random, 1, 9);
+   $user->password=Hash::make($pass);
     $user->user_type='Collaborateur';
     $user->invited_by=Auth::user()->id;
     $user->save();

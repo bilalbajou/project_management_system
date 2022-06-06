@@ -16,6 +16,7 @@
     <tr class="center aligned" ><th>#</th>
     <th class="center aligned" >Nom et Prenom</th>
     <th class="center aligned" >Email </th>
+    <th class="center aligned" >Téléphone </th>
     <th class="center aligned" >Action</th> 
   </tr></thead>
   <tbody>

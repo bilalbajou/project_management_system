@@ -11,17 +11,14 @@
   @csrf
   @method('PUT')
  <div class="fields">
-  
    <div class="eight wide field">
      <label>Nom du projet</label>
-     <input type="text" value="{{$projet->Nom_projet}}" name="nomProjet">
-     
+     <input type="text" value="{{$projet->Nom_projet}}" name="nomProjet"> 
    </div>
    <div class="eight wide field">
      <label>Date de fin</label>
      <input type="date" value="{{$projet->Date_fin}}" name="dateFin">
    </div>
-  
  </div>
  <div class="fields">
    <div class="field sixteen wide">

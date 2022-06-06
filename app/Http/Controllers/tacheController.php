@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use SebastianBergmann\Diff\Diff;
 
 class tacheController extends Controller
 {
@@ -73,12 +74,20 @@ class tacheController extends Controller
                 $tache->projet=$id_projet;
                 $tache->collaborateur=$id_collab;
                 $tache->description_tache=$request->input('descr');
-                $projet=DB::table('projets')->where('id_projet',$tache->projet)->first();
+                $projet=DB::table('view_projet')->where('id_projet',$tache->projet)->first();
                 $date_début_projet=$projet->Date_début;
                 $date_début_tache=$tache->date_début;
                 if($date_début_tache<$date_début_projet){
                     return redirect()->route('taches.create')->withErrors('date de début de tache inférieure à de date début du projet !');
                 } 
+                $duree_tache_cumul=DB::table('taches')->where('projet',$tache->projet)->sum('durée')+$tache->durée;
+                if($duree_tache_cumul>$projet->durée){
+                return redirect()->route('taches.create')->withErrors('Durée du tache est incorrect');
+                }
+                if($date_début_tache>$projet->Date_fin){
+                    return redirect()->route('taches.create')->withErrors('date de début de tache supérieur à de date fin du projet !');
+                }
+                
                 $tache->save();
                 $collab=DB::table('users')->where('id',$tache->collaborateur)->first();
                 $projet=DB::table('projets')->where('id_projet',$tache->projet)->first();
@@ -107,8 +116,10 @@ class tacheController extends Controller
      */
     public function edit($id)
     {
+        $collab=DB::table('users')->where('invited_by',Auth::user()->id)->get();
+        $projets=DB::table('projets')->where('Chef_projet',Auth::user()->id)->get();
         $tache = tache::where('id_tache',$id)->first();
-        return view('chef_projet.update.infotache');
+        return view('chef_projet.update.infotache',['tache'=>$tache,'collab'=>$collab,'projets'=>$projets]);
     }
 
     /**
@@ -139,21 +150,28 @@ class tacheController extends Controller
         ]
          
         );
+                $tache=tache::find($id);
                 $id_projet=$request->get('projet');
                 $id_collab=$request->get('collab');
-                $tache=new tache();
                 $tache->nom_tache=$request->input('nomTache');
                 $tache->date_début=$request->input('dateDebut');
                 $tache->durée=$request->input('dureeTache');
                 $tache->projet=$id_projet;
                 $tache->collaborateur=$id_collab;
                 $tache->description_tache=$request->input('descr');
-                $projet=DB::table('projets')->where('id_projet',$tache->projet)->first();
+                $projet=DB::table('view_projet')->where('id_projet',$tache->projet)->first();
                 $date_début_projet=$projet->Date_début;
                 $date_début_tache=$tache->date_début;
                 if($date_début_tache<$date_début_projet){
                     return redirect()->route('taches.create')->withErrors('date de début de tache inférieure à de date début du projet !');
-                } 
+                }
+                if($date_début_tache>$projet->Date_fin){
+                    return redirect()->route('taches.create')->withErrors('date de début de tache supérieur à de date fin du projet !');
+                }
+                $duree_tache_cumul=DB::table('taches')->where('projet',$tache->projet)->sum('durée')+$tache->durée;
+                if($duree_tache_cumul>$projet->durée){
+                    return redirect()->route('taches.create')->withErrors('Durée du tache est incorrect');
+                    }
                 $tache->save();
                 $collab=DB::table('users')->where('id',$tache->collaborateur)->first();
                 $projet=DB::table('projets')->where('id_projet',$tache->projet)->first();
