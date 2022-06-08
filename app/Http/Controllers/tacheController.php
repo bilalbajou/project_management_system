@@ -69,6 +69,7 @@ class tacheController extends Controller
                 $tache->collaborateur=$id_collab;
                 $tache->description_tache=$request->input('descr');
                 $tache->save();
+                return  redirect()->back()->with('success','Le sauvegarde est réussi');
     }
 
     /**

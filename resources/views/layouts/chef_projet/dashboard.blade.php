@@ -205,7 +205,7 @@
         <!-- page-body-wrapper ends -->
       </div>
       <!-- container-scroller -->
-      <script>
+      <script defer>
           document.querySelector("body").style.display = "none";
 document.querySelector("body").classList.add("spinner-1");
 setTimeout(() => {
@@ -222,13 +222,13 @@ setTimeout(() => {
  <!-- endinject -->
  <script src="{{asset('js_template/off-canvas.js')}}" defer></script>
  <script src="{{asset('js_template/hoverable-collapse.js')}}"defer ></script>
- <script src="{{asset('js_template/template.js')}}"defer></script>
+ {{-- <script src="{{asset('js_template/template.js')}}"defer></script> --}}
  <script src="{{asset('js_template/settings.js')}}" defer></script>
   <script src="{{asset('js_template/todolist.js')}}" defer></script> 
  <!-- endinject -->
  <!-- Custom js for this page-->
  <script src="{{asset('js/app.js')}}" defer></script>
- <script src="{{asset('js_template/dashboard.js')}}" defer></script>
+ {{-- <script src="{{asset('js_template/dashboard.js')}}" defer></script> --}}
  {{-- <script src="js_template/Chart.roundedBarCharts.js"></script> --}}
  <!-- End custom js for this page-->
     </body>
