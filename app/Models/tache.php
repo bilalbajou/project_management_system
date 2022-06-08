@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class tache extends Model
 {
+    protected $primaryKey = 'id_tache';
     use HasFactory;
     public function projet(){
         return $this->belongsTo(projet::class);

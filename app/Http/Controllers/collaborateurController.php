@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Mail\infoCollab;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class collaborateurController extends Controller
 {
@@ -15,8 +19,9 @@ class collaborateurController extends Controller
      */
     public function index()
     {
-        $user=user::all();
-        return view('chef_projet.listeCollab',compact('user'));
+        $user=DB::table('users')->where('invited_by',Auth::user()->id)->get();
+        $i=0;
+        return view('chef_projet.listeCollab',compact('user'))->with('i',$i);
     }
 
     /**
@@ -40,25 +45,32 @@ class collaborateurController extends Controller
         $validatedData = $request->validate([
             'nom' => ['required'],
             'prenom' => ['required'],
-            'email'=>['required','email'],
-            'pass'=>['required']
+            'email'=>['bail','required','email','unique:users'],
+            'tel'=>['numeric']
         ],
         [
             'nom.required' => 'Vous devez saisir le nom du collaborateur',
             'prenom.required' => 'Vous devez saisir le prénom du collaborateur',
             'email.required' => 'Vous devez saisir email du collaborateur',
             'email.email'=>'e-mail non valide',
-            'pass.required'=>'Vous de devez saisir un mot de passe'
+            'email.unique'=>'e-mail déjà existe',
+            'tel.numeric'=>'Vous devez saisir un nombre'
         ]
         
          
     );
-    User::create([
-        'name' => $request->nom.' '. $request->prenom ,
-        'email' => $request['email'],
-        'password' => Hash::make($request['pass']),
-        'user_type'=>'Collaborateur'
-    ]);
+   $chef=Auth::user();
+   $user= new User();
+   $user->name=$request->nom.' '. $request->prenom ;
+   $user->email=$request['email'];
+   $user->telephone=$request['tel'];
+   $random = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!$%^&!$%^&');
+   $pass = substr($random, 1, 9);
+   $user->password=Hash::make($pass);
+    $user->user_type='Collaborateur';
+    $user->invited_by=Auth::user()->id;
+    $user->save();
+    Mail::to($user->email)->send(new infoCollab($user,$pass,$chef));
     return  redirect()->back()->with('success','Le sauvegarde est réussi');
     }
 
@@ -81,7 +93,8 @@ class collaborateurController extends Controller
      */
     public function edit($id)
     {
-        //
+       
+ 
     }
 
     /**
@@ -93,7 +106,8 @@ class collaborateurController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
+
     }
 
     /**
@@ -104,6 +118,8 @@ class collaborateurController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('users')->where('id',$id)->delete();
+        return redirect()->back()->with('success','La suppression est réussi');
     }
+    
 }

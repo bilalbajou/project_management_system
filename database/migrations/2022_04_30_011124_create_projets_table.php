@@ -21,7 +21,7 @@ class CreateProjetsTable extends Migration
             $table->text("description_projet")->nullable();
             $table->enum("etat_projet",["En cours","Annulé"]);
             $table->unsignedBigInteger("Chef_projet");
-            $table->foreign("Chef_projet")->references("id")->on("users");
+            $table->foreign("Chef_projet")->references("id")->on("users")->onDelete('cascade');
         });
     }
 

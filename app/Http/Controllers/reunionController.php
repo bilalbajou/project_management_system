@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\projet;
 use App\Models\reunion;
+
+use App\Mail\reunionMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class reunionController extends Controller
 {
@@ -15,8 +20,9 @@ class reunionController extends Controller
      */
     public function index()
     {
-        $reunion=reunion::all();
-        return view('chef_projet.listeReunion',compact('reunion'));
+        $i=0;
+        $reunion=DB::table('view_reunion')->where('Chef_projet',Auth::user()->id)->get();
+        return view('chef_projet.listeReunion',compact('reunion'))->with('i',$i);
     }
 
     /**
@@ -26,7 +32,7 @@ class reunionController extends Controller
      */
     public function create()
     {
-        $projets=projet::all();
+        $projets=projet::all()->where('Chef_projet',Auth::user()->id);
         return view('chef_projet.addReunion',compact('projets'));
     }
 
@@ -59,6 +65,13 @@ class reunionController extends Controller
           $reunion->projet=$id_projet;
           $reunion->description=$request->input('descr');
           $reunion->save();
+          $projet=DB::table('projets')->where('id_projet',$reunion->projet)->first();
+          $collabs=DB::table('view_collabs')->where('id_projet',$id_projet)->get();
+          if($collabs->count()!=0){
+             foreach ($collabs as $value) {
+                Mail::to($value->email)->send(new reunionMail($reunion,$projet));
+            }
+          }
           return  redirect()->back()->with('success','Le sauvegarde est réussi');
 
     }
@@ -82,7 +95,9 @@ class reunionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $projets=DB::table('projets')->where('Chef_projet',Auth::user()->id)->get();
+        $reunion = reunion::where('id_reunion',$id)->first();
+        return view('chef_projet.update.inforeunion',['reunion'=>$reunion,'projets'=>$projets]);
     }
 
     /**
@@ -94,7 +109,36 @@ class reunionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'sujetReunion' => ['required'],
+            'dateDebut' => ['bail','required','Date'],
+            'projet'=>['required'],
+            'descr'=>['max:255']
+        ],
+        [
+            'sujetReunion.required' => 'Vous devez saisir le sujet du réunion',
+            'dateDebut.required' => 'Vous devez saisir la date de début du réunion',
+            'projet.required' => 'vous devez choisir un projet',
+            'descr.max'=>'ne dépasse 255 caractère'
+        ]
+         
+    );
+          $reunion=reunion::find($id);
+          $id_projet=$request->get('projet');
+          $reunion->sujet=$request->input('sujetReunion');
+          $reunion->date_heure=$request->input('dateDebut');
+          $reunion->projet=$id_projet;
+          $reunion->description=$request->input('descr');
+          $reunion->save();
+          $projet=DB::table('projets')->where('id_projet',$reunion->projet)->first();
+          $collabs=DB::table('view_collabs')->where('id_projet',$id_projet)->get();
+          if($collabs->count()!=0){
+             foreach ($collabs as $value) {
+                Mail::to($value->email)->send(new reunionMail($reunion,$projet));
+            }
+          }
+          return  redirect()->back()->with('success','La modification est réussi');
+ 
     }
 
     /**
@@ -105,6 +149,7 @@ class reunionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('reunions')->where('id_reunion',$id)->delete();
+        return redirect()->back()->with('success','La suppression est réussi');
     }
 }

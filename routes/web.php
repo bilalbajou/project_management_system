@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\AddContact;
-use App\Http\Controllers\addprojetController;
-use App\Http\Controllers\addTacheController;
+
 use App\Http\Controllers\collaborateurController;
 use App\Http\Controllers\delete;
 use App\Http\Controllers\homeController;
@@ -11,6 +9,7 @@ use App\Http\Controllers\projetController;
 use App\Http\Controllers\reunionController;
 use App\Http\Controllers\tacheController;
 use App\Http\Controllers\tacherController;
+use App\Models\projet;
 use Illuminate\Support\Facades\Route;
 
 
@@ -30,16 +29,29 @@ Route::fallback(function() {
         return view('404');
 });
 Route::middleware(['auth','chef_projet'])->group(function () {
+                                                                                                                                                                                                                             
+   
     // Routes projet
       Route::resource('projets',projetController::class);
+      route::get('/projets/détails/{id}',[projetController::class,'show'])->name("projets.show");
+
     // Routes taches
     Route::resource('taches',tacheController::class);
+    route::get('/taches/détails/',[tacheController::class,'plus'])->name("projets.plus");
+    
     //  Routes Réunion 
     Route::resource('reunions',reunionController::class);
+    route::get('/reunion/détails',[reunionController::class,'plus'])->name("projets.plus");
+    
     // Routes Collaborateur
     Route::resource('collabs',collaborateurController::class);
+    route::get('/collaborateur/détails',[collaborateurController::class,'plus'])->name("projets.plus");
+   
 
-    
+});
+Route::middleware(['auth','chef_projet'])->group(function () {
+      
+  
 });
        // Route Acceuil
 Route::get('/',[homeController::class,"index"])->name('Homepage');
