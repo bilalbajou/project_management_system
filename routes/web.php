@@ -9,6 +9,7 @@ use App\Http\Controllers\projetController;
 use App\Http\Controllers\reunionController;
 use App\Http\Controllers\tacheController;
 use App\Http\Controllers\tacherController;
+use App\Http\Controllers\userController;
 use App\Models\projet;
 use Illuminate\Support\Facades\Route;
 
@@ -49,9 +50,11 @@ Route::middleware(['auth','chef_projet'])->group(function () {
    
 
 });
-Route::middleware(['auth','chef_projet'])->group(function () {
+Route::middleware(['auth','Webmaster'])->group(function () {
       
-  
+     Route::get('/utilisateurs',[userController::class,'index'])->name('utilisateurs.index');
+     Route::put('/utilisateurs/activer/{id}',[userController::class,'activer'])->name('utilisateurs.activer');
+     Route::put('/utilisateurs/désactiver/{id}',[userController::class,'desactiver'])->name('utilisateurs.désactiver');
 });
        // Route Acceuil
 Route::get('/',[homeController::class,"index"])->name('Homepage');

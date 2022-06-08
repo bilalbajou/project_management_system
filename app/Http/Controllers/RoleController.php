@@ -25,7 +25,7 @@ class RoleController extends Controller
              else if($role=="Collaborateur")
              return view('collaborateur.test');
              else if($role=='Webmaster')
-             return view('admin.dashboard');
+             return redirect()->route('utilisateurs.index');
              else 
               abort(403);
             case 'D':

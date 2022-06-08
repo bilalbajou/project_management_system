@@ -17,15 +17,16 @@
     <th class="center aligned" >Nom et Prenom</th>
     <th class="center aligned" >Email </th>
     <th class="center aligned" >Téléphone </th>
-    <th class="center aligned" >Action</th> 
+    <th class="center aligned" >Action </th>
+
   </tr></thead>
   <tbody>
     @foreach($user as  $value)
     <tr>
       <td class="center aligned" data-label="Name" s>{{++$i}}</td>
       <td class="center aligned"  data-label="Age">{{$value->name }}</td>
-      <td class="center aligned"  data-label="Job">{{$value->email}}</td>     
-
+      <td class="center aligned"  data-label="Job">{{$value->email}}</td> 
+      <td class="center aligned"  data-label="Job">{{$value->telephone}}</td>
       <td class="center aligned"  data-label="Job">
        
   <div class="container_form">
