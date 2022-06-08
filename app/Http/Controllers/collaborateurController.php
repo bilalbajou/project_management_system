@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 
 class collaborateurController extends Controller
@@ -62,6 +63,20 @@ class collaborateurController extends Controller
    $chef=Auth::user();
    $user= new User();
    $user->name=$request->nom.' '. $request->prenom ;
+   $response=Http :: withHeaders(
+    [
+        'X-RapidAPI-Host' => 'validect-email-verification-v1.p.rapidapi.com',
+        'X-RapidAPI-Key' => '45570ffe6emsh12da69d7e649e7dp1ac122jsn1676e61b9965'
+    ]
+    )->get('https://validect-email-verification-v1.p.rapidapi.com/v1/verify?email='.$request->input('email'));
+    if($response->json()['status']=='invalid'){
+        return  redirect()->route('collabs.create')->withErrors('Email n\'est pas réel');
+     }
+       $all_users=User::all();
+       foreach($all_users as $value){
+             if($value->email==$request->email)
+               return redirect()->route('agents.index')->withErrors('Email existe déjà');break;
+       }
    $user->email=$request['email'];
    $user->telephone=$request['tel'];
    $random = str_shuffle('abcdefghjklmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!$%^&!$%^&');

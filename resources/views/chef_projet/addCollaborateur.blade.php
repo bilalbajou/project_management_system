@@ -21,7 +21,7 @@
  </div>
  
  <div class="fields">
-     <div class="eight wide field">
+     <div class="five wide field">
          <label>Email</label>
          <input type="text" name="email" value="{{old('email')}}">
        </div>
@@ -29,6 +29,7 @@
      <label>Téléphone</label>
      <input type="text" name="tel" value="{{old('tel')}}">
        </div>
+     
  </div>
  <input class="ui submit button black" id="btn_ajout" type="submit" value="Ajouter">
  @if ($errors->any())

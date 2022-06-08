@@ -169,7 +169,15 @@ document.querySelector("body").style.display = "block";
         <!-- page-body-wrapper ends -->
       </div>
       <!-- container-scroller -->
-     
+      <script defer>
+          document.querySelector("body").style.display = "none";
+document.querySelector("body").classList.add("spinner-1");
+setTimeout(() => {
+ document.querySelector("body").classList.remove("spinner-1");
+ document.querySelector("body").style.display = "block";
+}, 1000);
+   
+      </script>
  <script src="{{asset('vendors/js/vendor.bundle.base.js')}}" defer></script>
 
        <!-- plugins:js -->

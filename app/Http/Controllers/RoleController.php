@@ -13,15 +13,19 @@ class RoleController extends Controller
     public function index(){
         $role=Auth::user()->user_type;
         $status=Auth::user()->status;
-        // $reunion=DB::table('reunion_view_v2')->where('id',Auth::user()->id)->get();
         switch($status) {
             case 'A':
-             if($role=="Chef du projet")
-             return view('chef_projet.dashboard');
+             if($role=="Chef du projet"){
+             $projets=DB::table('projets')->where('Chef_projet',Auth::user()->id)->count();
+             $taches=DB::table('view_tache')->where('Chef_projet',Auth::user()->id)->count();
+             $collabs=DB::table('users')->where('invited_by',Auth::user()->id)->count();
+             $reunions=DB::table('view_reunion')->where('Chef_projet',Auth::user()->id)->count();
+             return view('chef_projet.dashboard',['projets'=>$projets,'taches'=>$taches,'collabs'=>$collabs,'reunions'=>$reunions]);
+            }
              else if($role=="Collaborateur")
-             return view('collaborateur.dashboard');
+             return view('collaborateur.test');
              else if($role=='Webmaster')
-             return view('admin.dashboard');
+             return redirect()->route('utilisateurs.index');
              else 
               abort(403);
             case 'D':
