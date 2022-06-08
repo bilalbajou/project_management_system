@@ -15,9 +15,9 @@ class projetController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   $i=0;
         $projets=projet::all()->where('Chef_projet',Auth::user()->id);
-        return view('chef_projet.Listeprojet',compact('projets'));
+        return view('chef_projet.Listeprojet',compact('projets'))->with('i',$i);
     }
 
     /**
@@ -61,6 +61,7 @@ class projetController extends Controller
           $projet->Date_fin=$request->input('dateFin');
           $projet->description_projet=$request->input('descr');
           $projet->Chef_projet=Auth::user()->id;
+          
           $projet->save();
           return  redirect()->back()->with('success','Le sauvegarde est réussi');
 
@@ -88,10 +89,8 @@ class projetController extends Controller
     public function edit($id)
      {
         $projet = projet::where('id_projet',$id)->first();
-        return view('chef_projet.infoprojet',compact('projet'));
-        
-              
-        }
+        return view('chef_projet.update.infoprojet',compact('projet'));
+    }
 
     /**
      * Update the specified resource in storage.
@@ -102,9 +101,29 @@ class projetController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $projet = projet::where('id_projet',$id)->first();
-        return view('chef_projet.infoprojet');
- 
+        $validatedData = $request->validate([
+            'nomProjet' => ['required'],
+            'dateFin'=>['bail','required','Date'],
+            'descr'=>['max:255']
+        ],
+        [
+            'nomProjet.required' => 'Vous devez saisir le nom du projet',
+            'dateFin.required' => 'Vous devez saisir le date de fin',
+            'descr.max'=>'ne dépasse 255 caractère'
+        ]
+         
+    );
+          $projet=projet::find($id);
+          $projet->Nom_projet=$request->input('nomProjet');
+          if($request->input('dateFin')<$projet->Date_début){
+                return redirect()->route('projets.edit',$projet->id_projet)->withErrors('la date de fin est inférieure de la date de début');
+          }
+          $projet->Date_fin=$request->input('dateFin');
+          $projet->description_projet=$request->input('descr');
+          $projet->Chef_projet=Auth::user()->id;
+          $projet->save();
+
+          return  redirect()->back()->with('success','Le modification est réussi');
     }
 
     /**

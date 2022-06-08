@@ -79,7 +79,7 @@
             </tr>
             <tr>
                 <td>Durée</td>
-                <td>{{$tache->durée}}</td>
+                <td>{{$tache->durée}} Jours</td>
             </tr>
             <tr>
               <td>Description</td>

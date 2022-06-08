@@ -12,23 +12,23 @@
  <div class="fields">
    <div class="six wide field">
      <label>Nom du projet</label>
-     <input type="text" name="nomProjet">
+     <input type="text" name="nomProjet" value="{{old('nomProjet')}}">
      
    </div>
    <div class="four wide field">
      <label>Date de début</label>
-     <input type="date" name="dateDebut" >
+     <input type="date" name="dateDebut" value="{{old('dateDebut')}}" >
    </div>
    <div class="six wide field">
      <label>Date de fin</label>
-     <input type="date" name="dateFin">
+     <input type="date" name="dateFin" value="{{old('dateFin')}}">
    </div>
   
  </div>
  <div class="fields">
    <div class="field sixteen wide">
      <label>Description</label>
-     <textarea rows="3" name="descr"></textarea>
+     <textarea rows="3" name="descr">{{old('descr')}}</textarea>
    </div>
  </div>
  <input class="ui submit button black" id="btn_ajout" type="submit" value="Ajouter">

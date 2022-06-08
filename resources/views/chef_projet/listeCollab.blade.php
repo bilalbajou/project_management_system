@@ -16,25 +16,20 @@
     <tr class="center aligned" ><th>#</th>
     <th class="center aligned" >Nom et Prenom</th>
     <th class="center aligned" >Email </th>
-    <th class="center aligned" >Action</th> 
+    <th class="center aligned" >Téléphone </th>
+    <th class="center aligned" >Action </th>
+
   </tr></thead>
   <tbody>
-    @foreach($user as $value)
+    @foreach($user as  $value)
     <tr>
-      <td class="center aligned" data-label="Name"> </td>
+      <td class="center aligned" data-label="Name" s>{{++$i}}</td>
       <td class="center aligned"  data-label="Age">{{$value->name }}</td>
-      <td class="center aligned"  data-label="Job">{{$value->email}}</td>     
-
+      <td class="center aligned"  data-label="Job">{{$value->email}}</td> 
+      <td class="center aligned"  data-label="Job">{{$value->telephone}}</td>
       <td class="center aligned"  data-label="Job">
        
   <div class="container_form">
-  <form action="{{route('collabs.update',$value->id)}}" method="POST" id="form_modifier">
-         
-    @csrf
-    @method('DELETE')
-        <div class="ui icon button" data-tooltip="Modifier"> 
-          <a><button type="submit" class="btn_update"><i class="edit icon"></i></button></a> </div>
-  </form>
   <form action="{{route('collabs.destroy',$value->id)}}" method="POST" id="form_suppr">
       @csrf
       @method('DELETE')

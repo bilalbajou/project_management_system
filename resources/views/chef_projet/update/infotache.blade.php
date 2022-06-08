@@ -1,25 +1,26 @@
 @extends('layouts.chef_projet.dashboard')
 
 @section('title')
-     modifier tache
+     Modifier tache
 @endsection
 
 @section('content')
-<h2 class="ui header">modifier une tâche</h2>
-<form class="ui form" action="{{route('taches.store')}}" method="POST">
+<h2 class="ui header">Modifier une tâche</h2>
+<form class="ui form" action="{{route('taches.update',$tache->id_tache)}}" method="POST">
   @csrf
+  @method('PUT')
     <div class="fields">
       <div class="six wide field">
         <label>Nom du Tâche</label>
-        <input type="text" name="nomTache" value="{{$id->nom_tache}}">
+        <input type="text" name="nomTache" value="{{$tache->nom_tache}}">
       </div>
       <div class="four wide field">
         <label>Date de début</label>
-        <input type="date" name="dateDebut" value="{{$id->date_début}}" >
+        <input type="date" name="dateDebut" value="{{$tache->date_début}}" >
       </div>
       <div class="six wide field">
         <label>Durée du Tâche ( En jours )</label>
-        <input type="text" name="dureeTache" value="{{$id->durée}}">
+        <input type="text" name="dureeTache" value="{{$tache->durée}}">
       </div>
     </div>
     <div class="fields">
@@ -45,10 +46,10 @@
     <div class="fields">
       <div class="field sixteen wide">
         <label>Description</label>
-        <textarea rows="3" name="descr"></textarea>
+        <textarea rows="3" name="descr">{{$tache->description_tache}}</textarea>
       </div>
     </div>
-    <input class="ui black button" type="submit" value="modifier">
+    <input class="ui black button" type="submit" value="Modifier">
      @if ($errors->any())
     <div class="ui info message">
       <div class="header">

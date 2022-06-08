@@ -11,30 +11,35 @@
     <div class="fields">
       <div class="six wide field">
         <label>Nom du Tâche</label>
-        <input type="text" name="nomTache">
+        <input type="text" name="nomTache" value="{{old('nomTache')}}">
       </div>
       <div class="four wide field">
         <label>Date de début</label>
-        <input type="date" name="dateDebut" >
+        <input type="date" name="dateDebut" value="{{old('dateDebut')}}">
       </div>
       <div class="six wide field">
         <label>Durée du Tâche ( En jours )</label>
-        <input type="text" name="dureeTache">
+        <input type="text" name="dureeTache" value="{{old('dureeTache')}}">
       </div>
     </div>
     <div class="fields">
         <div class="eight wide field">
           <label>Affecter à</label>
-           <select class="ui dropdown" name="collab">
+           @if ($collab->count()!=0)
+             <select class="ui dropdown" name="collab">
             @foreach ($collab as $item)
                  <option value="{{ $item->id }}">{{ $item->name }}</option>
             @endforeach
-          </select>         
+          </select> 
+            @else
+           <a href="{{route('collabs.create')}}"> <button type="button" class="btn btn-warning">Ajouter Collaborateur</button></a>
+           @endif
+                 
         </div>
         <div class="eight wide field">
           <label>Projet</label>
           @if ($projets->count()==0)
-          <a href="{{route('projets.create')}}"><button type="button" class="btn btn-outline-info">Info</button></a>
+          <a href="{{route('projets.create')}}"><button type="button" class="btn btn-warning">Ajouter projet</button></a>
           @else
           <select class="ui dropdown" name="projet">
             @foreach ($projets as $value)
@@ -50,7 +55,7 @@
     <div class="fields">
       <div class="field sixteen wide">
         <label>Description</label>
-        <textarea rows="3" name="descr"></textarea>
+        <textarea rows="3" name="descr">{{ old('descr') }}</textarea>
       </div>
     </div>
     <input class="ui black button" type="submit" value="Ajouter">
