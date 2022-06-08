@@ -21,14 +21,18 @@
  </div>
  
  <div class="fields">
-     <div class="eight wide field">
+     <div class="five wide field">
          <label>Email</label>
          <input type="text" name="email">
        </div>
-      <div class="eight wide field">
+      <div class="five wide field">
      <label>Mot de passe</label>
      <input type="text" name="pass">
        </div>
+       <div class="five wide field">
+        <label>telephone</label>
+        <input type="text" name="telephone">
+          </div>
  </div>
  <input class="ui submit button black" id="btn_ajout" type="submit" value="Ajouter">
  @if ($errors->any())

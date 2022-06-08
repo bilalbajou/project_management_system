@@ -19,7 +19,7 @@ class collaborateurController extends Controller
      */
     public function index()
     {
-        $user=DB::table('user')->where('invited_by',Auth::user()->id)->get();
+        $user=DB::table('users')->where('invited_by',Auth::user()->id)->get();
         return view('chef_projet.listeCollab',compact('user'));
     }
 
@@ -53,7 +53,9 @@ class collaborateurController extends Controller
             'email.required' => 'Vous devez saisir email du collaborateur',
             'email.email'=>'e-mail non valide',
             'email.unique'=>'e-mail déjà existe',
-            'pass.required'=>'Vous de devez saisir un mot de passe'
+            'pass.required'=>'Vous de devez saisir un mot de passe',
+            
+
         ]
         
          
@@ -64,6 +66,7 @@ class collaborateurController extends Controller
    $user->email=$request['email'];
    $pass=$request['pass'];
    $user->password=Hash::make($request['pass']);
+   $user->telephone=$request->telephone;
     $user->user_type='Collaborateur';
     $user->invited_by=Auth::user()->id;
     $user->save();

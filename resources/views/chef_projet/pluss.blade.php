@@ -1,7 +1,46 @@
 @extends('layouts.chef_projet.dashboard')
 
 @section('title')
-      Liste des projets
+<div class="row">
+  <div class="col-md-6 mb-4 stretch-card transparent">
+    <div class="card card-tale">
+      <div class="card-body">
+        <p class="mb-4">nom du projet</p>
+        <p class="fs-30 mb-2">4006</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 mb-4 stretch-card transparent">
+    <div class="card card-dark-blue">
+      <div class="card-body">
+        <p class="mb-4">Nombre des tâches </p>
+        <p class="fs-30 mb-2">34040</p>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+    <div class="card card-light-blue">
+      <div class="card-body">
+        <p class="mb-4">Nombre des taches finis</p>
+        <p class="fs-30 mb-2">34040</p>
+        
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 stretch-card transparent">
+    <div class="card card-light-danger">
+      <div class="card-body">
+        <p class="mb-4">Nombre des réunions </p>
+        <p class="fs-30 mb-2">47033</p>
+        
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 @endsection
 @section('content')
 

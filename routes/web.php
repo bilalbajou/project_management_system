@@ -1,16 +1,16 @@
 <?php
 
 
-use App\Http\Controllers\collaborateurController;
-use App\Http\Controllers\delete;
+
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\homeController;
-use App\Http\Controllers\listProjetController;
+use App\Http\Controllers\tacheController;
 use App\Http\Controllers\projetController;
 use App\Http\Controllers\reunionController;
-use App\Http\Controllers\tacheController;
-use App\Http\Controllers\tacherController;
-use App\Models\projet;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\collaborateurController;
+use App\Http\Controllers\col_listetachecontrolleur;
+use App\Http\Controllers\col_listeprojetcontrolleur;
+use App\Http\Controllers\col_listereunioncontrolleur;
 
 
 
@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 Route::fallback(function() {
         return view('404');
 });
-Route::middleware(['auth','chef_projet'])->group(function () {
+Route::middleware(['auth'])->group(function () {
                                                                                                                                                                                                                              
    
     // Routes projet
@@ -37,22 +37,16 @@ Route::middleware(['auth','chef_projet'])->group(function () {
 
     // Routes taches
     Route::resource('taches',tacheController::class);
-    route::get('/taches/détails/',[tacheController::class,'plus'])->name("projets.plus");
     
     //  Routes Réunion 
     Route::resource('reunions',reunionController::class);
-    route::get('/reunion/détails',[reunionController::class,'plus'])->name("projets.plus");
     
     // Routes Collaborateur
     Route::resource('collabs',collaborateurController::class);
-    route::get('/collaborateur/détails',[collaborateurController::class,'plus'])->name("projets.plus");
    
 
 });
-Route::middleware(['auth','chef_projet'])->group(function () {
-      
-  
-});
+
        // Route Acceuil
 Route::get('/',[homeController::class,"index"])->name('Homepage');
 Route::post('/addContact',[homeController::class,"store"])->name('addMessage');
@@ -62,8 +56,16 @@ Route::middleware(['auth:sanctum', 'verified','chef_projet'])->get('/redirects',
 })->name('dashboard');
 
 Route::get('redirects','App\Http\Controllers\RoleController@index')->name('redirect');
+Route::middleware(['auth'])->group(function () {
+//collaborateur
+Route::resource('col_listeprojet',col_listeprojetcontrolleur::class);
+Route::resource('col_listetache',col_listetachecontrolleur::class);
+Route::resource('col_listereunion',col_listereunioncontrolleur::class);
+// route::get('/col_listetache/{id}',[projetController::class,'edit']);
+route::get('/col_listetache/listetache/modif_etat/{id}',[col_listetacheControlleur::class,'edit'])->name("col_listetache.edit");
+route::post('/col_listetache/listetache/modif_etat/{id}',[col_listetacheControlleur::class,'update'])->name("col_listetache.update");
 
-
+});
 
 
 

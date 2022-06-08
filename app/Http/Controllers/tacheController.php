@@ -73,7 +73,7 @@ class tacheController extends Controller
                 $tache->collaborateur=$id_collab;
                 $tache->description_tache=$request->input('descr');
                 $tache->save();
-                $collab=DB::table('users')->where('id',$tache->collaborateur)->first();
+                $collab=DB::table('users')->where('id',$tache->coloborateur)->first();
                 $projet=DB::table('projets')->where('id_projet',$tache->projet)->first();
                 Mail::to($collab->email)->send(new tacheMail($tache,$projet));
                 return  redirect()->back()->with('success','Le sauvegarde est réussi');

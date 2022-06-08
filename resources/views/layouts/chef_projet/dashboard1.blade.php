@@ -89,59 +89,23 @@ document.querySelector("body").style.display = "block";
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                  <i class="briefcase icon menu-icon mb-1"></i>
-                  <span class="menu-title">Projets</span>
-                  <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="ui-basic">
-                  <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{route('projets.index')}}">Liste des projets</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route('projets.create')}}">Ajouter un projet</a></li>
+                
+                    <li class="nav-item"> <a class="nav-link" href="{{route('col_listeprojet.index')}}">Liste des projets</a></li>
                     
-                  </ul>
-                </div>
+                  
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
-                  <i class="tasks icon menu-icon mb-1"></i>
-                  <span class="menu-title">Tâche</span>
-                  <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="form-elements">
-                  <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{route('taches.index')}}">Liste des Tâche</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('taches.create')}} ">Ajouter Tâche</a></li>
-                  </ul>     
-                </div>
+                <a class="nav-link" href="{{route('col_listetache.index')}}">Liste des Tâche</a>
+                
     
               </li>
     
+              
               <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                  <i class="user icon menu-icon mb-1"></i>
-                  <span class="menu-title">Collaborateurs</span>
-                  <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="charts">
-                  <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{route('collabs.index')}}">Liste des Collaborateurs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('collabs.create') }}">Ajouter Collaborateur</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                  <i class="calendar icon menu-icon mb-1"></i>
-                  <span class="menu-title">Réunions</span>
-                  <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="tables">
-                  <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="{{route('reunions.index')}}">Liste des Réunions</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="{{route('reunions.create')}}">Ajouter Réunion</a></li>
-                  </ul>
-                </div>
+                  <a class="nav-link" href="{{route('col_listereunion.index')}}">Liste des Réunions</a>
+                 
+                
+               
               </li>
              
             </ul>
