@@ -1,4 +1,4 @@
-@extends('layouts.chef_projet.dashboard1')
+@extends('layouts.collaborateur.dashboard')
 
 @section('title')
       Liste des projets

@@ -1,4 +1,4 @@
-@extends('layouts.chef_projet.dashboard1')
+@extends('layouts.collaborateur.dashboard')
 
 @section('title')
       Liste des tâches
@@ -28,15 +28,17 @@
       <td class="center aligned" data-label="Name">{{$value->id_tache}}</td>
       <td class="center aligned"  data-label="Age">{{$value->nom_tache}}</td>
       <td class="center aligned"  data-label="Job">{{$value->date_début}}</td>
-      <td  class="center aligned" data-label="Job">{{$value->durée}}</td>
+      <td  class="center aligned" data-label="Job">{{$value->durée}} Jours</td>
       <td class="center aligned"  data-label="Job">{{$value->état_tache}}</td>    
-      <td class="center aligned"  data-label="Job">{{$value->projet}}</td>   
+      <td class="center aligned"  data-label="Job">{{$value->Nom_projet}}</td>   
       <td class="center aligned"  data-label="Job">
   <div class="container_form">
  
-  <form action="{{route('col_listetache.edit',$value->id_tache)}}" method="GET" id="form_modifier">
+  <form action="{{route('col_listetache.update',$value->id_tache)}}" method="POST" id="form_modifier">
+    @csrf
+    @method('PUT')
         <div class="ui icon button" data-tooltip="Modifier"> 
-          <a><button type="submit" class="btn_update"><i class="edit icon"></i></button></a> </div>
+          <a><button type="submit" class="btn_update">Fait !</button></a> </div>
   </form>
  
   

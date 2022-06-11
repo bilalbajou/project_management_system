@@ -1,7 +1,7 @@
-@extends('layouts.chef_projet.dashboard1')
+@extends('layouts.collaborateur.dashboard')
 
 @section('title')
-       Tableau du board
+       Tableau du bord
 @endsection
 
 @section('content')

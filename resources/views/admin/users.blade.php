@@ -1,4 +1,4 @@
-@extends('layouts.chef_projet.dashboard')
+@extends('layouts.admin.dashboard')
 
 @section('title')
       Utilisateurs 

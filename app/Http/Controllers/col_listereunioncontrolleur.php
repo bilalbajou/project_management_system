@@ -11,8 +11,9 @@ class col_listereunioncontrolleur extends Controller
 {
     public function index()
     {
+        $i=0;
         $reunion=DB::table('view_t_u')->where('id',Auth::user()->id)->get();
-        return  view('collaborateur.listereunion',compact('reunion')) ;
+        return  view('collaborateur.listereunion',compact('reunion'),compact('i')) ;
     }
 
 }

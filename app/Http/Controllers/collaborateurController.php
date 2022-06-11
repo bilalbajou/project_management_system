@@ -22,7 +22,7 @@ class collaborateurController extends Controller
     {
         $user=DB::table('users')->where('invited_by',Auth::user()->id)->get();
         $i=0;
-        return view('chef_projet.listeCollab',compact('user'))->with('i',$i);
+        return view('chef_projet.ListeCollab',compact('user'))->with('i',$i);
     }
 
     /**

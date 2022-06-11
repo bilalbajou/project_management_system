@@ -26,7 +26,8 @@ document.querySelector("body").style.display = "block";
     <link rel="stylesheet" type="text/css" href="{{asset('assets/semantic_ui/semantic.min.css')}}">
     <link rel="stylesheet" href="{{asset('css_template/vertical-layout-light/style.css')}}">
      <link rel="stylesheet" href="{{asset('css_template/index.css')}}">
-<!-- endinject -->      <link rel="icon" href="{{asset('assets/images/dashboard.png')}}">
+<!-- endinject -->
+    <link rel="icon" href="{{asset('assets/images/dashboard.png')}}">
     </head>
     <body>
       <div class="container-scroller">
@@ -80,34 +81,14 @@ document.querySelector("body").style.display = "block";
           <!-- partial -->
           <!-- partial:partials/_sidebar.html -->
           
-          <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('redirect') }}">
-                  <i class="th icon menu-icon mb-1"></i>
-                  <span class="menu-title">Tableau du board</span>
+                <a class="nav-link" href="{{ route('utilisateurs.index') }}">
+                  <i class="user icon menu-icon mb-1"></i>
+                  <span class="menu-title">Utilisateurs</span>
                 </a>
               </li>
-              <li class="nav-item">
-                
-                    <li class="nav-item"> <a class="nav-link" href="{{route('col_listeprojet.index')}}">Liste des projets</a></li>
-                    
-                  
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{route('col_listetache.index')}}">Liste des Tâche</a>
-                
-    
-              </li>
-    
-              
-              <li class="nav-item">
-                  <a class="nav-link" href="{{route('col_listereunion.index')}}">Liste des Réunions</a>
-                 
-                
-               
-              </li>
-             
             </ul>
           </nav>
           <!-- partial -->

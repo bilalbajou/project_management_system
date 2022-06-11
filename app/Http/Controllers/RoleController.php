@@ -23,7 +23,7 @@ class RoleController extends Controller
              return view('chef_projet.dashboard',['projets'=>$projets,'taches'=>$taches,'collabs'=>$collabs,'reunions'=>$reunions]);
             }
              else if($role=="Collaborateur")
-             return view('collaborateur.test');
+             return view('collaborateur.dashboard');
              else if($role=='Webmaster')
              return redirect()->route('utilisateurs.index');
              else 

@@ -85,7 +85,7 @@ document.querySelector("body").style.display = "block";
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('redirect') }}">
                   <i class="th icon menu-icon mb-1"></i>
-                  <span class="menu-title">Tableau du board</span>
+                  <span class="menu-title">Tableau du bord</span>
                 </a>
               </li>
               <li class="nav-item">
