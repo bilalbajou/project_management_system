@@ -19,7 +19,7 @@ class CreateProjetsTable extends Migration
             $table->date("Date_début");
             $table->date("Date_fin");
             $table->text("description_projet")->nullable();
-            $table->enum("etat_projet",["En cours","Annulé"]);
+            $table->enum("etat_projet",["En cours","Terminée"]);
             $table->unsignedBigInteger("Chef_projet");
             $table->foreign("Chef_projet")->references("id")->on("users")->onDelete('cascade');
         });

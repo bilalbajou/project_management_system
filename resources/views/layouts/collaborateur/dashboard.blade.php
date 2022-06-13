@@ -28,7 +28,7 @@ document.querySelector("body").style.display = "block";
      <link rel="stylesheet" href="{{asset('css_template/index.css')}}">
 <!-- endinject -->      <link rel="icon" href="{{asset('assets/images/dashboard.png')}}">
     </head>
-    <body>
+    <body onload="showDate();">
       <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
        

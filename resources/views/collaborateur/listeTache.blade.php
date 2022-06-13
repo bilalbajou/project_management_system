@@ -25,28 +25,26 @@
     @foreach($tache as $value)
 
     <tr>
-      <td class="center aligned" data-label="Name">{{$value->id_tache}}</td>
+      <td class="center aligned" data-label="Name">{{++$i}}</td>
       <td class="center aligned"  data-label="Age">{{$value->nom_tache}}</td>
       <td class="center aligned"  data-label="Job">{{$value->date_début}}</td>
       <td  class="center aligned" data-label="Job">{{$value->durée}} Jours</td>
       <td class="center aligned"  data-label="Job">{{$value->état_tache}}</td>    
       <td class="center aligned"  data-label="Job">{{$value->Nom_projet}}</td>   
-      <td class="center aligned"  data-label="Job">
+     @if ($value->état_tache=='En Cours')
+         <td class="center aligned"  data-label="Job">
   <div class="container_form">
- 
   <form action="{{route('col_listetache.update',$value->id_tache)}}" method="POST" id="form_modifier">
     @csrf
     @method('PUT')
         <div class="ui icon button" data-tooltip="Modifier"> 
           <a><button type="submit" class="btn_update">Fait !</button></a> </div>
-  </form>
- 
-  
+  </form> 
 </div>
-</td>
-       
-          
-      </td>    
+</td> 
+     @endif
+              
+</td>    
     </tr>
    @endforeach
   </tbody>
