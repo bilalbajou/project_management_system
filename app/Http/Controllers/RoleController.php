@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Auth;
 class RoleController extends Controller
 {
     public function index(){
-        $role=Auth::user()->user_type;
-        $status=Auth::user()->status;
+        $role=Auth::user()['user_type'];
+        $status=Auth::user()['status'];
         switch($status) {
             case 'A':
              if($role=="Chef du projet"){
